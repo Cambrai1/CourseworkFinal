@@ -2,28 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[CreateAssetMenu(fileName = "New Hero", menuName = "Hero", order = 55)]
 
-public class BaseHero
+public class BaseHero : ScriptableObject
 {
+    [SerializeField]
     public string name;
 
+    [SerializeField]
     public float baseHP;
+    [SerializeField]
     public float curHP;
 
+    [SerializeField]
     public float baseMP;
+    [SerializeField]
     public float curMP;
 
+    [SerializeField]
     public int attack;
+    [SerializeField]
     public int strength;
+    [SerializeField]
     public int defense;
+    [SerializeField]
     public int wisdom;
+    [SerializeField]
     public int agility;
 
+    [SerializeField]
     public int curATK;
+    [SerializeField]
     public int curSTR;
+    [SerializeField]
     public int curDEF;
+    [SerializeField]
     public int curWIS;
+    [SerializeField]
     public int curAGI;
 
     public enum baseHeroAbilities
@@ -33,7 +48,8 @@ public class BaseHero
         WaterSlash,
         RockSlash
     }
-    
+
+    [SerializeField]
     public baseHeroAbilities baseHeroAbility;
 
 }

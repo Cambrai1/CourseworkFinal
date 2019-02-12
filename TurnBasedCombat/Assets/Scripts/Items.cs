@@ -5,8 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item", order = 53)]
 public class Items : ScriptableObject
 {
+
     [SerializeField]
-    private string itemName;
+    public int itemID;
+    [SerializeField]
+    public string itemName;
     [SerializeField]
     private string itemDescription;
     [SerializeField]

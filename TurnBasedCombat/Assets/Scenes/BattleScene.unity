@@ -1302,18 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07ef6519ac9a8849be2c455c2b437ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-    name: Enemy1
-    EnemyType: 0
-    EnemyRarity: 0
-    baseHP: 0
-    curHP: 0
-    baseMP: 0
-    curMP: 0
-    baseATK: 0
-    curATK: 0
-    baseDEF: 0
-    curDEF: 0
+  enemy: {fileID: 0}
   currentState: 0
 --- !u!1 &560170610
 GameObject:
@@ -1951,6 +1940,9 @@ GameObject:
   m_Component:
   - component: {fileID: 906857457}
   - component: {fileID: 906857458}
+  - component: {fileID: 906857459}
+  - component: {fileID: 906857460}
+  - component: {fileID: 906857461}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -1984,6 +1976,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5a6dffbde59f74fa9ab01413d8b9d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FightStates: 0
+--- !u!114 &906857459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906857456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2caff848ecc9e624a9dda0299b369c40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items: []
+--- !u!114 &906857460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906857456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2756611b4e7048b498bc0c8d71090d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapons: []
+--- !u!114 &906857461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906857456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4b8cbadcde5c74694682a43e0e49a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armour: []
 --- !u!1 &955494086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,18 +2591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07ef6519ac9a8849be2c455c2b437ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy:
-    name: Enemy2
-    EnemyType: 0
-    EnemyRarity: 0
-    baseHP: 0
-    curHP: 0
-    baseMP: 0
-    curMP: 0
-    baseATK: 0
-    curATK: 0
-    baseDEF: 0
-    curDEF: 0
+  enemy: {fileID: 0}
   currentState: 0
 --- !u!1 &1219339099
 GameObject:

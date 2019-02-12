@@ -16,7 +16,6 @@ public class HeroStateMachine : MonoBehaviour
     {
         NOTINFIGHT,
         PROCESSING,
-        ADDTOLIST,
         WAITING,
         SELECTING,
         ACTION,
@@ -46,9 +45,6 @@ public class HeroStateMachine : MonoBehaviour
             case (TurnState.PROCESSING):
 
             break;
-            case (TurnState.ADDTOLIST):
-
-            break;
             case (TurnState.WAITING):
 
             break;
@@ -65,12 +61,4 @@ public class HeroStateMachine : MonoBehaviour
 
     }
 
-    void UpgradeProgressBar()
-    {
-        //cur_cooldown = cur_cooldown + Time.deltatime;
-        if (cur_cooldown > max_cooldown)
-        {
-            currentState = TurnState.ADDTOLIST;
-        }
-    }
 }

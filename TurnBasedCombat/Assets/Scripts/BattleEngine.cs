@@ -18,6 +18,13 @@ public class BattleEngine : MonoBehaviour
         END
     }
 
+    public FightState FightStates;
+
+    void Start()
+    {
+        FightStates = FightState.ENTERFIGHT;
+    }
+
     void update()
     {
         switch (FightStates)
@@ -49,7 +56,9 @@ public class BattleEngine : MonoBehaviour
             case (FightState.ENEMY4):
 
             break;
+            case (FightState.END):
 
+            break;
 
         }
 }

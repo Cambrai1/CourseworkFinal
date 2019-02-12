@@ -6,7 +6,9 @@ using UnityEngine;
 public class Weapons : ScriptableObject
 {
     [SerializeField]
-    private string weaponName;
+    public int weaponID;
+    [SerializeField]
+    public string weaponName;
     [SerializeField]
     private string weaponDescription;
     [SerializeField]
@@ -37,45 +39,5 @@ public class Weapons : ScriptableObject
     }
     [SerializeField]
     private bool twoHanded;
-
-    public string WeaponName
-    {
-        get
-        {
-            return weaponName;
-        }
-    }
-
-    public string WeaponDescription
-    {
-        get
-        {
-            return weaponDescription;
-        }
-    }
-
-    public Sprite WeaponIcon
-    {
-        get
-        {
-            return weaponIcon;
-        }
-    }
-
-    public int WeaponDamage
-    {
-        get
-        {
-            return weaponDamage;
-        }
-    }
-
-    public int WeaponAccuracy
-    {
-        get
-        {
-            return weaponAccuracy;
-        }
-    }
 
 }

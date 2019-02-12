@@ -6,7 +6,9 @@ using UnityEngine;
 public class Armour : ScriptableObject
 {
     [SerializeField]
-    private string armourName;
+    public int armourID;
+    [SerializeField]
+    public string armourName;
     [SerializeField]
     private string armourDescription;
     [SerializeField]

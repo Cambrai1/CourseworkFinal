@@ -28,4 +28,6 @@ public class Items : ScriptableObject
         HEALTH,
         MANA
     }
+
+	public Element ItemType;
 }

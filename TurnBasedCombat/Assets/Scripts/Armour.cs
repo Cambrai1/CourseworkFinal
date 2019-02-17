@@ -15,25 +15,7 @@ public class Armour : ScriptableObject
     private Sprite armourIcon;
     [SerializeField]
     private int armourDefence;
-    [SerializeField]
-    private armourType ArmourType;
-    private enum armourType
-    {
-        MELEE,
-        RANGED,
-        MAGIC
-    }
-    [SerializeField]
-    private armourStyle ArmourStyle;
-    private enum armourStyle
-    {
-        HelmetSlot,
-        AmuletSlot,
-        ChestSlot,
-        LegSlot,
-        SheildSlot,
-        GloveSlot,
-        RingSlot,
-        BootSlot
-    }
+
+    public Element ArmourType;
+    public Element ArmourStyle;
 }

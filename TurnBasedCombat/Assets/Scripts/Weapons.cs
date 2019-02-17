@@ -18,14 +18,6 @@ public class Weapons : ScriptableObject
     [SerializeField]
     private int weaponAccuracy;
     [SerializeField]
-    private weaponType WeaponType;
-    private enum weaponType
-    {
-        MELEE,
-        RANGED,
-        MAGIC
-    }
-    [SerializeField]
     private weaponElement WeaponElement;
     private enum weaponElement
     {
@@ -39,5 +31,7 @@ public class Weapons : ScriptableObject
     }
     [SerializeField]
     private bool twoHanded;
+
+    public Element WeaponType;
 
 }

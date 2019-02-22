@@ -9,6 +9,10 @@ public class UImanager : MonoBehaviour
     public Button m_AttackButton, m_DefendButton, m_AbilitiesButton, m_ItemsButton, m_FleeButton;
     public GameObject ActionPanel;
     bool ActionPanelState = true;
+    bool isAttacking = false;
+    bool isDefending = false;
+    bool isAbility = false;
+    bool isFleeing = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,18 +33,21 @@ public class UImanager : MonoBehaviour
     {
         Debug.Log("Attack!");
         ActionPanelToggle();
+        isAttacking = true;
     }
 
     public void DefendButtonPress()
     {
         Debug.Log("Defend!");
         ActionPanelToggle();
+        isDefending = true;
     }
 
     public void AbilitiesButtonPress()
     {
         Debug.Log("Abilities!");
         ActionPanelToggle();
+        isAbility = true;
     }
 
     public void ItemsButtonPress()
@@ -53,12 +60,12 @@ public class UImanager : MonoBehaviour
     {
         Debug.Log("Flee!");
         ActionPanelToggle();
+        isFleeing = true;
     }
 
     void ActionPanelToggle()
     {
-        ActionPanelState = !ActionPanelState;
-        ActionPanel.gameObject.SetActive(ActionPanelState);
+
     }
 
 }

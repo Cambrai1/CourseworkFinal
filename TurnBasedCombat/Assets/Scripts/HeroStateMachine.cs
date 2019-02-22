@@ -21,7 +21,7 @@ public class HeroStateMachine : MonoBehaviour
         ACTION,
         DEAD
     }
-
+    public static HeroStateMachine State;
     public TurnState currentState;
     public HeroValue currentHero;
     private float cur_cooldown = 0f;

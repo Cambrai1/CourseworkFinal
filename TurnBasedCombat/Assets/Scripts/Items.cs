@@ -11,16 +11,16 @@ public class Items : ScriptableObject
     [SerializeField]
     public string itemName;
     [SerializeField]
-    private string itemDescription;
+    public string itemDescription;
     [SerializeField]
-    private Sprite itemIcon;
+    public Sprite itemIcon;
     [SerializeField]
-    private int HPrestore;
+    public int HPrestore;
     [SerializeField]
-    private int MPrestore;
+    public int MPrestore;
     [SerializeField]
-    private statusEffect StatusEffect;
-    private enum statusEffect
+    public statusEffect StatusEffect;
+    public enum statusEffect
     {
         REVIVE,
         AWAKEN,

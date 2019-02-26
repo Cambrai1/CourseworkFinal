@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b491ef7673f894693cf44b5c5f59f1, type: 3}
+  m_Name: Health Potion
+  m_EditorClassIdentifier: 
+  itemID: 0
+  itemName: Health Potion
+  itemDescription: Restores 50HP to the target.
+  itemIcon: {fileID: 0}
+  HPrestore: 0
+  MPrestore: 50
+  StatusEffect: 3
+  ItemType: {fileID: 0}

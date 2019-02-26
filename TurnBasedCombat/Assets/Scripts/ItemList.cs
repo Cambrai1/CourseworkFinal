@@ -11,6 +11,9 @@ public class ItemList : MonoBehaviour
 
     public List<Items> Items;
     public List<Items> Hero1Inventory;
+    public List<Items> Hero2Inventory;
+    public List<Items> Hero3Inventory;
+    public List<Items> Hero4Inventory;
 
     private void Awake()
     {

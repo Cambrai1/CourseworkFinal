@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 1
   itemName: Mana Potion
-  itemDescription: Restores 50MP to the Target.
+  itemDescription: Restores 50MP to the target Hero. One time use.
   itemIcon: {fileID: 0}
   HPrestore: 0
-  MPrestore: 0
-  StatusEffect: 0
+  MPrestore: 50
+  StatusEffect: 4
   ItemType: {fileID: 0}

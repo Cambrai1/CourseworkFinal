@@ -66,7 +66,7 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
             InventoryCreate.transform.SetParent(canvasParent.transform, false);
             InventoryCreate.GetComponentsInChildren<Text>()[0].text = item.itemName;
             InventoryCreate.GetComponentsInChildren<Text>()[1].text = item.itemDescription;
-            InventoryCreate.GetComponentsInChildren<Text>()[2].text = "hello";
+            InventoryCreate.GetComponentsInChildren<Text>()[2].text = item.itemID.ToString();
             i++;
         }
         Debug.Log("Hello");
@@ -77,7 +77,6 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
         Debug.Log(gameObject.GetComponentInChildren<Text>().text);
         GameObject.Find("ItemNameText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[0].text;
         GameObject.Find("ItemDescriptionText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[1].text;
-        GameObject.Find("ItemEffectText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[2].text;
 
     }
     //public void AttackButtonPress()

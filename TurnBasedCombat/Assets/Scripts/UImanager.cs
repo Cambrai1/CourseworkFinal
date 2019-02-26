@@ -32,11 +32,6 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
     void Start()
     {
         Inventories = GetComponent<ItemList>();
-        //m_AttackButton.onClick.AddListener(AttackButtonPress);
-        //m_DefendButton.onClick.AddListener(DefendButtonPress);
-        //m_AbilitiesButton.onClick.AddListener(AbilitiesButtonPress);
-        //m_ItemsButton.onClick.AddListener(ItemsButtonPress);
-        //m_FleeButton.onClick.AddListener(FleeButtonPress);
     }
 
     // Update is called once per frame
@@ -79,43 +74,6 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
         GameObject.Find("ItemDescriptionText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[1].text;
 
     }
-    //public void AttackButtonPress()
-    //{
-    //    Debug.Log("Attack!");
-    //    ActionPanelToggle();
-    //    isAttacking = true;
-    //}
 
-    //public void DefendButtonPress()
-    //{
-    //    Debug.Log("Defend!");
-    //    ActionPanelToggle();
-    //    isDefending = true;
-    //}
-
-    //public void AbilitiesButtonPress()
-    //{
-    //    Debug.Log("Abilities!");
-    //    ActionPanelToggle();
-    //    isAbility = true;
-    //}
-
-    //public void ItemsButtonPress()
-    //{
-    //    Debug.Log("Items!");
-    //    ActionPanelToggle();
-    //}
-
-    //public void FleeButtonPress()
-    //{
-    //    Debug.Log("Flee!");
-    //    ActionPanelToggle();
-    //    isFleeing = true;
-    //}
-
-    //void ActionPanelToggle()
-    //{
-
-    //}
 
 }

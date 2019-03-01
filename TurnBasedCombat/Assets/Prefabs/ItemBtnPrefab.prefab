@@ -367,16 +367,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8763492258567764969}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f39dfd2ddfa8b443a44eea08d99cdbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hero1Data: {fileID: 0}
   ActionPanel: {fileID: 0}
   buttonPrefab: {fileID: 0}
   canvasParent: {fileID: 0}
   InventoryItemName: {fileID: 0}
   InventoryItemDescription: {fileID: 0}
-  InventoryItemEffects: {fileID: 0}
+  HeroPanel: {fileID: 0}
   InventoryItems: []
   Position: {x: 0, y: 0, z: 0}

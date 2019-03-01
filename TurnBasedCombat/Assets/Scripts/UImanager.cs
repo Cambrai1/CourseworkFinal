@@ -28,18 +28,29 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
     // Start is called before the first frame update
     void Start()
     {
-        
+        //print(GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text);
+        Invoke("Delay", 1);
         Inventories = GetComponent<ItemList>();
-        MyScriptableObject someInstance = ScriptableObject.CreateInstance("MyScriptableObject") as MyScriptableObject;
+        //MyScriptableObject someInstance = ScriptableObject.CreateInstance("MyScriptableObject") as MyScriptableObject;
     }
+
+    void Delay()
+    {
+        //GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = Hero1Data.name;
+        
+        print(GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text);
+        print(Hero1Data.curHP.ToString());
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + Hero1Data.curHP.ToString() + "/" + Hero1Data.baseHP.ToString();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
         //Hero1Data.baseHP = (Hero1Data.level * 5) + 50;
-        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = Hero1Data.name;
-        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + Hero1Data.curHP.ToString() + "/" +Hero1Data.baseHP.ToString();
-        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + Hero1Data.curMP.ToString() + "/" + Hero1Data.baseMP.ToString();
+        //GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = Hero1Data.name;
+        //GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + Hero1Data.curHP.ToString() + "/" + Hero1Data.baseHP.ToString();
+        //GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + Hero1Data.curMP.ToString() + "/" + Hero1Data.baseMP.ToString();
     }
 
     int i = 0;

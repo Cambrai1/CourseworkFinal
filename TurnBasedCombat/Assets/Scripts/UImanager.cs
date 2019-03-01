@@ -6,16 +6,13 @@ using UnityEngine.EventSystems;
 
 public class UImanager : MonoBehaviour, IPointerEnterHandler
 {
-
-    //public Button m_AttackButton, m_DefendButton, m_AbilitiesButton, m_ItemsButton, m_FleeButton;
-
+    public BaseHero Hero1Data;
     public GameObject ActionPanel;
     public GameObject buttonPrefab;
     public GameObject canvasParent;
     public GameObject InventoryItemName;
     public GameObject InventoryItemDescription;
-    public GameObject InventoryItemEffects;
-
+    public GameObject HeroPanel;
     bool ActionPanelState = true;
     bool isAttacking = false;
     bool isDefending = false;
@@ -32,12 +29,17 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
     void Start()
     {
         Inventories = GetComponent<ItemList>();
+        Hero1Data.curHP = Hero1Data.baseHP;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        Hero1Data.baseHP = (Hero1Data.level * 5) + 50;
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = Hero1Data.name;
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + Hero1Data.curHP.ToString() + "/" +Hero1Data.baseHP.ToString();
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + Hero1Data.curMP.ToString() + "/" + Hero1Data.baseMP.ToString();
     }
 
     int i = 0;

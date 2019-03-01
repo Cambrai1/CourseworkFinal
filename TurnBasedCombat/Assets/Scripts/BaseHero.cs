@@ -8,17 +8,18 @@ public class BaseHero : ScriptableObject
 {
     [SerializeField]
     public string name;
+    [SerializeField]
+    [Range(1, 99)] public int level;
+
+    [SerializeField]
+    public int experience;
+    [SerializeField]
+    public int experienceLeft;
 
     [SerializeField]
     public float baseHP;
     [SerializeField]
-    public float curHP;
-
-    [SerializeField]
     public float baseMP;
-    [SerializeField]
-    public float curMP;
-
     [SerializeField]
     public int attack;
     [SerializeField]
@@ -30,6 +31,10 @@ public class BaseHero : ScriptableObject
     [SerializeField]
     public int agility;
 
+    [SerializeField]
+    public float curHP;
+    [SerializeField]
+    public float curMP;
     [SerializeField]
     public int curATK;
     [SerializeField]
@@ -51,5 +56,18 @@ public class BaseHero : ScriptableObject
 
     [SerializeField]
     public baseHeroAbilities baseHeroAbility;
+
+    public enum heroTypes
+    {
+        Warrior,
+        Priest,
+        Mage,
+        MartialArtist,
+        Thief,
+        Gladiator
+    }
+
+    [SerializeField]
+    public heroTypes heroType;
 
 }

@@ -13,18 +13,22 @@ MonoBehaviour:
   m_Name: Hero1
   m_EditorClassIdentifier: 
   name: CouragousMan
-  baseHP: 100
-  curHP: 0
+  level: 1
+  experience: 0
+  experienceLeft: 0
+  baseHP: 55
   baseMP: 100
-  curMP: 0
   attack: 100
   strength: 100
   defense: 100
   wisdom: 100
   agility: 100
+  curHP: 100
+  curMP: 100
   curATK: 0
   curSTR: 0
   curDEF: 0
   curWIS: 0
   curAGI: 0
   baseHeroAbility: 0
+  heroType: 0

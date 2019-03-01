@@ -28,15 +28,15 @@ public class UImanager : MonoBehaviour, IPointerEnterHandler
     // Start is called before the first frame update
     void Start()
     {
+        
         Inventories = GetComponent<ItemList>();
-        Hero1Data.curHP = Hero1Data.baseHP;
-
+        MyScriptableObject someInstance = ScriptableObject.CreateInstance("MyScriptableObject") as MyScriptableObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Hero1Data.baseHP = (Hero1Data.level * 5) + 50;
+        //Hero1Data.baseHP = (Hero1Data.level * 5) + 50;
         GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = Hero1Data.name;
         GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + Hero1Data.curHP.ToString() + "/" +Hero1Data.baseHP.ToString();
         GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + Hero1Data.curMP.ToString() + "/" + Hero1Data.baseMP.ToString();

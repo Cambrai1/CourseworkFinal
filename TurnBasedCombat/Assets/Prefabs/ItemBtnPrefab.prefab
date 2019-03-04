@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6623444672894948657}
   - component: {fileID: 6976117931418396236}
   - component: {fileID: 3430289035549470635}
-  - component: {fileID: 4067778016378868347}
+  - component: {fileID: 5621068616424960864}
   m_Layer: 5
   m_Name: ItemBtnPrefab
   m_TagString: Untagged
@@ -360,24 +360,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4067778016378868347
+--- !u!114 &5621068616424960864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8763492258567764969}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f39dfd2ddfa8b443a44eea08d99cdbc, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b59c11cc2c084344b5afb3ca247cc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hero1Data: {fileID: 0}
-  ActionPanel: {fileID: 0}
-  buttonPrefab: {fileID: 0}
-  canvasParent: {fileID: 0}
-  InventoryItemName: {fileID: 0}
-  InventoryItemDescription: {fileID: 0}
-  HeroPanel: {fileID: 0}
-  InventoryItems: []
-  Position: {x: 0, y: 0, z: 0}

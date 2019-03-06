@@ -5,30 +5,32 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy", menuName = "Enemy", order = 54)]
 public class BaseEnemy : ScriptableObject
 {
+    public List<Abilities> Abilities;
+    public List<Items> DropTable;
 
     [SerializeField]
-    private string enemyName;
+    public string enemyName;
     [SerializeField]
-    private string enemyDescription;
+    public string enemyDescription;
     [SerializeField]
-    private int enemyMaxHP;
+    public int enemyMaxHP;
     [SerializeField]
-    private int enemyCurHP;
+    public int enemyCurHP;
     [SerializeField]
-    private int enemyMaxMP;
+    public int enemyMaxMP;
     [SerializeField]
-    private int enemyCurMP;
+    public int enemyCurMP;
     [SerializeField]
-    private int enemyBaseATK;
+    public int enemyBaseATK;
     [SerializeField]
-    private int enemyCurATK;
+    public int enemyCurATK;
     [SerializeField]
-    private int enemyBaseDEF;
+    public int enemyBaseDEF;
     [SerializeField]
-    private int enemyCurDEF;
+    public int enemyCurDEF;
     [SerializeField]
-    private enemyRarity EnemyRarity;
-    private enum enemyRarity
+    public enemyRarity EnemyRarity;
+    public enum enemyRarity
     {
         COMMON,
         UNCOMMON,
@@ -36,20 +38,8 @@ public class BaseEnemy : ScriptableObject
         SUPERRARE
     }
     [SerializeField]
-    private enemyType EnemyType;
-    private enum enemyType
-    {
-
-    }
-    [SerializeField]
-    private enemyDropTable EnemyDropTable;
-    private enum enemyDropTable
-    {
-
-    }
-    [SerializeField]
-    private enemyAbilities EnemyAbilities;
-    private enum enemyAbilities
+    public enemyType EnemyType;
+    public enum enemyType
     {
 
     }

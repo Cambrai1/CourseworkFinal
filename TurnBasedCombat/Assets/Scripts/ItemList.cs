@@ -21,10 +21,6 @@ public class ItemList : MonoBehaviour
         {
             m_ItemMap.Add(item.itemID, item);
         }
-        //foreach (var item in Hero1Inventory)
-        //{
-        //    m_Hero1InventoryMap.Add(item.itemID, item);
-        //}
     }
 
     public Items Get(int id)

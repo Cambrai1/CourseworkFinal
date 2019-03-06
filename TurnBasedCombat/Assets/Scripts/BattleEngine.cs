@@ -27,41 +27,47 @@ public class BattleEngine : MonoBehaviour
 
     void update()
     {
+        Debug.Log(FightStates);
+    }
+
+    void StateControl()
+    {
+
         switch (FightStates)
         {
             case (FightState.ENTERFIGHT):
 
-            break;
+                break;
             case (FightState.HERO1):
 
-            break;
+                break;
             case (FightState.HERO2):
 
-            break;
+                break;
             case (FightState.HERO3):
 
-            break;
+                break;
             case (FightState.HERO4):
 
-            break;
+                break;
             case (FightState.ENEMY1):
 
-            break;
+                break;
             case (FightState.ENEMY2):
 
-            break;
+                break;
             case (FightState.ENEMY3):
 
-            break;
+                break;
             case (FightState.ENEMY4):
 
-            break;
+                break;
             case (FightState.END):
 
-            break;
+                break;
 
         }
-}
+    }
         
 }
 

@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class BaseHero : ScriptableObject
 {
+    //private Dictionary<int, Abilities> m_AbilityMap = new Dictionary<int, Abilities>();
+    public List<Abilities> Abilities;
+
     [SerializeField]
     public string name;
     [SerializeField]
@@ -45,17 +48,6 @@ public class BaseHero : ScriptableObject
     public int curWIS;
     [SerializeField]
     public int curAGI;
-
-    public enum baseHeroAbilities
-    {
-        DragonSlash,
-        MetalSlash,
-        WaterSlash,
-        RockSlash
-    }
-
-    [SerializeField]
-    public baseHeroAbilities baseHeroAbility;
 
     public enum heroTypes
     {

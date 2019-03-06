@@ -18,7 +18,6 @@ public class UImanager : MonoBehaviour
     bool isDefending = false;
     bool isAbility = false;
     bool isFleeing = false;
-    public string Hero = "Hero1Inventory";
     int buttonYdif = 40;
 
     public List<GameObject> InventoryItems;

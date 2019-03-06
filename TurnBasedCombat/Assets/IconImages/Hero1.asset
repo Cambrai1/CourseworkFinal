@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8050e5b694f206a47aac7e02e600ee57, type: 3}
   m_Name: Hero1
   m_EditorClassIdentifier: 
+  Abilities: []
   name: CouragousMan
   level: 1
   experience: 0
@@ -23,12 +24,11 @@ MonoBehaviour:
   defense: 100
   wisdom: 100
   agility: 100
-  curHP: 100
+  curHP: 55
   curMP: 100
   curATK: 0
   curSTR: 0
   curDEF: 0
   curWIS: 0
   curAGI: 0
-  baseHeroAbility: 0
   heroType: 0

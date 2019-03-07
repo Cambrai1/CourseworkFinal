@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8050e5b694f206a47aac7e02e600ee57, type: 3}
+  m_Name: Hero1
+  m_EditorClassIdentifier: 
+  Abilities:
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  Inventory:
+  - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
+  - {fileID: 11400000, guid: b036b9d8be9063d4b8091f7e02bbf70b, type: 2}
+  - {fileID: 11400000, guid: 1d988b0dd939c794b804de02b122a0b6, type: 2}
+  name: CouragousMan
+  level: 1
+  experience: 0
+  experienceLeft: 0
+  baseHP: 55
+  baseMP: 100
+  attack: 100
+  strength: 100
+  defense: 100
+  wisdom: 100
+  agility: 100
+  curHP: 55
+  curMP: 100
+  curATK: 0
+  curSTR: 0
+  curDEF: 0
+  curWIS: 0
+  curAGI: 0
+  heroType: 0

@@ -8,6 +8,7 @@ public class BaseHero : ScriptableObject
 {
     //private Dictionary<int, Abilities> m_AbilityMap = new Dictionary<int, Abilities>();
     public List<Abilities> Abilities;
+    public List<Items> Inventory;
 
     [SerializeField]
     public string name;

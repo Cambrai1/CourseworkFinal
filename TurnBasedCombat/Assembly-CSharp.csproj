@@ -54,17 +54,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Abilities.cs" />
+     <Compile Include="Assets\Scripts\AbilityButtonManager.cs" />
      <Compile Include="Assets\Scripts\Armour.cs" />
      <Compile Include="Assets\Scripts\ArmourList.cs" />
      <Compile Include="Assets\Scripts\BaseEnemy.cs" />
      <Compile Include="Assets\Scripts\BaseHero.cs" />
      <Compile Include="Assets\Scripts\BattleEngine.cs" />
      <Compile Include="Assets\Scripts\BattleStateMachine.cs" />
-     <Compile Include="Assets\Scripts\ButtonManager.cs" />
      <Compile Include="Assets\Scripts\Element.cs" />
      <Compile Include="Assets\Scripts\EnemyStateMachine.cs" />
      <Compile Include="Assets\Scripts\HeroStateMachine.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\InventoryButtonManager.cs" />
      <Compile Include="Assets\Scripts\ItemList.cs" />
      <Compile Include="Assets\Scripts\Items.cs" />
      <Compile Include="Assets\Scripts\UImanager.cs" />

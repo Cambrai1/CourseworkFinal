@@ -9,15 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f99561b2fa648b4eab4f657417856f5, type: 3}
-  m_Name: New Weapon
+  m_Script: {fileID: 11500000, guid: 45d248e12646487459ef9ad6464e8702, type: 3}
+  m_Name: Uncastable
   m_EditorClassIdentifier: 
-  weaponID: 0
-  weaponName: 
-  weaponDescription: 
-  weaponIcon: {fileID: 0}
-  weaponDamage: 0
-  weaponAccuracy: 0
-  WeaponType: 0
-  WeaponElement: 0
-  twoHanded: 0
+  id: 1
+  name: Mana Level Chc
+  description: Dont Cast
+  manaCost: 1000
+  baseDamage: 0
+  attributeType: 0

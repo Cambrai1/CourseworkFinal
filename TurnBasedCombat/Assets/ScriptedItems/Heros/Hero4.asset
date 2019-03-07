@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8050e5b694f206a47aac7e02e600ee57, type: 3}
-  m_Name: Hero1
+  m_Name: Hero4
   m_EditorClassIdentifier: 
   Abilities: []
-  name: CouragousMan
-  level: 1
+  Inventory: []
+  name: d
+  level: 0
   experience: 0
   experienceLeft: 0
-  baseHP: 55
-  baseMP: 100
-  attack: 100
-  strength: 100
-  defense: 100
-  wisdom: 100
-  agility: 100
-  curHP: 55
-  curMP: 100
+  baseHP: 0
+  baseMP: 0
+  attack: 0
+  strength: 0
+  defense: 0
+  wisdom: 0
+  agility: 0
+  curHP: 0
+  curMP: 0
   curATK: 0
   curSTR: 0
   curDEF: 0

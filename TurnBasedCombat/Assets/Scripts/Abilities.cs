@@ -2,18 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[CreateAssetMenu(fileName = "New Ability", menuName = "Ability", order = 56)]
 
-public class Abilities : MonoBehaviour
+public class Abilities : ScriptableObject
 {
-    void Start()
+    [SerializeField]
+    public int id;
+    [SerializeField]
+    public string name;
+    [SerializeField]
+    public string description;
+    [SerializeField]
+    public int manaCost;
+    [SerializeField]
+    public int baseDamage;
+    [SerializeField]
+    public attributeTypes attributeType;
+
+    public enum attributeTypes
     {
-        
+        Water,
+        Air,
+        Earth,
+        Fire
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -34,28 +34,32 @@ public class HeroStateMachine : MonoBehaviour
     void Update()
     {
         Debug.Log (currentState);
+
+    }
+
+    void StateControl()
+    {
         switch (currentState)
         {
             case (TurnState.NOTINFIGHT):
-            
-            break;
+
+                break;
             case (TurnState.PROCESSING):
-
-            break;
+                currentState = TurnState.WAITING;
+                break;
             case (TurnState.WAITING):
-
-            break;
+                currentState = TurnState.SELECTING;
+                break;
             case (TurnState.SELECTING):
 
-            break;
+                break;
             case (TurnState.ACTION):
 
-            break;
+                break;
             case (TurnState.DEAD):
 
-            break;
+                break;
         }
-
     }
 
 }

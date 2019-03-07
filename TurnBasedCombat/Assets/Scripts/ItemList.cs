@@ -10,10 +10,6 @@ public class ItemList : MonoBehaviour
     //private Dictionary<int, Items> m_Hero1InventoryMap = new Dictionary<int, Items>();
 
     public List<Items> Items;
-    public List<Items> Hero1Inventory;
-    public List<Items> Hero2Inventory;
-    public List<Items> Hero3Inventory;
-    public List<Items> Hero4Inventory;
 
     private void Awake()
     {

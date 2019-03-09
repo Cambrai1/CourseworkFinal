@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   Inventory: []
-  name: c
+  name: Cool Man
   level: 0
   experience: 0
   experienceLeft: 0
-  baseHP: 0
-  baseMP: 0
+  baseHP: 35
+  baseMP: 40
   attack: 0
   strength: 0
   defense: 0

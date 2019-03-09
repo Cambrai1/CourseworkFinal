@@ -6,18 +6,25 @@ using UnityEngine.EventSystems;
 
 public class UImanager : MonoBehaviour
 {
-    public BaseHero Hero1Data;
+    public BattleEngine TurnData;
     public GameObject ActionPanel;
+
     public GameObject inventoryButtonPrefab;
     public GameObject inventoryCanvasParent;
     public GameObject InventoryItemName;
     public GameObject InventoryItemDescription;
+
     public GameObject HeroPanel;
+
     public GameObject abilityButtonPrefab;
     public GameObject abilityCanvasParent;
     public GameObject abilityName;
     public GameObject abilityDescription;
     public GameObject abilityManaCost;
+
+    public GameObject targetEnemyButtonPrefab;
+    public GameObject targetEnemyCanvasParent;
+
     bool ActionPanelState = true;
     bool isAttacking = false;
     bool isDefending = false;
@@ -34,6 +41,7 @@ public class UImanager : MonoBehaviour
     {
         Invoke("Delay", 1);
         Inventories = GetComponent<ItemList>();
+        TurnData.HeroData = TurnData.Hero1Data;
     }
 
     void Delay()
@@ -45,16 +53,26 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(TurnData.FightStates);
     }
 
     public void HeroBarUpdate()
     {
-        Hero1Data.baseHP = (Hero1Data.level * 5) + 50;
-        Hero1Data.curHP = Hero1Data.baseHP;
-        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = Hero1Data.name;
-        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + Hero1Data.curHP.ToString() + "/" + Hero1Data.baseHP.ToString();
-        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + Hero1Data.curMP.ToString() + "/" + Hero1Data.baseMP.ToString();
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = TurnData.Hero1Data.name;
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + TurnData.Hero1Data.curHP.ToString() + "/" + TurnData.Hero1Data.baseHP.ToString();
+        GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + TurnData.Hero1Data.curMP.ToString() + "/" + TurnData.Hero1Data.baseMP.ToString();
+
+        GameObject.Find("HeroBar2").GetComponentsInChildren<Text>()[0].text = TurnData.Hero2Data.name;
+        GameObject.Find("HeroBar2").GetComponentsInChildren<Text>()[1].text = "HP:  " + TurnData.Hero2Data.curHP.ToString() + "/" + TurnData.Hero2Data.baseHP.ToString();
+        GameObject.Find("HeroBar2").GetComponentsInChildren<Text>()[2].text = "MP:  " + TurnData.Hero2Data.curMP.ToString() + "/" + TurnData.Hero2Data.baseMP.ToString();
+
+        GameObject.Find("HeroBar3").GetComponentsInChildren<Text>()[0].text = TurnData.Hero3Data.name;
+        GameObject.Find("HeroBar3").GetComponentsInChildren<Text>()[1].text = "HP:  " + TurnData.Hero3Data.curHP.ToString() + "/" + TurnData.Hero3Data.baseHP.ToString();
+        GameObject.Find("HeroBar3").GetComponentsInChildren<Text>()[2].text = "MP:  " + TurnData.Hero3Data.curMP.ToString() + "/" + TurnData.Hero3Data.baseMP.ToString();
+
+        GameObject.Find("HeroBar4").GetComponentsInChildren<Text>()[0].text = TurnData.Hero4Data.name;
+        GameObject.Find("HeroBar4").GetComponentsInChildren<Text>()[1].text = "HP:  " + TurnData.Hero4Data.curHP.ToString() + "/" + TurnData.Hero4Data.baseHP.ToString();
+        GameObject.Find("HeroBar4").GetComponentsInChildren<Text>()[2].text = "MP:  " + TurnData.Hero4Data.curMP.ToString() + "/" + TurnData.Hero4Data.baseMP.ToString();
     }
     
 
@@ -62,7 +80,7 @@ public class UImanager : MonoBehaviour
     {
         int i = 0;
 
-        foreach (var item in Hero1Data.Inventory)
+        foreach (var item in TurnData.HeroData.Inventory)
         {
             Position.z = 0;
             if (i < 9)
@@ -84,11 +102,20 @@ public class UImanager : MonoBehaviour
         }
         Debug.Log("Hello");
     }
-
+    public void DeleteItemsPrefab()
+    {
+        GameObject[] itemBtns;
+        itemBtns = GameObject.FindGameObjectsWithTag("inventoryBtn");
+        foreach (GameObject itemBtn in itemBtns)
+        {
+            Destroy(itemBtn);
+            Debug.Log("Test");
+        }
+    }
     public void InstantiateAbilitiesPrefab()
     {
         int i = 0;
-        foreach (var Ability in Hero1Data.Abilities)
+        foreach (var Ability in TurnData.HeroData.Abilities)
         {
             Position.z = 0;
             if (i < 4)
@@ -117,7 +144,7 @@ public class UImanager : MonoBehaviour
             AbilityCreate.GetComponentsInChildren<Text>()[1].text = Ability.description;
             AbilityCreate.GetComponentsInChildren<Text>()[2].text = Ability.id.ToString();
             AbilityCreate.GetComponentsInChildren<Text>()[3].text = Ability.manaCost.ToString();
-            if (Ability.manaCost > Hero1Data.curMP)
+            if (Ability.manaCost > TurnData.HeroData.curMP)
             {
                 AbilityCreate.GetComponent<Button>().interactable = false;
             }
@@ -126,15 +153,33 @@ public class UImanager : MonoBehaviour
         Debug.Log("AbilitiesYAYYY");
     }
 
-    public void DeleteItemsPrefab()
+    public void InstantiateTargetEnemyPrefab()
     {
-        GameObject[] itemBtns;
-        itemBtns = GameObject.FindGameObjectsWithTag("inventoryBtn");
-        foreach (GameObject itemBtn in itemBtns)
+        int i = 0;
+        foreach (var targetEnemy in TurnData.baseEnemies)
         {
-            Destroy(itemBtn);
-            Debug.Log("Test");
+            Position.z = 0;
+            Position.x = -7;
+            Position.y = (-20 - (i * 40));
+            GameObject targetEnemyCreate = Instantiate(targetEnemyButtonPrefab, Position, Quaternion.identity);
+            targetEnemyCreate.transform.SetParent(targetEnemyCanvasParent.transform, false);
+            targetEnemyCreate.GetComponentsInChildren<Text>()[0].text = targetEnemy.enemyName;
+            targetEnemyCreate.GetComponentsInChildren<Text>()[1].text = targetEnemy.enemyCurHP.ToString();
+            targetEnemyCreate.GetComponentsInChildren<Text>()[2].text = targetEnemy.enemyID.ToString();
+            i++;
         }
     }
+
+    //public void setTarget()
+    //{
+    //    foreach(var targetEnemy in TurnData.baseEnemies)
+    //    {
+    //        if(gameObject.GetComponentsInChildren<Text>()[2].text == targetEnemy.enemyID.ToString())
+    //        {
+    //            TurnData.EnemyData = targetEnemy;
+    //        }
+    //        Debug.Log("SetTarget WORKING");
+    //    }
+    //}
 
 }

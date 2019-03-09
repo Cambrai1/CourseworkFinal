@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   Inventory: []
-  name: d
+  name: Chicken
   level: 0
   experience: 0
   experienceLeft: 0
-  baseHP: 0
+  baseHP: 50
   baseMP: 0
   attack: 0
   strength: 0

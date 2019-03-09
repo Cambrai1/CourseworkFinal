@@ -17,5 +17,5 @@ MonoBehaviour:
   armourDescription: 
   armourIcon: {fileID: 0}
   armourDefence: 0
-  ArmourType: {fileID: 0}
+  ArmourType: {fileID: 11400000, guid: 73130cc9a67f2b441b8c53e637de0741, type: 2}
   ArmourStyle: {fileID: 0}

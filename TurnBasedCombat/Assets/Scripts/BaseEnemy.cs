@@ -7,7 +7,8 @@ public class BaseEnemy : ScriptableObject
 {
     public List<Abilities> Abilities;
     public List<Items> DropTable;
-
+    [SerializeField]
+    public int enemyID;
     [SerializeField]
     public string enemyName;
     [SerializeField]

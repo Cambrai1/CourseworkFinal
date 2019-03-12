@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 856848065830463902}
   - component: {fileID: 856848065830463903}
   - component: {fileID: 7705055619472737390}
-  - component: {fileID: 4245793694045240770}
+  - component: {fileID: 4590944482122925382}
   m_Layer: 5
   m_Name: TargetBtnPrefab
-  m_TagString: Untagged
+  m_TagString: inventoryBtn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,8 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45aa308544f47e24b8174a1d73d2c997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TurnData: {fileID: 4245793694045240770}
---- !u!114 &4245793694045240770
+--- !u!114 &4590944482122925382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,6 +169,8 @@ MonoBehaviour:
   Enemy4Data: {fileID: 0}
   EnemyData: {fileID: 0}
   baseEnemies: []
+  TargetSelected: 1
+  m_SelectedTarget: {fileID: 0}
   FightStates: 0
 --- !u!1 &856848065831154741
 GameObject:

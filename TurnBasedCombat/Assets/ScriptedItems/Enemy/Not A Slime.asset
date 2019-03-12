@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112b73eab2ef21245a262645aa409332, type: 3}
+  m_Name: Not A Slime
+  m_EditorClassIdentifier: 
+  Abilities: []
+  DropTable: []
+  enemyID: 1
+  enemyName: NOT A SLIME EWW
+  enemyDescription: NoSlimeTime
+  enemyMaxHP: 0
+  enemyCurHP: 0
+  enemyMaxMP: 0
+  enemyCurMP: 0
+  enemyBaseATK: 0
+  enemyCurATK: 0
+  enemyBaseDEF: 0
+  enemyCurDEF: 0
+  EnemyRarity: 0
+  EnemyType: 0

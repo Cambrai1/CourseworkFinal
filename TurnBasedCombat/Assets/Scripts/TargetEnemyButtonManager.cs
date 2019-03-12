@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class TargetEnemyButtonManager : MonoBehaviour
 {
-    public BattleEngine TurnData;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,15 +20,12 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
     public void setTarget()
     {
-        foreach (var targetEnemy in TurnData.baseEnemies)
+        if (gameObject.GetComponentsInChildren<Text>()[2].text == TurnData.Enemy1Data.enemyID.ToString())
         {
-            if (gameObject.GetComponentsInChildren<Text>()[2].text == targetEnemy.enemyID.ToString())
-            {
-                TurnData.EnemyData = targetEnemy;
-            }
-            Debug.Log("SetTarget WORKING");
+            TurnData.EnemyData = TurnData.Enemy1Data;
         }
-        Debug.Log("SetTarget WORKING");
-        Debug.Log(gameObject.GetComponentsInChildren<Text>()[2].text);
+        Debug.Log("SetTarget WORKING?????");
+
+        Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
     }
 }

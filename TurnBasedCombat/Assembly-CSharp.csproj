@@ -60,7 +60,6 @@
      <Compile Include="Assets\Scripts\BaseEnemy.cs" />
      <Compile Include="Assets\Scripts\BaseHero.cs" />
      <Compile Include="Assets\Scripts\BattleEngine.cs" />
-     <Compile Include="Assets\Scripts\BattleStateMachine.cs" />
      <Compile Include="Assets\Scripts\DamageManager.cs" />
      <Compile Include="Assets\Scripts\Element.cs" />
      <Compile Include="Assets\Scripts\EnemyStateMachine.cs" />

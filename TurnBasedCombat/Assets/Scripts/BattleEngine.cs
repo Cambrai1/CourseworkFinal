@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BattleEngine : MonoBehaviour
 {
     public BaseHero Hero1Data;
@@ -71,6 +71,9 @@ public class BattleEngine : MonoBehaviour
         {
             baseEnemies.Add(Enemy4Data);
         }
+
+        m_SelectedTarget.onClick.AddListener(AssignTarget);
+
         Invoke("Delay", 1);
     }
 
@@ -131,6 +134,11 @@ public class BattleEngine : MonoBehaviour
 
         }
     }
-        
+       
+    void AssignTarget()
+    {
+        GameObject.Find("")
+    }
+
 }
 

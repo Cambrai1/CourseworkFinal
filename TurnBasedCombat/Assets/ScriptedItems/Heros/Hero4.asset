@@ -25,11 +25,11 @@ MonoBehaviour:
   defense: 0
   wisdom: 0
   agility: 0
-  curHP: 0
+  curHP: 50
   curMP: 0
-  curATK: 0
+  curATK: 50
   curSTR: 0
-  curDEF: 0
+  curDEF: 50
   curWIS: 0
   curAGI: 0
   heroType: 0

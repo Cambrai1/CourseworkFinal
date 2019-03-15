@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   DropTable: []
+  enemyID: 0
   enemyName: Slime
   enemyDescription: Slimey Slime
   enemyMaxHP: 50
   enemyCurHP: 50
   enemyMaxMP: 50
   enemyCurMP: 50
-  enemyBaseATK: 0
-  enemyCurATK: 0
-  enemyBaseDEF: 0
-  enemyCurDEF: 0
+  enemyBaseATK: 50
+  enemyCurATK: 50
+  enemyBaseDEF: 50
+  enemyCurDEF: 50
   EnemyRarity: 0
   EnemyType: 0

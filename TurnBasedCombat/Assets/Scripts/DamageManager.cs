@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamageManager : MonoBehaviour
 {
     public BattleEngine targetControl;
+    public int Damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,9 @@ public class DamageManager : MonoBehaviour
         
     }
 
-    void heroStandardAttack()
+    public void heroStandardAttack()
     {
-        int Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
+        Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
         targetControl.EnemyData.enemyCurHP -= Damage;
         Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
     }
@@ -38,8 +39,34 @@ public class DamageManager : MonoBehaviour
 
     }
 
-    void EnemyChoose()
+    public void EnemyChooseAndAttack()
     {
+        //Targeter 
+        int HPsum = (targetControl.Hero1Data.curHP + targetControl.Hero2Data.curHP + targetControl.Hero3Data.curHP + targetControl.Hero4Data.curHP);
+        //if the hero hp is high, it produces a smaller HPsum1/2/3/4 value.
+        int HPsum1 = HPsum / targetControl.Hero1Data.curHP;
+        int HPsum2 = HPsum / targetControl.Hero2Data.curHP;
+        int HPsum3 = HPsum / targetControl.Hero3Data.curHP;
+        int HPsum4 = HPsum / targetControl.Hero4Data.curHP;
+        var TargetSum = Random.Range(1, (HPsum1 + HPsum2 + HPsum3 + HPsum4));
+        if (TargetSum > 0 && TargetSum <= (HPsum1))
+        {
+            //Target Hero1
+            Debug.Log("Hero1 Targeted!");
+        }
+        else if(TargetSum > HPsum1 && TargetSum <= (HPsum1 + HPsum2)){
+            //Target Hero2
+            Debug.Log("Hero2 Targeted!");
+        }
+        else if (TargetSum > (HPsum1 + HPsum2) && TargetSum <= (HPsum1 + HPsum2 + HPsum3)){
+            //Target Hero3
+            Debug.Log("Hero3 Targeted!");
+        }
+        else if (TargetSum > (HPsum1 + HPsum2 + HPsum3) && TargetSum <= (HPsum1 + HPsum2 + HPsum3 + HPsum4))
+        {
+            //Target Hero4
+            Debug.Log("Hero4 Targeted!");
+        }
         //attack,defend,ability,flee
         //attack 40%, ability 40%, defend 15%, flee 5%
         var choiceVal = Random.Range(1, 100);
@@ -47,31 +74,37 @@ public class DamageManager : MonoBehaviour
         {
             choiceVal = 1;
         }
-        if (choiceVal > 40 && choiceVal < 81)
+        else if (choiceVal > 40 && choiceVal < 81)
         {
             choiceVal = 2;
         }
-        if (choiceVal > 80 && choiceVal < 96)
+        else if (choiceVal > 80 && choiceVal < 96)
         {
             choiceVal = 3;
         }
-        if (choiceVal > 95 && choiceVal < 101)
+        else if (choiceVal > 95 && choiceVal < 101)
         {
             choiceVal = 4;
         }
         switch (choiceVal)
         {
             case 1:
-                Debug.Log(choiceVal);
+                //standard attack
+                Debug.Log("Enemy Chose to Standard Attack!");
+                Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
+                Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
                 break;
             case 2:
-                Debug.Log(choiceVal);
+                //ability use
+                Debug.Log("Enemy Chose To Use An Ability!");
                 break;
             case 3:
-                Debug.Log(choiceVal);
+                //defend
+                Debug.Log("Enemy Chose to Defend!");
                 break;
             case 4:
-                Debug.Log(choiceVal);
+                //flee
+                Debug.Log("Enemy Chose to Try and Flee!");
                 break;
         }
         

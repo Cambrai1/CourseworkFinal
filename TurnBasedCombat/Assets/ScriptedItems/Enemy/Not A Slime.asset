@@ -17,13 +17,13 @@ MonoBehaviour:
   enemyID: 1
   enemyName: NOT A SLIME EWW
   enemyDescription: NoSlimeTime
-  enemyMaxHP: 0
-  enemyCurHP: 0
-  enemyMaxMP: 0
-  enemyCurMP: 0
-  enemyBaseATK: 0
-  enemyCurATK: 0
-  enemyBaseDEF: 0
-  enemyCurDEF: 0
+  enemyMaxHP: 50
+  enemyCurHP: 50
+  enemyMaxMP: 50
+  enemyCurMP: 50
+  enemyBaseATK: 50
+  enemyCurATK: 50
+  enemyBaseDEF: 50
+  enemyCurDEF: 50
   EnemyRarity: 0
   EnemyType: 0

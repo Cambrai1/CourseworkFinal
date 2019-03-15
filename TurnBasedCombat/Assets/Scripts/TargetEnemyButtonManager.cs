@@ -18,14 +18,14 @@ public class TargetEnemyButtonManager : MonoBehaviour
         
     }
 
-    public void setTarget()
-    {
-        if (gameObject.GetComponentsInChildren<Text>()[2].text == TurnData.Enemy1Data.enemyID.ToString())
-        {
-            TurnData.EnemyData = TurnData.Enemy1Data;
-        }
-        Debug.Log("SetTarget WORKING?????");
+    //public void setTarget()
+    //{
+    //    if (gameObject.GetComponentsInChildren<Text>()[2].text == TurnData.Enemy1Data.enemyID.ToString())
+    //    {
+    //        TurnData.EnemyData = TurnData.Enemy1Data;
+    //    }
+    //    Debug.Log("SetTarget WORKING?????");
 
-        Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
-    }
+    //    Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
+    //}
 }

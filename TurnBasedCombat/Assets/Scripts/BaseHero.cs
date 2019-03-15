@@ -21,9 +21,9 @@ public class BaseHero : ScriptableObject
     public int experienceLeft;
 
     [SerializeField]
-    public float baseHP;
+    public int baseHP;
     [SerializeField]
-    public float baseMP;
+    public int baseMP;
     [SerializeField]
     public int attack;
     [SerializeField]
@@ -36,9 +36,9 @@ public class BaseHero : ScriptableObject
     public int agility;
 
     [SerializeField]
-    public float curHP;
+    public int curHP;
     [SerializeField]
-    public float curMP;
+    public int curMP;
     [SerializeField]
     public int curATK;
     [SerializeField]

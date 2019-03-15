@@ -47,9 +47,9 @@ MonoBehaviour:
   agility: 100
   curHP: 55
   curMP: 100
-  curATK: 0
-  curSTR: 0
-  curDEF: 0
-  curWIS: 0
-  curAGI: 0
+  curATK: 50
+  curSTR: 50
+  curDEF: 50
+  curWIS: 50
+  curAGI: 50
   heroType: 0

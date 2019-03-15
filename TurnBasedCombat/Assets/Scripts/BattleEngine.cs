@@ -72,7 +72,7 @@ public class BattleEngine : MonoBehaviour
             baseEnemies.Add(Enemy4Data);
         }
 
-        m_SelectedTarget.onClick.AddListener(AssignTarget);
+        //m_SelectedTarget.onClick.AddListener(AssignTarget);
 
         Invoke("Delay", 1);
     }
@@ -137,7 +137,7 @@ public class BattleEngine : MonoBehaviour
        
     void AssignTarget()
     {
-        GameObject.Find("")
+        GameObject.Find("");
     }
 
 }

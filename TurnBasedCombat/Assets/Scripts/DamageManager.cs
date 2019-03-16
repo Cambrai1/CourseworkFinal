@@ -6,6 +6,7 @@ public class DamageManager : MonoBehaviour
 {
     public BattleEngine targetControl;
     public int Damage;
+    public int defIncreaseValue;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,18 +94,31 @@ public class DamageManager : MonoBehaviour
                 Debug.Log("Enemy Chose to Standard Attack!");
                 Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
                 Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
+
                 break;
             case 2:
                 //ability use
                 Debug.Log("Enemy Chose To Use An Ability!");
+                foreach (var Ability in targetControl.EnemyData.Abilities)
+                {
+
+                }
                 break;
             case 3:
                 //defend
                 Debug.Log("Enemy Chose to Defend!");
+                if (isDefending == true)
+                {
+                    targetControl.EnemyData.enemyCurDEF -= defIncreaseValue;
+                    isDefending = false;
+                }
+                defIncreaseValue = targetControl.EnemyData.enemyCurDEF / 10;
+                targetControl.EnemyData.enemyCurDEF += defIncreaseValue;
                 break;
             case 4:
                 //flee
                 Debug.Log("Enemy Chose to Try and Flee!");
+
                 break;
         }
         

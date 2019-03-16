@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112b73eab2ef21245a262645aa409332, type: 3}
+  m_Name: INTERESTING
+  m_EditorClassIdentifier: 
+  Abilities: []
+  DropTable: []
+  enemyID: 0
+  enemyName: INTERESTING
+  enemyDescription: asdsaf
+  enemyMaxHP: 10
+  enemyCurHP: 10
+  enemyMaxMP: 10
+  enemyCurMP: 10
+  enemyBaseATK: 10
+  enemyCurATK: 10
+  enemyBaseDEF: 10
+  enemyCurDEF: 10
+  EnemyRarity: 0
+  EnemyType: 0

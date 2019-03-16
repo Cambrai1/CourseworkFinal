@@ -53,7 +53,7 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(TurnData.FightStates);
+        //Debug.Log(TurnData.FightStates);
     }
 
     public void HeroBarUpdate()
@@ -169,17 +169,5 @@ public class UImanager : MonoBehaviour
             i++;
         }
     }
-
-    //public void setTarget()
-    //{
-    //    foreach(var targetEnemy in TurnData.baseEnemies)
-    //    {
-    //        if(gameObject.GetComponentsInChildren<Text>()[2].text == targetEnemy.enemyID.ToString())
-    //        {
-    //            TurnData.EnemyData = targetEnemy;
-    //        }
-    //        Debug.Log("SetTarget WORKING");
-    //    }
-    //}
 
 }

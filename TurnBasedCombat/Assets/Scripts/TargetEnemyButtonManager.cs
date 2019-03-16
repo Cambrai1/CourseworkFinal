@@ -18,14 +18,30 @@ public class TargetEnemyButtonManager : MonoBehaviour
         
     }
 
-    //public void setTarget()
-    //{
-    //    if (gameObject.GetComponentsInChildren<Text>()[2].text == TurnData.Enemy1Data.enemyID.ToString())
-    //    {
-    //        TurnData.EnemyData = TurnData.Enemy1Data;
-    //    }
-    //    Debug.Log("SetTarget WORKING?????");
+    public void setTarget()
+    {
+        BattleEngine referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
+        BattleEngine referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
 
-    //    Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
-    //}
+        if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy1Data.enemyID.ToString())
+        {
+            referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy1Data;
+        }
+        else if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy2Data.enemyID.ToString())
+        {
+            referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy2Data;
+        }
+        else if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy3Data.enemyID.ToString())
+        {
+            referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy3Data;
+        }
+        else if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy4Data.enemyID.ToString())
+        {
+            referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy4Data;
+        }
+        Debug.Log("SetTarget WORKING?????");
+
+        Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
+        reference.
+    }
 }

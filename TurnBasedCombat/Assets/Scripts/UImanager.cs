@@ -25,13 +25,6 @@ public class UImanager : MonoBehaviour
     public GameObject targetEnemyButtonPrefab;
     public GameObject targetEnemyCanvasParent;
 
-    bool ActionPanelState = true;
-    bool isAttacking = false;
-    bool isDefending = false;
-    bool isAbility = false;
-    bool isFleeing = false;
-    int buttonYdif = 40;
-
     public List<GameObject> InventoryItems;
     public Vector3 Position;
 

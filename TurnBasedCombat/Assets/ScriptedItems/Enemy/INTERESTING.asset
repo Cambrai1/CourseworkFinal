@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   DropTable: []
-  enemyID: 0
+  enemyID: 1
   enemyName: INTERESTING
   enemyDescription: asdsaf
   enemyMaxHP: 10

@@ -20,6 +20,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
     public void setTarget()
     {
         BattleEngine referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
+        UImanager referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
         DamageManager referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
 
         if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy1Data.enemyID.ToString())
@@ -42,13 +43,26 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
         Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
 
-        GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().DeleteItemsPrefab();
+        referenceUImanager.DeleteItemsPrefab();
+
+        switch (referenceBattleEngine.HeroDecision)
+        {
+            case (BattleEngine.HeroDecisions.ATTACK):
+                Debug.Log("Attack Activated");
+                referenceDamageManager.heroStandardAttack();
+                break;
+            case (BattleEngine.HeroDecisions.ABILITY):
+                Debug.Log("Ability Activated");
+                break;
+        }
 
         if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)
         {
-            GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
-            GameObject.Find("TargetEnemyPanel").SetActive(false);
-            GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().StateControl();
+            referenceUImanager.ActionPanel.SetActive(true);
+            GameObject.Find("TargetEnemyPanel").SetActive(false);            
         }
+
+        referenceBattleEngine.StateControl();
+
     }
 }

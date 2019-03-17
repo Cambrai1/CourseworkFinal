@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8050e5b694f206a47aac7e02e600ee57, type: 3}
   m_Name: Hero4
   m_EditorClassIdentifier: 
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   Inventory: []
   name: Chicken
   level: 0
@@ -27,7 +29,7 @@ MonoBehaviour:
   agility: 0
   curHP: 50
   curMP: 0
-  curATK: 50
+  curATK: 25
   curSTR: 0
   curDEF: 50
   curWIS: 0

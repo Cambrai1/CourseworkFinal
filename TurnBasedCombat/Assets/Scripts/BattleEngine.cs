@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BattleEngine : MonoBehaviour
 {
+    public DamageManager damageScript;
+
     public BaseHero Hero1Data;
     public BaseHero Hero2Data;
     public BaseHero Hero3Data;
@@ -17,6 +19,17 @@ public class BattleEngine : MonoBehaviour
     public BaseEnemy Enemy4Data;
     public BaseEnemy EnemyData;
     public List<BaseEnemy> baseEnemies = new List<BaseEnemy>();
+
+    public enum HeroDecisions
+    {
+        ATTACK,
+        ABILITY,
+        DEFEND,
+        ITEM,
+        FLEE
+    }
+
+    public HeroDecisions HeroDecision;
 
     public enum FightState {
         ENTERFIGHT,
@@ -72,6 +85,10 @@ public class BattleEngine : MonoBehaviour
             baseEnemies.Add(Enemy4Data);
         }
 
+        Enemy1Data.enemyCurHP = Enemy1Data.enemyMaxHP;
+        Enemy2Data.enemyCurHP = Enemy2Data.enemyMaxHP;
+        Enemy3Data.enemyCurHP = Enemy3Data.enemyMaxHP;
+        Enemy4Data.enemyCurHP = Enemy4Data.enemyMaxHP;
         //m_SelectedTarget.onClick.AddListener(AssignTarget);
 
         Invoke("Delay", 1);
@@ -114,23 +131,31 @@ public class BattleEngine : MonoBehaviour
             case (FightState.HERO4):
                 Debug.Log("Its now Hero4's Turn!!");
                 HeroData = Hero4Data;
-                FightStates = FightState.HERO1;
+                FightStates = FightState.ENEMY1;
                 break;
             case (FightState.ENEMY1):
                 Debug.Log("Its now Enemy1's Turn!!");
                 EnemyData = Enemy1Data;
+                damageScript.EnemyChooseAndAttack();
+                FightStates = FightState.ENEMY2;
                 break;
             case (FightState.ENEMY2):
                 Debug.Log("Its now Enemy2's Turn!!");
                 EnemyData = Enemy2Data;
+                damageScript.EnemyChooseAndAttack();
+                FightStates = FightState.ENEMY3;
                 break;
             case (FightState.ENEMY3):
                 Debug.Log("Its now Enemy3's Turn!!");
                 EnemyData = Enemy3Data;
+                damageScript.EnemyChooseAndAttack();
+                FightStates = FightState.ENEMY4;
                 break;
             case (FightState.ENEMY4):
                 Debug.Log("Its now Enemy4's Turn!!");
                 EnemyData = Enemy4Data;
+                damageScript.EnemyChooseAndAttack();
+                FightStates = FightState.HERO1;
                 break;
             case (FightState.END):
 

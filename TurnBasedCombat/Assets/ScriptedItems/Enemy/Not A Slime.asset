@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   DropTable: []
-  enemyID: 1
+  enemyID: 2
   enemyName: NOT A SLIME EWW
   enemyDescription: NoSlimeTime
   enemyMaxHP: 50

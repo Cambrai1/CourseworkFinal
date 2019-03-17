@@ -14,21 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
-  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   Inventory:
   - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
   - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}

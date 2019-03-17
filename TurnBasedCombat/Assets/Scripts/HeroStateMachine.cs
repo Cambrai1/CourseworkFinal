@@ -17,8 +17,6 @@ public class HeroStateMachine : MonoBehaviour
     }
     public static HeroStateMachine State;
     public TurnState currentState;
-    private float cur_cooldown = 0f;
-    private float max_cooldown = 5f;
     // Start is called before the first frame update
     void Start()
     {

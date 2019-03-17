@@ -122,6 +122,7 @@ public class DamageManager : MonoBehaviour
 
                 break;
         }
-        
+
+        targetControl.StateControl();
     }
 }

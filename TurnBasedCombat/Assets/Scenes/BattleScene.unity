@@ -2529,6 +2529,8 @@ MonoBehaviour:
   Enemy4Data: {fileID: 11400000, guid: a70c07a97fb12504ab4ae9a1130815d2, type: 2}
   EnemyData: {fileID: 0}
   baseEnemies: []
+  baseAttack: 0
+  abilityUse: 0
   FightStates: 0
 --- !u!114 &906857459
 MonoBehaviour:
@@ -4002,7 +4004,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1437881028}
   m_OnClick:
     m_PersistentCalls:
@@ -5419,6 +5421,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 906857458}
+        m_MethodName: baseAttackSwitch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1932633503
@@ -5611,7 +5624,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2097358716}
   m_OnClick:
     m_PersistentCalls:

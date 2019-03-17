@@ -158,15 +158,19 @@ public class UImanager : MonoBehaviour
         int i = 0;
         foreach (var targetEnemy in TurnData.baseEnemies)
         {
-            Position.z = 0;
-            Position.x = -7;
-            Position.y = (-20 - (i * 40));
-            GameObject targetEnemyCreate = Instantiate(targetEnemyButtonPrefab, Position, Quaternion.identity);
-            targetEnemyCreate.transform.SetParent(targetEnemyCanvasParent.transform, false);
-            targetEnemyCreate.GetComponentsInChildren<Text>()[0].text = targetEnemy.enemyName;
-            targetEnemyCreate.GetComponentsInChildren<Text>()[1].text = targetEnemy.enemyCurHP.ToString();
-            targetEnemyCreate.GetComponentsInChildren<Text>()[2].text = targetEnemy.enemyID.ToString();
-            i++;
+            if (targetEnemy.enemyCurHP > 0)
+            {
+                Position.z = 0;
+                Position.x = -7;
+                Position.y = (-20 - (i * 40));
+                GameObject targetEnemyCreate = Instantiate(targetEnemyButtonPrefab, Position, Quaternion.identity);
+                targetEnemyCreate.transform.SetParent(targetEnemyCanvasParent.transform, false);
+                targetEnemyCreate.GetComponentsInChildren<Text>()[0].text = targetEnemy.enemyName;
+                targetEnemyCreate.GetComponentsInChildren<Text>()[1].text = targetEnemy.enemyCurHP.ToString();
+                targetEnemyCreate.GetComponentsInChildren<Text>()[2].text = targetEnemy.enemyID.ToString();
+                i++;
+            }
+            
         }
     }
 

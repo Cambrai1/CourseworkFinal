@@ -87,7 +87,7 @@ public class BattleEngine : MonoBehaviour
         StateControl();
     }
 
-    void StateControl()
+    public void StateControl()
     {
 
         switch (FightStates)
@@ -99,18 +99,22 @@ public class BattleEngine : MonoBehaviour
             case (FightState.HERO1):
                 Debug.Log("Its now Hero1's Turn!!");
                 HeroData = Hero1Data;
+                FightStates = FightState.HERO2;
                 break;
             case (FightState.HERO2):
                 Debug.Log("Its now Hero2's Turn!!");
                 HeroData = Hero2Data;
+                FightStates = FightState.HERO3;
                 break;
             case (FightState.HERO3):
                 Debug.Log("Its now Hero3's Turn!!");
                 HeroData = Hero3Data;
+                FightStates = FightState.HERO4;
                 break;
             case (FightState.HERO4):
                 Debug.Log("Its now Hero4's Turn!!");
                 HeroData = Hero4Data;
+                FightStates = FightState.HERO1;
                 break;
             case (FightState.ENEMY1):
                 Debug.Log("Its now Enemy1's Turn!!");

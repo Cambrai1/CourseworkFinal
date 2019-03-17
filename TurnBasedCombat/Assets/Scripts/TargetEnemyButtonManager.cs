@@ -9,7 +9,6 @@ public class TargetEnemyButtonManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -21,7 +20,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
     public void setTarget()
     {
         BattleEngine referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
-        BattleEngine referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
+        DamageManager referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
 
         if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy1Data.enemyID.ToString())
         {
@@ -42,6 +41,14 @@ public class TargetEnemyButtonManager : MonoBehaviour
         Debug.Log("SetTarget WORKING?????");
 
         Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
-        reference.
+
+        GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().DeleteItemsPrefab();
+
+        if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)
+        {
+            GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
+            GameObject.Find("TargetEnemyPanel").SetActive(false);
+            GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().StateControl();
+        }
     }
 }

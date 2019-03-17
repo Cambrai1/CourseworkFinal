@@ -7,6 +7,7 @@ public class DamageManager : MonoBehaviour
     public BattleEngine targetControl;
     public int Damage;
     public int defIncreaseValue;
+    public bool isDefending;
     // Start is called before the first frame update
     void Start()
     {

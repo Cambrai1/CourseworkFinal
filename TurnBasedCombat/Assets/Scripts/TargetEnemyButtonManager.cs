@@ -58,11 +58,12 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
         if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)
         {
-            referenceUImanager.ActionPanel.SetActive(true);
-            GameObject.Find("TargetEnemyPanel").SetActive(false);            
+            referenceUImanager.ActionPanel.SetActive(true);            
         }
 
+        GameObject.Find("TargetEnemyPanel").SetActive(false);
         referenceBattleEngine.StateControl();
+
 
     }
 }

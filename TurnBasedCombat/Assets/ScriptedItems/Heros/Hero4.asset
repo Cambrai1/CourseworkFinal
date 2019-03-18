@@ -27,7 +27,7 @@ MonoBehaviour:
   defense: 0
   wisdom: 0
   agility: 0
-  curHP: 50
+  curHP: 49
   curMP: 0
   curATK: 25
   curSTR: 0

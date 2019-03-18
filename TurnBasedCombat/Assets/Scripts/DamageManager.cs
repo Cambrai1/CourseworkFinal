@@ -95,7 +95,7 @@ public class DamageManager : MonoBehaviour
                 Debug.Log("Enemy Chose to Standard Attack!");
                 Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
                 Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
-
+                targetControl.HeroData.curHP -= Damage;
                 break;
             case 2:
                 //ability use
@@ -122,7 +122,26 @@ public class DamageManager : MonoBehaviour
 
                 break;
         }
+        DamageReturner();
+    }
 
-        targetControl.StateControl();
+    public void DamageReturner()
+    {
+       if (targetControl.HeroData.name == targetControl.Hero1Data.name)
+        {
+            targetControl.Hero1Data = targetControl.HeroData;
+        }
+        else if (targetControl.HeroData.name == targetControl.Hero2Data.name)
+        {
+            targetControl.Hero2Data = targetControl.HeroData;
+        }
+        else if (targetControl.HeroData.name == targetControl.Hero3Data.name)
+        {
+            targetControl.Hero3Data = targetControl.HeroData;
+        }
+        else if (targetControl.HeroData.name == targetControl.Hero4Data.name)
+        {
+            targetControl.Hero4Data = targetControl.HeroData;
+        }
     }
 }

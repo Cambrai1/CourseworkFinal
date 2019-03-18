@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 public class BattleEngine : MonoBehaviour
 {
     public DamageManager damageScript;
@@ -89,6 +91,10 @@ public class BattleEngine : MonoBehaviour
         Enemy2Data.enemyCurHP = Enemy2Data.enemyMaxHP;
         Enemy3Data.enemyCurHP = Enemy3Data.enemyMaxHP;
         Enemy4Data.enemyCurHP = Enemy4Data.enemyMaxHP;
+        Hero1Data.curHP = Hero1Data.baseHP;
+        Hero2Data.curHP = Hero2Data.baseHP;
+        Hero3Data.curHP = Hero3Data.baseHP;
+        Hero4Data.curHP = Hero4Data.baseHP;
         //m_SelectedTarget.onClick.AddListener(AssignTarget);
 
         Invoke("Delay", 1);
@@ -96,12 +102,21 @@ public class BattleEngine : MonoBehaviour
 
     void update()
     {
-        Debug.Log(FightStates);
+        Debug.Log(FightStates.ToString());
     }
 
     void Delay()
     {
         StateControl();
+    }
+
+    public void allDeadCheck()
+    {
+        if ((Enemy1Data.enemyCurHP <= 0) && (Enemy2Data.enemyCurHP <= 0) && (Enemy3Data.enemyCurHP <= 0) && (Enemy4Data.enemyCurHP <= 0))
+        {
+            FightStates = FightState.END;
+            StateControl();
+        }
     }
 
     public void StateControl()
@@ -117,57 +132,90 @@ public class BattleEngine : MonoBehaviour
                 Debug.Log("Its now Hero1's Turn!!");
                 HeroData = Hero1Data;
                 FightStates = FightState.HERO2;
+                allDeadCheck();
                 break;
             case (FightState.HERO2):
                 Debug.Log("Its now Hero2's Turn!!");
                 HeroData = Hero2Data;
                 FightStates = FightState.HERO3;
+                allDeadCheck();
                 break;
             case (FightState.HERO3):
                 Debug.Log("Its now Hero3's Turn!!");
                 HeroData = Hero3Data;
                 FightStates = FightState.HERO4;
+                allDeadCheck();
                 break;
-            case (FightState.HERO4):
+            case (FightState.HERO4):                
                 Debug.Log("Its now Hero4's Turn!!");
                 HeroData = Hero4Data;
                 FightStates = FightState.ENEMY1;
+                allDeadCheck();
                 break;
             case (FightState.ENEMY1):
-                Debug.Log("Its now Enemy1's Turn!!");
-                EnemyData = Enemy1Data;
-                damageScript.EnemyChooseAndAttack();
+                if (Enemy1Data.enemyCurHP > 0)
+                {
+                    Debug.Log("Its now Enemy1's Turn!!");
+                    EnemyData = Enemy1Data;
+                    damageScript.EnemyChooseAndAttack();
+                }
+                else
+                {
+                    Debug.Log(Enemy1Data.enemyName + " is dead and cannot fight!");
+                }
                 FightStates = FightState.ENEMY2;
+                Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY2):
-                Debug.Log("Its now Enemy2's Turn!!");
-                EnemyData = Enemy2Data;
-                damageScript.EnemyChooseAndAttack();
+                if (Enemy2Data.enemyCurHP > 0)
+                {
+                    Debug.Log("Its now Enemy2's Turn!!");
+                    EnemyData = Enemy2Data;
+                    damageScript.EnemyChooseAndAttack();
+                }
+                else
+                {
+                    Debug.Log(Enemy2Data.enemyName + " is dead and cannot fight!");
+                }
                 FightStates = FightState.ENEMY3;
+                Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY3):
-                Debug.Log("Its now Enemy3's Turn!!");
-                EnemyData = Enemy3Data;
-                damageScript.EnemyChooseAndAttack();
+                if (Enemy3Data.enemyCurHP > 0)
+                {
+                    Debug.Log("Its now Enemy3's Turn!!");
+                    EnemyData = Enemy3Data;
+                    damageScript.EnemyChooseAndAttack();
+                }
+                else
+                {
+                    Debug.Log(Enemy3Data.enemyName + " is dead and cannot fight!");
+                }
                 FightStates = FightState.ENEMY4;
+                Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY4):
-                Debug.Log("Its now Enemy4's Turn!!");
-                EnemyData = Enemy4Data;
-                damageScript.EnemyChooseAndAttack();
+                if (Enemy4Data.enemyCurHP > 0)
+                {
+                    Debug.Log("Its now Enemy4's Turn!!");
+                    EnemyData = Enemy4Data;
+                    damageScript.EnemyChooseAndAttack();
+                }
+                else
+                {
+                    Debug.Log(Enemy4Data.enemyName + " is dead and cannot fight!");
+                }
                 FightStates = FightState.HERO1;
+                GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
+                Invoke("Delay", 2);
                 break;
             case (FightState.END):
-
+                Debug.Log("Fight has Ended!");
+                SceneManager.LoadScene(sceneName: "EnvironmentScene");
                 break;
 
         }
-    }
-       
-    void AssignTarget()
-    {
-        GameObject.Find("");
-    }
+    }   
 
 }
 

@@ -46,7 +46,7 @@ public class UImanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(TurnData.FightStates);
+
     }
 
     public void HeroBarUpdate()

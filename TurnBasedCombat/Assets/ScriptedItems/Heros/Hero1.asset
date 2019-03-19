@@ -20,18 +20,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
   - {fileID: 11400000, guid: b036b9d8be9063d4b8091f7e02bbf70b, type: 2}
   - {fileID: 11400000, guid: 1d988b0dd939c794b804de02b122a0b6, type: 2}
+  weaponField: {fileID: 0}
+  EquippedHelmet: {fileID: 11400000, guid: 02c86a763c7067d43b517fb565f08df1, type: 2}
+  EquippedChestplate: {fileID: 11400000, guid: 6b8a140b6410ece42bd471c22e9d3072, type: 2}
+  EquippedLegguards: {fileID: 11400000, guid: 8de4f36d2067edb4faaf2f755b37c46a, type: 2}
+  EquippedBoots: {fileID: 11400000, guid: 9dd8c8cb6d282ed499789f1274ae656b, type: 2}
   name: CouragousMan
   level: 1
   experience: 0
   experienceLeft: 0
-  baseHP: 55
+  baseHP: 5
   baseMP: 100
   attack: 100
   strength: 100
-  defense: 100
+  defense: 10
   wisdom: 100
   agility: 100
-  curHP: 55
+  curHP: 5
   curMP: 100
   curATK: 50
   curSTR: 50

@@ -9,6 +9,12 @@ public class DamageManager : MonoBehaviour
     public int defIncreaseValue;
     public bool isDefending;
     public int DamageMultiplier;
+
+    public int HPsum;
+    public int HPsum1;
+    public int HPsum2;
+    public int HPsum3;
+    public int HPsum4;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,31 +55,76 @@ public class DamageManager : MonoBehaviour
 
     public void EnemyChooseAndAttack()
     {
-        //Targeter 
-        int HPsum = (targetControl.Hero1Data.curHP + targetControl.Hero2Data.curHP + targetControl.Hero3Data.curHP + targetControl.Hero4Data.curHP);
+        HPsum = 0;
+        foreach (var Hero in targetControl.baseHeros)
+        {
+            if (Hero.curHP < 0)
+            {
+                Hero.curHP = 0;
+            }
+            HPsum += Hero.curHP;
+            Debug.Log("HPsum = " + HPsum);
+        }
         //if the hero hp is high, it produces a smaller HPsum1/2/3/4 value.
-        int HPsum1 = HPsum / targetControl.Hero1Data.curHP;
-        int HPsum2 = HPsum / targetControl.Hero2Data.curHP;
-        int HPsum3 = HPsum / targetControl.Hero3Data.curHP;
-        int HPsum4 = HPsum / targetControl.Hero4Data.curHP;
+        
+        //HPsum2 = HPsum / targetControl.Hero2Data.curHP;
+        //HPsum3 = HPsum / targetControl.Hero3Data.curHP;
+        //HPsum4 = HPsum / targetControl.Hero4Data.curHP;
+        if (targetControl.Hero1Data.curHP < 1)
+        {
+            HPsum1 = 0;
+        }
+        else
+        {
+            HPsum1 = HPsum / targetControl.Hero1Data.curHP;
+        }
+        if (targetControl.Hero2Data.curHP < 1)
+        {
+            HPsum2 = 0;
+        }
+        else
+        {
+            HPsum2 = HPsum / targetControl.Hero2Data.curHP;
+        }
+        if (targetControl.Hero3Data.curHP < 1)
+        {
+            HPsum3 = 0;
+        }
+        else
+        {
+            HPsum3 = HPsum / targetControl.Hero3Data.curHP;
+        }
+        if (targetControl.Hero4Data.curHP < 1)
+        {
+            HPsum4 = 0;
+        }
+        else
+        {
+            HPsum4 = HPsum / targetControl.Hero4Data.curHP;
+        }
+
         var TargetSum = Random.Range(1, (HPsum1 + HPsum2 + HPsum3 + HPsum4));
         if (TargetSum > 0 && TargetSum <= (HPsum1))
         {
             //Target Hero1
             Debug.Log("Hero1 Targeted!");
+            targetControl.HeroData = targetControl.Hero1Data;
         }
         else if(TargetSum > HPsum1 && TargetSum <= (HPsum1 + HPsum2)){
             //Target Hero2
             Debug.Log("Hero2 Targeted!");
+            targetControl.HeroData = targetControl.Hero2Data;
         }
         else if (TargetSum > (HPsum1 + HPsum2) && TargetSum <= (HPsum1 + HPsum2 + HPsum3)){
             //Target Hero3
             Debug.Log("Hero3 Targeted!");
+            targetControl.HeroData = targetControl.Hero3Data;
         }
         else if (TargetSum > (HPsum1 + HPsum2 + HPsum3) && TargetSum <= (HPsum1 + HPsum2 + HPsum3 + HPsum4))
         {
             //Target Hero4
             Debug.Log("Hero4 Targeted!");
+            targetControl.HeroData = targetControl.Hero4Data;
         }
         //attack,defend,ability,flee
         //attack 40%, ability 40%, defend 15%, flee 5%

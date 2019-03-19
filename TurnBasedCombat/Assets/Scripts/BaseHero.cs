@@ -11,6 +11,17 @@ public class BaseHero : ScriptableObject
     public List<Items> Inventory;
 
     [SerializeField]
+    public Weapon weaponField;
+    [SerializeField]
+    public Helmet EquippedHelmet;
+    [SerializeField]
+    public Chestplate EquippedChestplate;
+    [SerializeField]
+    public Legguards EquippedLegguards;
+    [SerializeField]
+    public Boots EquippedBoots;
+
+    [SerializeField]
     public string name;
     [SerializeField]
     [Range(1, 99)] public int level;

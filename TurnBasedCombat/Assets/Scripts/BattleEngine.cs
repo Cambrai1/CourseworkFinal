@@ -133,16 +133,27 @@ public class BattleEngine : MonoBehaviour
                 FightStates = FightState.HERO1;
                 break;
             case (FightState.HERO1):
-                Debug.Log("Its now Hero1's Turn!!");
-                HeroData = Hero1Data;
-                FightStates = FightState.HERO2;
+
                 allDeadCheck();
+                FightStates = FightState.HERO2;
+                if (Hero1Data.curHP > 0)
+                {
+                    Debug.Log("Its now Hero1's Turn!!");
+                    HeroData = Hero1Data;
+                }
+                else
+                {
+                    Debug.Log(Hero1Data.name + " has fainted and cannot fight!");
+                    StateControl();
+                }
+
                 break;
             case (FightState.HERO2):
                 Debug.Log("Its now Hero2's Turn!!");
                 HeroData = Hero2Data;
                 FightStates = FightState.HERO3;
                 allDeadCheck();
+                
                 break;
             case (FightState.HERO3):
                 Debug.Log("Its now Hero3's Turn!!");

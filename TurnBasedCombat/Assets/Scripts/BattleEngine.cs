@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class BattleEngine : MonoBehaviour
@@ -21,6 +22,8 @@ public class BattleEngine : MonoBehaviour
     public BaseEnemy Enemy4Data;
     public BaseEnemy EnemyData;
     public List<BaseEnemy> baseEnemies = new List<BaseEnemy>();
+
+    public GameObject EnemyCharPrefab;
 
     public enum HeroDecisions
     {
@@ -96,7 +99,8 @@ public class BattleEngine : MonoBehaviour
         Hero3Data.curHP = Hero3Data.baseHP;
         Hero4Data.curHP = Hero4Data.baseHP;
         //m_SelectedTarget.onClick.AddListener(AssignTarget);
-
+        Debug.Log("Double Call Test");
+        InstantiateEnemies();
         Invoke("Delay", 1);
     }
 
@@ -207,7 +211,7 @@ public class BattleEngine : MonoBehaviour
                 }
                 FightStates = FightState.HERO1;
                 GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
-                Invoke("Delay", 2);
+                Invoke("Delay", 0);
                 break;
             case (FightState.END):
                 Debug.Log("Fight has Ended!");
@@ -215,7 +219,27 @@ public class BattleEngine : MonoBehaviour
                 break;
 
         }
-    }   
+    }
 
+    public void InstantiateEnemies()
+    {
+        GameObject[] enemyPrefabs;
+        enemyPrefabs = GameObject.FindGameObjectsWithTag("enemyPrefab");
+        foreach (GameObject enemies in enemyPrefabs)
+        {
+            Destroy(enemies);
+        }
+        float i = 0;
+        foreach (var enemyChar in baseEnemies)
+        {
+            if (enemyChar.enemyCurHP > 0)
+            {
+                GameObject EnemyCharCreate = Instantiate(EnemyCharPrefab);
+                EnemyCharCreate.transform.position = new Vector3(-3f + (i * 2f), 0.5f, 5f);
+
+                i++;
+            }
+        }
+    }
 }
 

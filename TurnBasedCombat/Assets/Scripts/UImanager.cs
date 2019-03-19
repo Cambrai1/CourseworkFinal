@@ -102,7 +102,6 @@ public class UImanager : MonoBehaviour
         foreach (GameObject itemBtn in itemBtns)
         {
             Destroy(itemBtn);
-            Debug.Log("Test");
         }
     }
     public void InstantiateAbilitiesPrefab()

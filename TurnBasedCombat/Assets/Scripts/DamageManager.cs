@@ -8,6 +8,7 @@ public class DamageManager : MonoBehaviour
     public int Damage;
     public int defIncreaseValue;
     public bool isDefending;
+    public int DamageMultiplier;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,11 @@ public class DamageManager : MonoBehaviour
         Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
         targetControl.EnemyData.enemyCurHP -= Damage;
         Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+        if (targetControl.EnemyData.enemyCurHP <= 0)
+        {
+            Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
+            targetControl.InstantiateEnemies();
+        }
     }
 
     void heroAbilityAttackSolo()
@@ -93,8 +99,11 @@ public class DamageManager : MonoBehaviour
             case 1:
                 //standard attack
                 Debug.Log("Enemy Chose to Standard Attack!");
+                DamageMultiplier = (Random.Range(75, 125))/100;
                 Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
                 Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
+                Damage *= DamageMultiplier;
+
                 targetControl.HeroData.curHP -= Damage;
                 break;
             case 2:

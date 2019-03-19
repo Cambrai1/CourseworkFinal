@@ -39,7 +39,6 @@ public class TargetEnemyButtonManager : MonoBehaviour
         {
             referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy4Data;
         }
-        Debug.Log("SetTarget WORKING?????");
 
         Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
 
@@ -58,12 +57,18 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
         if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)
         {
-            referenceUImanager.ActionPanel.SetActive(true);            
+            Invoke("Delay", 1);
+            referenceUImanager.ActionPanel.SetActive(true);
         }
 
         GameObject.Find("TargetEnemyPanel").SetActive(false);
         referenceBattleEngine.StateControl();
 
+
+    }
+
+    void Delay()
+    {
 
     }
 }

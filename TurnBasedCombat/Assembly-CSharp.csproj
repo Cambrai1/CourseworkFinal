@@ -65,7 +65,6 @@
      <Compile Include="Assets\Scripts\BaseHero.cs" />
      <Compile Include="Assets\Scripts\BattleEngine.cs" />
      <Compile Include="Assets\Scripts\DamageManager.cs" />
-     <Compile Include="Assets\Scripts\EnemyStateMachine.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\InventoryButtonManager.cs" />
      <Compile Include="Assets\Scripts\ItemList.cs" />

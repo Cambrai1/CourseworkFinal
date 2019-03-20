@@ -16,9 +16,9 @@ MonoBehaviour:
   DropTable: []
   enemyID: 3
   enemyName: Slime
-  enemyDescription: Slimey Slime
+  enemyDescription: A Slime!
   enemyMaxHP: 50
-  enemyCurHP: 50
+  enemyCurHP: 0
   enemyMaxMP: 50
   enemyCurMP: 50
   enemyBaseATK: 50

@@ -43,16 +43,16 @@ public class TargetEnemyButtonManager : MonoBehaviour
         Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
 
         referenceUImanager.DeleteItemsPrefab();
-
-        switch (referenceBattleEngine.HeroDecision)
+        
+        if (referenceBattleEngine.usingAbility == true)
         {
-            case (BattleEngine.HeroDecisions.ATTACK):
-                Debug.Log("Attack Activated");
-                referenceDamageManager.heroStandardAttack();
-                break;
-            case (BattleEngine.HeroDecisions.ABILITY):
-                Debug.Log("Ability Activated");
-                break;
+            Debug.Log("Ability Activated");
+            referenceDamageManager.heroAbilityAttackSolo();
+        }
+        else
+        {
+            Debug.Log("Attack Activated");
+            referenceDamageManager.heroStandardAttack();
         }
 
         if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)

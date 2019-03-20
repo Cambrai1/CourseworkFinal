@@ -28,4 +28,8 @@ public class Items : ScriptableObject
         HEALTH,
         MANA
     }
+
+    //standard Drop Rate of item from monsters
+    [SerializeField]
+    [Range(1, 100)] public int DropRate;
 }

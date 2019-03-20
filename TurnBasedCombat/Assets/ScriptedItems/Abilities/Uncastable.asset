@@ -16,5 +16,6 @@ MonoBehaviour:
   name: Mana Level Chc
   description: Dont Cast
   manaCost: 1000
-  baseDamage: 0
+  baseDamage: 1
   attributeType: 0
+  targetType: 0

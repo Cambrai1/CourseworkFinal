@@ -19,4 +19,4 @@ MonoBehaviour:
   HPrestore: 0
   MPrestore: 50
   StatusEffect: 4
-  ItemType: {fileID: 0}
+  DropRate: 1

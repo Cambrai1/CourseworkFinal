@@ -30,14 +30,14 @@ MonoBehaviour:
   experience: 50
   experienceLeft: 50
   baseHP: 50
-  baseMP: 50
+  baseMP: 10
   attack: 50
   strength: 50
   defense: 50
   wisdom: 50
   agility: 50
   curHP: 50
-  curMP: 50
+  curMP: 10
   curATK: 50
   curSTR: 50
   curDEF: 50

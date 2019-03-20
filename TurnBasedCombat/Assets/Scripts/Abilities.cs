@@ -27,4 +27,14 @@ public class Abilities : ScriptableObject
         Fire
     }
 
+    [SerializeField]
+    public targetTypes targetType;
+
+    public enum targetTypes
+    {
+        soloEnemy,
+        allEnemy,
+        soloHero,
+        allHero
+    }
 }

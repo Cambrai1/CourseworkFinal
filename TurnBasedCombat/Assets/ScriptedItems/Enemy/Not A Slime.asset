@@ -15,10 +15,10 @@ MonoBehaviour:
   Abilities: []
   DropTable: []
   enemyID: 2
-  enemyName: NOT A SLIME EWW
+  enemyName: It isn't a slime??
   enemyDescription: NoSlimeTime
   enemyMaxHP: 50
-  enemyCurHP: 27
+  enemyCurHP: 2
   enemyMaxMP: 50
   enemyCurMP: 50
   enemyBaseATK: 50

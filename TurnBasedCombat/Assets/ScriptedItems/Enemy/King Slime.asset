@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 112b73eab2ef21245a262645aa409332, type: 3}
-  m_Name: CAWCAW
+  m_Name: King Slime
   m_EditorClassIdentifier: 
   Abilities: []
   DropTable: []
+  AlwaysDropTable: []
   enemyID: 0
-  enemyName: CAWCAW
-  enemyDescription: ffas
-  enemyMaxHP: 50
-  enemyCurHP: 0
+  enemyName: King Slime
+  enemyDescription: A king slime!
+  enemyMaxHP: 100
+  enemyCurHP: 100
   enemyMaxMP: 50
   enemyCurMP: 50
   enemyBaseATK: 50
   enemyCurATK: 50
   enemyBaseDEF: 50
-  enemyCurDEF: 50
+  enemyCurDEF: 55
   EnemyRarity: 0
-  EnemyType: 0

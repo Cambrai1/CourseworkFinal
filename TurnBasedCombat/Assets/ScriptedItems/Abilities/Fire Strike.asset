@@ -16,5 +16,6 @@ MonoBehaviour:
   name: Fire Strike
   description: Ball of Fire
   manaCost: 10
-  baseDamage: 50
+  baseDamage: 1
   attributeType: 3
+  targetType: 0

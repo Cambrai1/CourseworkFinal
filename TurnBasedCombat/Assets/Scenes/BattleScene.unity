@@ -2426,6 +2426,8 @@ MonoBehaviour:
   baseEnemies: []
   EnemyCharPrefab: {fileID: 2493543037746395822, guid: d973a13ab811a614c8db1ada500abff8,
     type: 3}
+  ChosenAbility: {fileID: 0}
+  usingAbility: 0
   HeroDecision: 0
   FightStates: 0
 --- !u!114 &906857459
@@ -5219,7 +5221,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 906857458}
-        m_MethodName: baseAttackSwitch
+        m_MethodName: setUsingAbilityToFalse
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

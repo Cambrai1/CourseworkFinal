@@ -7,6 +7,8 @@ public class BaseEnemy : ScriptableObject
 {
     public List<Abilities> Abilities;
     public List<Items> DropTable;
+    public List<Items> AlwaysDropTable;
+
     [SerializeField]
     public int enemyID;
     [SerializeField]
@@ -29,6 +31,7 @@ public class BaseEnemy : ScriptableObject
     public int enemyBaseDEF;
     [SerializeField]
     public int enemyCurDEF;
+
     [SerializeField]
     public enemyRarity EnemyRarity;
     public enum enemyRarity
@@ -37,12 +40,6 @@ public class BaseEnemy : ScriptableObject
         UNCOMMON,
         RARE,
         SUPERRARE
-    }
-    [SerializeField]
-    public enemyType EnemyType;
-    public enum enemyType
-    {
-
     }
 
 }

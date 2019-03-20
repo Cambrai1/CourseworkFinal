@@ -20,6 +20,7 @@ public class DamageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -30,6 +31,7 @@ public class DamageManager : MonoBehaviour
 
     public void heroStandardAttack()
     {
+        Debug.Log("Standard Attack Log 190");
         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
         Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
 
@@ -46,17 +48,34 @@ public class DamageManager : MonoBehaviour
         }
     }
 
-    void heroAbilityAttackSolo()
+    public void heroAbilityAttackSolo()
+    {
+        Debug.Log("Standard Ability Log 190");
+        DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
+        Damage = (((targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage) * (targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage)) / ((targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage) + (targetControl.EnemyData.enemyCurDEF)));
+
+        Damage *= DamageMultiplier;
+        Damage = Mathf.Floor(Damage);
+
+        targetControl.EnemyData.enemyCurHP -= (int)Damage;
+
+        Debug.Log(targetControl.HeroData.name + " Has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+        targetControl.HeroData.curMP -= targetControl.ChosenAbility.manaCost;
+        if (targetControl.EnemyData.enemyCurHP <= 0)
+        {
+            Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
+            targetControl.InstantiateEnemies();
+        }
+
+        UIdetails.HeroBarUpdate();
+    }
+
+    public void heroAbilityAttackAll()
     {
 
     }
 
-    void heroAbilityAttackAll()
-    {
-
-    }
-
-    void heroDefend()
+    public void heroDefend()
     {
 
     }
@@ -161,10 +180,11 @@ public class DamageManager : MonoBehaviour
                 DamageMultiplier = ((float)Random.Range(75, 125))/100;
 
                 Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
-                Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
 
                 Damage *= DamageMultiplier;
                 Damage = Mathf.Floor(Damage);
+
+                Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
 
                 targetControl.HeroData.curHP -= (int)Damage;
                 break;

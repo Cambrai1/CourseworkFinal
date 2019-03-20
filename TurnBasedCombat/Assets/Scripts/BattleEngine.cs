@@ -24,6 +24,14 @@ public class BattleEngine : MonoBehaviour
     public List<BaseEnemy> baseEnemies = new List<BaseEnemy>();
 
     public GameObject EnemyCharPrefab;
+    public Abilities ChosenAbility;
+
+    public bool usingAbility = false;
+
+    public void setUsingAbilityToFalse()
+    {
+        usingAbility = false;
+    }
 
     public enum HeroDecisions
     {

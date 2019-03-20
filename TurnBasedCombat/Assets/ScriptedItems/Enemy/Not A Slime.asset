@@ -18,7 +18,7 @@ MonoBehaviour:
   enemyName: NOT A SLIME EWW
   enemyDescription: NoSlimeTime
   enemyMaxHP: 50
-  enemyCurHP: 50
+  enemyCurHP: 27
   enemyMaxMP: 50
   enemyCurMP: 50
   enemyBaseATK: 50

@@ -16,22 +16,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   Inventory: []
+  weaponField: {fileID: 0}
+  EquippedHelmet: {fileID: 0}
+  EquippedChestplate: {fileID: 0}
+  EquippedLegguards: {fileID: 0}
+  EquippedBoots: {fileID: 0}
   name: Cool Man
   level: 0
-  experience: 0
-  experienceLeft: 0
-  baseHP: 35
-  baseMP: 40
+  experience: 50
+  experienceLeft: 50
+  baseHP: 50
+  baseMP: 50
   attack: 50
-  strength: 0
-  defense: 0
-  wisdom: 0
-  agility: 0
+  strength: 50
+  defense: 50
+  wisdom: 50
+  agility: 50
   curHP: 50
-  curMP: 0
-  curATK: 75
-  curSTR: 0
+  curMP: 50
+  curATK: 50
+  curSTR: 50
   curDEF: 50
-  curWIS: 0
-  curAGI: 0
+  curWIS: 50
+  curAGI: 50
   heroType: 0

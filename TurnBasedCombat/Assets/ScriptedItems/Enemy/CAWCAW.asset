@@ -17,13 +17,13 @@ MonoBehaviour:
   enemyID: 0
   enemyName: CAWCAW
   enemyDescription: ffas
-  enemyMaxHP: 20
-  enemyCurHP: 20
-  enemyMaxMP: 20
-  enemyCurMP: 20
-  enemyBaseATK: 20
-  enemyCurATK: 20
-  enemyBaseDEF: 20
-  enemyCurDEF: 20
+  enemyMaxHP: 50
+  enemyCurHP: 0
+  enemyMaxMP: 50
+  enemyCurMP: 50
+  enemyBaseATK: 50
+  enemyCurATK: 50
+  enemyBaseDEF: 50
+  enemyCurDEF: 50
   EnemyRarity: 0
   EnemyType: 0

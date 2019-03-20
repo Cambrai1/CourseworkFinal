@@ -5,10 +5,12 @@ using UnityEngine;
 public class DamageManager : MonoBehaviour
 {
     public BattleEngine targetControl;
-    public int Damage;
+    public UImanager UIdetails;
+
+    public float Damage;
     public int defIncreaseValue;
     public bool isDefending;
-    public int DamageMultiplier;
+    public float DamageMultiplier;
 
     public int HPsum;
     public int HPsum1;
@@ -28,8 +30,14 @@ public class DamageManager : MonoBehaviour
 
     public void heroStandardAttack()
     {
+        DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
         Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
-        targetControl.EnemyData.enemyCurHP -= Damage;
+
+        Damage *= DamageMultiplier;
+        Damage = Mathf.Floor(Damage);
+
+        targetControl.EnemyData.enemyCurHP -= (int)Damage;
+
         Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
@@ -150,12 +158,15 @@ public class DamageManager : MonoBehaviour
             case 1:
                 //standard attack
                 Debug.Log("Enemy Chose to Standard Attack!");
-                DamageMultiplier = (Random.Range(75, 125))/100;
+                DamageMultiplier = ((float)Random.Range(75, 125))/100;
+
                 Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
                 Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
-                Damage *= DamageMultiplier;
 
-                targetControl.HeroData.curHP -= Damage;
+                Damage *= DamageMultiplier;
+                Damage = Mathf.Floor(Damage);
+
+                targetControl.HeroData.curHP -= (int)Damage;
                 break;
             case 2:
                 //ability use
@@ -183,6 +194,7 @@ public class DamageManager : MonoBehaviour
                 break;
         }
         DamageReturner();
+        UIdetails.HeroBarUpdate();
     }
 
     public void DamageReturner()

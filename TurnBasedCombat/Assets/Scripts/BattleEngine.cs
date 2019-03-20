@@ -168,6 +168,7 @@ public class BattleEngine : MonoBehaviour
                 allDeadCheck();
                 break;
             case (FightState.ENEMY1):
+                allDeadCheck();
                 if (Enemy1Data.enemyCurHP > 0)
                 {
                     Debug.Log("Its now Enemy1's Turn!!");

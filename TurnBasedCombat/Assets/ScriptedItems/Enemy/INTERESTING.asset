@@ -17,13 +17,13 @@ MonoBehaviour:
   enemyID: 1
   enemyName: INTERESTING
   enemyDescription: asdsaf
-  enemyMaxHP: 10
-  enemyCurHP: 10
-  enemyMaxMP: 10
-  enemyCurMP: 10
-  enemyBaseATK: 10
-  enemyCurATK: 10
-  enemyBaseDEF: 10
-  enemyCurDEF: 10
+  enemyMaxHP: 50
+  enemyCurHP: 0
+  enemyMaxMP: 50
+  enemyCurMP: 50
+  enemyBaseATK: 50
+  enemyCurATK: 50
+  enemyBaseDEF: 50
+  enemyCurDEF: 50
   EnemyRarity: 0
   EnemyType: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2493543037746395809}
   - component: {fileID: 2493543037746395808}
   - component: {fileID: 2493543037746395823}
-  - component: {fileID: 2493543037746395811}
   m_Layer: 0
   m_Name: EnemyPrefab
   m_TagString: enemyPrefab
@@ -92,17 +91,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2493543037746395811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2493543037746395822}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07ef6519ac9a8849be2c455c2b437ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  currentState: 0

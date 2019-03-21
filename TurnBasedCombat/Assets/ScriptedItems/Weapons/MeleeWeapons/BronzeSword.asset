@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a0a6a727e8d32f4a9137e024af3a2e8, type: 3}
-  m_Name: NewMeleeWeapon
+  m_Name: BronzeSword
   m_EditorClassIdentifier: 
   weaponID: 0
-  weaponName: 
-  weaponDescription: 
+  weaponName: Bronze Sword
+  weaponDescription: A sword made of bronze.
   weaponIcon: {fileID: 0}
-  weaponDamage: 0
-  weaponAccuracy: 0
+  weaponDamage: 1
+  weaponAccuracy: 1

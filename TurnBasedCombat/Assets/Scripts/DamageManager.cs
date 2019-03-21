@@ -92,11 +92,7 @@ public class DamageManager : MonoBehaviour
             HPsum += Hero.curHP;
             Debug.Log("HPsum = " + HPsum);
         }
-        //if the hero hp is high, it produces a smaller HPsum1/2/3/4 value.
-        
-        //HPsum2 = HPsum / targetControl.Hero2Data.curHP;
-        //HPsum3 = HPsum / targetControl.Hero3Data.curHP;
-        //HPsum4 = HPsum / targetControl.Hero4Data.curHP;
+
         if (targetControl.Hero1Data.curHP < 1)
         {
             HPsum1 = 0;

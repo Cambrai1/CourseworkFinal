@@ -14,16 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   DropTable: []
+  AlwaysDropTable: []
   enemyID: 3
+  enemyLevel: 5
   enemyName: Slime
   enemyDescription: A Slime!
-  enemyMaxHP: 50
-  enemyCurHP: 0
-  enemyMaxMP: 50
-  enemyCurMP: 50
-  enemyBaseATK: 50
-  enemyCurATK: 50
-  enemyBaseDEF: 50
-  enemyCurDEF: 50
+  enemyMaxHP: 27
+  enemyCurHP: -5
+  enemyMaxMP: 15
+  enemyCurMP: 15
+  enemyBaseATK: 45
+  enemyCurATK: 45
+  enemyBaseDEF: 45
+  enemyCurDEF: 45
+  enemyBaseWIS: 45
+  enemyCurWIS: 45
+  enemyBaseSTR: 45
+  enemyCurSTR: 45
+  experienceGranted: 0
   EnemyRarity: 0
-  EnemyType: 0

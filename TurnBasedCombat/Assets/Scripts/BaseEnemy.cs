@@ -12,6 +12,8 @@ public class BaseEnemy : ScriptableObject
     [SerializeField]
     public int enemyID;
     [SerializeField]
+    public int enemyLevel;
+    [SerializeField]
     public string enemyName;
     [SerializeField]
     public string enemyDescription;
@@ -31,6 +33,16 @@ public class BaseEnemy : ScriptableObject
     public int enemyBaseDEF;
     [SerializeField]
     public int enemyCurDEF;
+    [SerializeField]
+    public int enemyBaseWIS;
+    [SerializeField]
+    public int enemyCurWIS;
+    [SerializeField]
+    public int enemyBaseSTR;
+    [SerializeField]
+    public int enemyCurSTR;
+    [SerializeField]
+    public int experienceGranted;
 
     [SerializeField]
     public enemyRarity EnemyRarity;
@@ -42,4 +54,20 @@ public class BaseEnemy : ScriptableObject
         SUPERRARE
     }
 
+    public void Awake()
+    {
+        enemyMaxHP = (int)Mathf.Round(10 + Mathf.Pow(enemyLevel, 1.75f)); 
+        enemyMaxMP = (150 / 99 * enemyLevel) + 10;
+        enemyBaseATK = (750 / 99 * enemyLevel) + 10;
+        enemyBaseSTR = (750 / 99 * enemyLevel) + 10;
+        enemyBaseDEF = (750 / 99 * enemyLevel) + 10;
+        enemyBaseWIS = (750 / 99 * enemyLevel) + 10;
+
+        enemyCurATK = enemyBaseATK;
+        enemyCurSTR = enemyBaseSTR;
+        enemyCurDEF = enemyBaseDEF;
+        enemyCurWIS = enemyBaseWIS;
+        enemyCurHP = enemyMaxHP;
+        enemyCurMP = enemyMaxMP;
+    }
 }

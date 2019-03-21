@@ -29,7 +29,7 @@ public class BaseHero : ScriptableObject
     [SerializeField]
     public int experience;
     [SerializeField]
-    public int experienceLeft;
+    public int experienceNeeded;
 
     [SerializeField]
     public int baseHP;
@@ -61,17 +61,48 @@ public class BaseHero : ScriptableObject
     [SerializeField]
     public int curAGI;
 
-    public enum heroTypes
+    //public enum heroTypes
+    //{
+    //    Warrior,
+    //    Priest,
+    //    Mage,
+    //    MartialArtist,
+    //    Thief,
+    //    Gladiator
+    //}
+
+    //[SerializeField]
+    //public heroTypes heroType;
+
+    public void Awake()
     {
-        Warrior,
-        Priest,
-        Mage,
-        MartialArtist,
-        Thief,
-        Gladiator
+        baseHP = (800 / 99 * level) + 10;
+        baseMP = (300 / 99 * level) + 10;
+        attack = (500 / 99 * level) + 10;
+        strength = (500 / 99 * level) + 10;
+        defense = (500 / 99 * level) + 10;
+        wisdom = (500 / 99 * level) + 10;
+        agility = (500 / 99 * level) + 10;
+
+        curHP = baseHP;
+        curMP = baseMP;
+        curATK = attack;
+        curSTR = strength;
+        curDEF = defense;
+        curWIS = wisdom;
+        curAGI = agility;
+
+        experienceNeeded = (int)Mathf.Round(1000 * Mathf.Pow(level, 1.5f));
+        LevelStepper();
     }
 
-    [SerializeField]
-    public heroTypes heroType;
-
+    public void LevelStepper()
+    {
+        if (experience > experienceNeeded)
+        {
+            level++;
+            Awake();
+            Debug.Log("Increase to level: " + level);
+        }
+    }
 }

@@ -16,14 +16,20 @@ MonoBehaviour:
   DropTable: []
   AlwaysDropTable: []
   enemyID: 1
+  enemyLevel: 5
   enemyName: Baby Slime
   enemyDescription: A baby Slime!
-  enemyMaxHP: 25
-  enemyCurHP: 25
-  enemyMaxMP: 50
-  enemyCurMP: 50
-  enemyBaseATK: 50
-  enemyCurATK: 50
-  enemyBaseDEF: 50
-  enemyCurDEF: 55
+  enemyMaxHP: 27
+  enemyCurHP: -7
+  enemyMaxMP: 15
+  enemyCurMP: 15
+  enemyBaseATK: 45
+  enemyCurATK: 45
+  enemyBaseDEF: 45
+  enemyCurDEF: 45
+  enemyBaseWIS: 45
+  enemyCurWIS: 45
+  enemyBaseSTR: 45
+  enemyCurSTR: 45
+  experienceGranted: 0
   EnemyRarity: 0

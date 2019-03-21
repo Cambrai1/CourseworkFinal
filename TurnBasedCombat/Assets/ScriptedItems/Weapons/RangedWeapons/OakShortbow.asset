@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b848922a0835e40b801576c94481b6, type: 3}
-  m_Name: NewMagicWeapon
+  m_Script: {fileID: 11500000, guid: 58ced33045af9494fb40ec76424321c6, type: 3}
+  m_Name: OakShortbow
   m_EditorClassIdentifier: 
-  weaponID: 0
-  weaponName: 
-  weaponDescription: 
+  weaponID: 1
+  weaponName: Oak Shortbow
+  weaponDescription: A shortbow made of oak.
   weaponIcon: {fileID: 0}
-  weaponDamage: 0
-  weaponAccuracy: 0
+  weaponDamage: 1
+  weaponAccuracy: 1

@@ -28,11 +28,6 @@ public class BattleEngine : MonoBehaviour
 
     public bool usingAbility = false;
 
-    public void setUsingAbilityToFalse()
-    {
-        usingAbility = false;
-    }
-
     public enum HeroDecisions
     {
         ATTACK,
@@ -61,6 +56,14 @@ public class BattleEngine : MonoBehaviour
 
     void Start()
     {
+        Hero1Data.Awake();
+        Hero2Data.Awake();
+        Hero3Data.Awake();
+        Hero4Data.Awake();
+        Enemy1Data.Awake();
+        Enemy2Data.Awake();
+        Enemy3Data.Awake();
+        Enemy4Data.Awake();
         FightStates = FightState.ENTERFIGHT;
         StateControl();
 
@@ -98,18 +101,11 @@ public class BattleEngine : MonoBehaviour
             baseEnemies.Add(Enemy4Data);
         }
 
-        Enemy1Data.enemyCurHP = Enemy1Data.enemyMaxHP;
-        Enemy2Data.enemyCurHP = Enemy2Data.enemyMaxHP;
-        Enemy3Data.enemyCurHP = Enemy3Data.enemyMaxHP;
-        Enemy4Data.enemyCurHP = Enemy4Data.enemyMaxHP;
-        Hero1Data.curHP = Hero1Data.baseHP;
-        Hero2Data.curHP = Hero2Data.baseHP;
-        Hero3Data.curHP = Hero3Data.baseHP;
-        Hero4Data.curHP = Hero4Data.baseHP;
         //m_SelectedTarget.onClick.AddListener(AssignTarget);
         Debug.Log("Double Call Test");
         InstantiateEnemies();
         Invoke("Delay", 1);
+
     }
 
     void update()
@@ -122,11 +118,17 @@ public class BattleEngine : MonoBehaviour
         StateControl();
     }
 
+    public void setUsingAbilityToFalse()
+    {
+        usingAbility = false;
+    }
+
     public void allDeadCheck()
     {
         if ((Enemy1Data.enemyCurHP <= 0) && (Enemy2Data.enemyCurHP <= 0) && (Enemy3Data.enemyCurHP <= 0) && (Enemy4Data.enemyCurHP <= 0))
         {
             FightStates = FightState.END;
+
             StateControl();
         }
     }
@@ -157,23 +159,48 @@ public class BattleEngine : MonoBehaviour
 
                 break;
             case (FightState.HERO2):
-                Debug.Log("Its now Hero2's Turn!!");
-                HeroData = Hero2Data;
-                FightStates = FightState.HERO3;
                 allDeadCheck();
-                
+                FightStates = FightState.HERO3;
+                if (Hero2Data.curHP > 0)
+                {
+                    Debug.Log("Its now Hero2's Turn!!");
+                    HeroData = Hero2Data;
+                }
+                else
+                {
+                    Debug.Log(Hero2Data.name + " has fainted and cannot fight!");
+                    StateControl();
+                }
+
                 break;
             case (FightState.HERO3):
-                Debug.Log("Its now Hero3's Turn!!");
-                HeroData = Hero3Data;
+                allDeadCheck();
                 FightStates = FightState.HERO4;
-                allDeadCheck();
+                if (Hero3Data.curHP > 0)
+                {
+                    Debug.Log("Its now Hero3's Turn!!");
+                    HeroData = Hero3Data;
+                }
+                else
+                {
+                    Debug.Log(Hero3Data.name + " has fainted and cannot fight!");
+                    StateControl();
+                }
                 break;
-            case (FightState.HERO4):                
-                Debug.Log("Its now Hero4's Turn!!");
-                HeroData = Hero4Data;
-                FightStates = FightState.ENEMY1;
+            case (FightState.HERO4):
                 allDeadCheck();
+                FightStates = FightState.ENEMY1;
+                if (Hero4Data.curHP > 0)
+                {
+                    Debug.Log("Its now Hero4's Turn!!");
+                    HeroData = Hero4Data;
+                }
+                else
+                {
+                    Debug.Log(Hero4Data.name + " has fainted and cannot fight!");
+                    GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(false);
+                    StateControl();
+                }
                 break;
             case (FightState.ENEMY1):
                 allDeadCheck();
@@ -235,6 +262,7 @@ public class BattleEngine : MonoBehaviour
                 break;
             case (FightState.END):
                 Debug.Log("Fight has Ended!");
+                
                 SceneManager.LoadScene(sceneName: "EnvironmentScene");
                 break;
 
@@ -260,6 +288,21 @@ public class BattleEngine : MonoBehaviour
                 i++;
             }
         }
+    }
+
+    public int totalXP;
+    public void FightWin()
+    {
+        
+        foreach (var enemy in baseEnemies)
+        {
+            totalXP += enemy.experienceGranted;
+        }
+
+        Hero1Data.experience += totalXP;
+        Hero2Data.experience += totalXP;
+        Hero3Data.experience += totalXP;
+        Hero4Data.experience += totalXP;
     }
 }
 

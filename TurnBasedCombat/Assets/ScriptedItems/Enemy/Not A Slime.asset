@@ -14,16 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Abilities: []
   DropTable: []
+  AlwaysDropTable: []
   enemyID: 2
+  enemyLevel: 2
   enemyName: It isn't a slime??
   enemyDescription: NoSlimeTime
-  enemyMaxHP: 50
-  enemyCurHP: 2
-  enemyMaxMP: 50
-  enemyCurMP: 50
-  enemyBaseATK: 50
-  enemyCurATK: 50
-  enemyBaseDEF: 50
-  enemyCurDEF: 50
+  enemyMaxHP: 13
+  enemyCurHP: 0
+  enemyMaxMP: 12
+  enemyCurMP: 12
+  enemyBaseATK: 24
+  enemyCurATK: 24
+  enemyBaseDEF: 24
+  enemyCurDEF: 26
+  enemyBaseWIS: 24
+  enemyCurWIS: 24
+  enemyBaseSTR: 24
+  enemyCurSTR: 24
+  experienceGranted: 0
   EnemyRarity: 0
-  EnemyType: 0

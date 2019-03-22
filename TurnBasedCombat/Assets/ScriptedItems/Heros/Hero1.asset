@@ -26,20 +26,22 @@ MonoBehaviour:
   EquippedLegguards: {fileID: 11400000, guid: 8de4f36d2067edb4faaf2f755b37c46a, type: 2}
   EquippedBoots: {fileID: 11400000, guid: 9dd8c8cb6d282ed499789f1274ae656b, type: 2}
   name: CouragousMan
-  level: 2
-  experience: 1
-  experienceNeeded: 2828
-  baseHP: 26
-  baseMP: 16
-  attack: 20
-  strength: 20
-  defense: 20
-  wisdom: 20
-  agility: 20
-  curHP: 26
-  curMP: 16
-  curATK: 20
-  curSTR: 20
-  curDEF: 20
-  curWIS: 20
-  curAGI: 20
+  level: 55
+  experience: 354201
+  experienceNeeded: 407891
+  baseHP: 450
+  baseMP: 175
+  attack: 285
+  strength: 285
+  defense: 285
+  wisdom: 285
+  agility: 285
+  curHP: 280
+  curMP: 165
+  curATK: 285
+  curSTR: 285
+  curDEF: 285
+  curWIS: 285
+  curAGI: 285
+  isDefending: 0
+  defendingValue: 28

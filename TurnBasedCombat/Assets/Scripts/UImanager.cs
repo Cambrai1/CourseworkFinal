@@ -51,6 +51,79 @@ public class UImanager : MonoBehaviour
 
     public void HeroBarUpdate()
     {
+        Image img1 = GameObject.Find("HeroBar1").GetComponent<Image>();
+        Image img2 = GameObject.Find("HeroBar2").GetComponent<Image>();
+        Image img3 = GameObject.Find("HeroBar3").GetComponent<Image>();
+        Image img4 = GameObject.Find("HeroBar4").GetComponent<Image>();
+
+        if (TurnData.Hero1Data.curHP >= (TurnData.Hero1Data.baseHP/ 2))
+        {
+            img1.color = new Color(0, 221, 255, 255);
+        }
+        else if (TurnData.Hero1Data.curHP >= (TurnData.Hero1Data.baseHP / 3))
+        {
+            img1.color = new Color(225, 255, 0, 255);
+        }
+        else if (TurnData.Hero1Data.curHP >= 0)
+        {
+            img1.color = new Color(255, 163, 0, 255);
+        }
+        else if (TurnData.Hero1Data.curHP <= 0)
+        {
+            img1.color = new Color(255, 17, 0, 255);
+        }
+
+        if (TurnData.Hero2Data.curHP >= (TurnData.Hero2Data.baseHP / 2))
+        {
+            img2.color = new Color(0, 221, 255, 255);
+        }
+        else if (TurnData.Hero2Data.curHP >= (TurnData.Hero2Data.baseHP / 3))
+        {
+            img2.color = new Color(225, 255, 0, 255);
+        }
+        else if (TurnData.Hero2Data.curHP >= 0)
+        {
+            img2.color = new Color(255, 163, 0, 255);
+        }
+        else if (TurnData.Hero2Data.curHP <= 0)
+        {
+            img2.color = new Color(255, 17, 0, 255);
+        }
+
+        if (TurnData.Hero3Data.curHP >= (TurnData.Hero3Data.baseHP / 2))
+        {
+            img3.color = new Color(0, 221, 255, 255);
+        }
+        else if (TurnData.Hero3Data.curHP >= (TurnData.Hero3Data.baseHP / 3))
+        {
+            img3.color = new Color(225, 255, 0, 255);
+        }
+        else if (TurnData.Hero3Data.curHP >= 0)
+        {
+            img3.color = new Color(255, 163, 0, 255);
+        }
+        else if (TurnData.Hero3Data.curHP <= 0)
+        {
+            img3.color = new Color(255, 17, 0, 255);
+        }
+
+        if (TurnData.Hero4Data.curHP >= (TurnData.Hero4Data.baseHP / 2))
+        {
+            img4.color = new Color(0, 221, 255, 255);
+        }
+        else if (TurnData.Hero4Data.curHP >= (TurnData.Hero4Data.baseHP / 3))
+        {
+            img4.color = new Color(225, 255, 0, 255);
+        }
+        else if (TurnData.Hero4Data.curHP >= 0)
+        {
+            img4.color = new Color(255, 163, 0, 255);
+        }
+        else if (TurnData.Hero4Data.curHP <= 0)
+        {
+            img4.color = new Color(255, 17, 0, 255);
+        }
+
         GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[0].text = TurnData.Hero1Data.name;
         GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[1].text = "HP:  " + TurnData.Hero1Data.curHP.ToString() + "/" + TurnData.Hero1Data.baseHP.ToString();
         GameObject.Find("HeroBar1").GetComponentsInChildren<Text>()[2].text = "MP:  " + TurnData.Hero1Data.curMP.ToString() + "/" + TurnData.Hero1Data.baseMP.ToString();

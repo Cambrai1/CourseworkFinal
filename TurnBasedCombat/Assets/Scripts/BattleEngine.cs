@@ -127,6 +127,7 @@ public class BattleEngine : MonoBehaviour
     {
         if ((Enemy1Data.enemyCurHP <= 0) && (Enemy2Data.enemyCurHP <= 0) && (Enemy3Data.enemyCurHP <= 0) && (Enemy4Data.enemyCurHP <= 0))
         {
+            FightWin();
             FightStates = FightState.END;
 
             StateControl();
@@ -297,12 +298,27 @@ public class BattleEngine : MonoBehaviour
         foreach (var enemy in baseEnemies)
         {
             totalXP += enemy.experienceGranted;
+            int randomVal = Random.Range(1, 100);
+            if (randomVal >= 95)
+            {
+                //Rare Drop
+                randomVal = Random.Range(0, enemy.rareDropTable.Count);
+                Hero1Data.Inventory.Add(enemy.rareDropTable[randomVal]);
+            }
+            else if (randomVal >= 50)
+            {
+                //common drop
+                randomVal = Random.Range(0, enemy.commonDropTable.Count);
+                Hero1Data.Inventory.Add(enemy.commonDropTable[randomVal]);
+            }
+            //Hero1Data.Inventory.Add(enemy.DropTable[0]);
         }
 
         Hero1Data.experience += totalXP;
         Hero2Data.experience += totalXP;
         Hero3Data.experience += totalXP;
         Hero4Data.experience += totalXP;
+
     }
 }
 

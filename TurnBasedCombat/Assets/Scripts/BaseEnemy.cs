@@ -6,8 +6,9 @@ using UnityEngine;
 public class BaseEnemy : ScriptableObject
 {
     public List<Abilities> Abilities;
-    public List<Items> DropTable;
-    public List<Items> AlwaysDropTable;
+    public List<Items> alwaysDropTable;
+    public List<Items> commonDropTable;
+    public List<Items> rareDropTable;
 
     [SerializeField]
     public int enemyID;
@@ -42,29 +43,24 @@ public class BaseEnemy : ScriptableObject
     [SerializeField]
     public int enemyCurSTR;
     [SerializeField]
+    public int enemyBaseAGI;
+    [SerializeField]
+    public int enemyCurAGI;
+
+    [SerializeField]
     public int experienceGranted;
 
     public bool isDefending = false;
     public int defendingValue;
 
-    [SerializeField]
-    public enemyRarity EnemyRarity;
-    public enum enemyRarity
-    {
-        COMMON,
-        UNCOMMON,
-        RARE,
-        SUPERRARE
-    }
-
     public void Awake()
     {
-        enemyMaxHP = (int)Mathf.Round(10 + Mathf.Pow(enemyLevel, 1.75f)); 
+        enemyMaxHP = (int)Mathf.Round(10 + Mathf.Pow(enemyLevel, 1.50f)); 
         enemyMaxMP = (150 / 99 * enemyLevel) + 10;
-        enemyBaseATK = (750 / 99 * enemyLevel) + 10;
-        enemyBaseSTR = (750 / 99 * enemyLevel) + 10;
-        enemyBaseDEF = (750 / 99 * enemyLevel) + 10;
-        enemyBaseWIS = (750 / 99 * enemyLevel) + 10;
+        enemyBaseATK = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+        enemyBaseSTR = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+        enemyBaseDEF = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+        enemyBaseWIS = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
 
         enemyCurATK = enemyBaseATK;
         enemyCurSTR = enemyBaseSTR;
@@ -73,7 +69,7 @@ public class BaseEnemy : ScriptableObject
         enemyCurHP = enemyMaxHP;
         enemyCurMP = enemyMaxMP;
 
-        experienceGranted = (int)Mathf.Round(333 * Mathf.Pow(enemyLevel, 1.5f));
+        experienceGranted = (int)Mathf.Round(333 * Mathf.Pow(enemyLevel, 1.25f));
 
         defendingValue = enemyBaseDEF / 10;
     }

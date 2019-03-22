@@ -15,23 +15,27 @@ MonoBehaviour:
   Abilities:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
-  DropTable: []
-  AlwaysDropTable: []
+  alwaysDropTable: []
+  commonDropTable: []
+  rareDropTable: []
   enemyID: 1
-  enemyLevel: 2
+  enemyLevel: 50
   enemyName: Baby Slime
   enemyDescription: A baby Slime!
-  enemyMaxHP: 13
-  enemyCurHP: 13
-  enemyMaxMP: 12
-  enemyCurMP: 12
-  enemyBaseATK: 24
-  enemyCurATK: 24
-  enemyBaseDEF: 24
-  enemyCurDEF: 24
-  enemyBaseWIS: 24
-  enemyCurWIS: 24
-  enemyBaseSTR: 24
-  enemyCurSTR: 24
-  experienceGranted: 942
-  EnemyRarity: 0
+  enemyMaxHP: 364
+  enemyCurHP: -108
+  enemyMaxMP: 60
+  enemyCurMP: 60
+  enemyBaseATK: 310
+  enemyCurATK: 310
+  enemyBaseDEF: 310
+  enemyCurDEF: 310
+  enemyBaseWIS: 310
+  enemyCurWIS: 310
+  enemyBaseSTR: 310
+  enemyCurSTR: 310
+  enemyBaseAGI: 0
+  enemyCurAGI: 0
+  experienceGranted: 44275
+  isDefending: 1
+  defendingValue: 31

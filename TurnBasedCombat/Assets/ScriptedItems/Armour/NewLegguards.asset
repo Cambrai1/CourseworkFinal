@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634f6dcb41be634fa15fb446245d328, type: 3}
   m_Name: NewLegguards
   m_EditorClassIdentifier: 
-  armourID: 0
+  armourID: 3
   armourName: 
   armourDescription: 
   armourIcon: {fileID: 0}
-  armourDefence: 0
+  armourDefence: 1

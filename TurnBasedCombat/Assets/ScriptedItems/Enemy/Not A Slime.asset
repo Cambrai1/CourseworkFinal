@@ -15,23 +15,27 @@ MonoBehaviour:
   Abilities:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
-  DropTable: []
-  AlwaysDropTable: []
+  alwaysDropTable: []
+  commonDropTable: []
+  rareDropTable: []
   enemyID: 2
-  enemyLevel: 1
+  enemyLevel: 50
   enemyName: It isn't a slime??
   enemyDescription: NoSlimeTime
-  enemyMaxHP: 11
-  enemyCurHP: 11
-  enemyMaxMP: 11
-  enemyCurMP: 11
-  enemyBaseATK: 17
-  enemyCurATK: 17
-  enemyBaseDEF: 17
-  enemyCurDEF: 17
-  enemyBaseWIS: 17
-  enemyCurWIS: 17
-  enemyBaseSTR: 17
-  enemyCurSTR: 17
-  experienceGranted: 333
-  EnemyRarity: 0
+  enemyMaxHP: 364
+  enemyCurHP: -63
+  enemyMaxMP: 60
+  enemyCurMP: 45
+  enemyBaseATK: 310
+  enemyCurATK: 310
+  enemyBaseDEF: 310
+  enemyCurDEF: 310
+  enemyBaseWIS: 310
+  enemyCurWIS: 310
+  enemyBaseSTR: 310
+  enemyCurSTR: 310
+  enemyBaseAGI: 0
+  enemyCurAGI: 0
+  experienceGranted: 44275
+  isDefending: 1
+  defendingValue: 31

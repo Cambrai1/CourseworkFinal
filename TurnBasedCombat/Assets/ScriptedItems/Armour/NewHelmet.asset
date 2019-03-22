@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5b7994177bcce84aa8f3ffaa1fd0e77, type: 3}
   m_Name: NewHelmet
   m_EditorClassIdentifier: 
-  armourID: 0
+  armourID: 2
   armourName: 
   armourDescription: 
   armourIcon: {fileID: 0}
-  armourDefence: 0
+  armourDefence: 1

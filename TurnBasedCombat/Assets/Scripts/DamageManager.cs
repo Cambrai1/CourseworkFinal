@@ -30,14 +30,23 @@ public class DamageManager : MonoBehaviour
     public void heroStandardAttack()
     {
         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
-        Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
+        Damage = (((targetControl.HeroData.curSTR) * (targetControl.HeroData.curSTR)) / ((targetControl.HeroData.curSTR) + (targetControl.EnemyData.enemyCurDEF)));
 
         Damage *= DamageMultiplier;
         Damage = Mathf.Floor(Damage);
 
-        targetControl.EnemyData.enemyCurHP -= (int)Damage;
+        int HitChance = Random.Range(1, 10);
+        if (HitChance > 9)
+        {
+            Debug.Log(targetControl.HeroData.name + " missed!");
+        }
+        else
+        {
+            targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
-        Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+            Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+        }
+
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
             Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
@@ -84,6 +93,11 @@ public class DamageManager : MonoBehaviour
         }
 
         targetControl.StateControl();
+
+    }
+
+    public void heroFlee()
+    {
 
     }
 
@@ -191,9 +205,22 @@ public class DamageManager : MonoBehaviour
                 Damage *= DamageMultiplier;
                 Damage = Mathf.Floor(Damage);
 
-                Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
+                int HitChance = Random.Range(1, 10);
+                if (HitChance > 8)
+                {
+                    Debug.Log(targetControl.EnemyData.enemyName + " missed!");
+                }
+                else
+                {
+                    Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
 
-                targetControl.HeroData.curHP -= (int)Damage;
+                    targetControl.HeroData.curHP -= (int)Damage;
+                }
+
+                if (targetControl.HeroData.curHP < 0)
+                {
+                    targetControl.HeroData.curHP = 0;
+                }
                 break;
             case 2:
                 //ability use
@@ -214,6 +241,11 @@ public class DamageManager : MonoBehaviour
                 else
                 {
                     Debug.Log(targetControl.EnemyData.enemyName + " does not have enough mana to cast " + targetControl.EnemyData.Abilities[i].name);
+                }
+
+                if (targetControl.HeroData.curHP < 0)
+                {
+                    targetControl.HeroData.curHP = 0;
                 }
                 break;
             case 3:

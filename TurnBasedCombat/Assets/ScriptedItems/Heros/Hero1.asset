@@ -34,7 +34,7 @@ MonoBehaviour:
   defense: 260
   wisdom: 260
   agility: 260
-  curHP: 410
+  curHP: 0
   curMP: 160
   curATK: 260
   curSTR: 260

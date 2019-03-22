@@ -16,28 +16,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   Inventory: []
-  weaponField: {fileID: 0}
-  EquippedHelmet: {fileID: 0}
-  EquippedChestplate: {fileID: 0}
-  EquippedLegguards: {fileID: 0}
-  EquippedBoots: {fileID: 0}
+  weaponField: {fileID: 11400000, guid: 9f39092011c1add42990d2ed608d271e, type: 2}
+  EquippedHelmet: {fileID: 11400000, guid: 02c86a763c7067d43b517fb565f08df1, type: 2}
+  EquippedChestplate: {fileID: 11400000, guid: 6b8a140b6410ece42bd471c22e9d3072, type: 2}
+  EquippedLegguards: {fileID: 11400000, guid: 8de4f36d2067edb4faaf2f755b37c46a, type: 2}
+  EquippedBoots: {fileID: 11400000, guid: 9dd8c8cb6d282ed499789f1274ae656b, type: 2}
   name: Cool Man
-  level: 55
-  experience: 354201
-  experienceNeeded: 407891
-  baseHP: 450
-  baseMP: 175
-  attack: 285
-  strength: 285
-  defense: 285
-  wisdom: 285
-  agility: 285
-  curHP: 197
+  level: 50
+  experience: 177101
+  experienceNeeded: 353553
+  baseHP: 410
+  baseMP: 160
+  attack: 260
+  strength: 260
+  defense: 260
+  wisdom: 260
+  agility: 260
+  curHP: 410
   curMP: 160
-  curATK: 285
-  curSTR: 285
-  curDEF: 285
-  curWIS: 285
-  curAGI: 285
+  curATK: 260
+  curSTR: 260
+  curDEF: 260
+  curWIS: 260
+  curAGI: 260
   isDefending: 0
-  defendingValue: 28
+  defendingValue: 26

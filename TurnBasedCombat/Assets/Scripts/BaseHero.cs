@@ -63,18 +63,6 @@ public class BaseHero : ScriptableObject
 
     public bool isDefending = false;
     public int defendingValue;
-    //public enum heroTypes
-    //{
-    //    Warrior,
-    //    Priest,
-    //    Mage,
-    //    MartialArtist,
-    //    Thief,
-    //    Gladiator
-    //}
-
-    //[SerializeField]
-    //public heroTypes heroType;
 
     public void Awake()
     {

@@ -9,12 +9,12 @@ public class Weapon : ScriptableObject
     [SerializeField]
     public string weaponName;
     [SerializeField]
-    private string weaponDescription;
+    public string weaponDescription;
     [SerializeField]
-    private Sprite weaponIcon;
+    public Sprite weaponIcon;
     [SerializeField]
-    private int weaponDamage;
+    public int weaponDamage;
     [SerializeField]
-    private int weaponAccuracy;
+    public int weaponAccuracy;
 
 }

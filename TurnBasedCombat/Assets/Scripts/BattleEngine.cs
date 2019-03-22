@@ -304,12 +304,14 @@ public class BattleEngine : MonoBehaviour
                 //Rare Drop
                 randomVal = Random.Range(0, enemy.rareDropTable.Count);
                 Hero1Data.Inventory.Add(enemy.rareDropTable[randomVal]);
+                Debug.Log(enemy.enemyName + " dropped a " + enemy.rareDropTable[randomVal].itemName + "!");
             }
-            else if (randomVal >= 50)
+            else if (randomVal >= 75)
             {
                 //common drop
                 randomVal = Random.Range(0, enemy.commonDropTable.Count);
                 Hero1Data.Inventory.Add(enemy.commonDropTable[randomVal]);
+                Debug.Log(enemy.enemyName + " dropped a " + enemy.commonDropTable[randomVal].itemName + "!");
             }
             //Hero1Data.Inventory.Add(enemy.DropTable[0]);
         }

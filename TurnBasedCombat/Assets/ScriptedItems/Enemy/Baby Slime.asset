@@ -16,14 +16,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   alwaysDropTable: []
-  commonDropTable: []
-  rareDropTable: []
+  commonDropTable:
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
+  rareDropTable:
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
   enemyID: 1
   enemyLevel: 50
   enemyName: Baby Slime
   enemyDescription: A baby Slime!
   enemyMaxHP: 364
-  enemyCurHP: -108
+  enemyCurHP: -52
   enemyMaxMP: 60
   enemyCurMP: 60
   enemyBaseATK: 310

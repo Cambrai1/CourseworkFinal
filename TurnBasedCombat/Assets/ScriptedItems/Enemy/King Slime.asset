@@ -16,14 +16,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   alwaysDropTable: []
-  commonDropTable: []
-  rareDropTable: []
+  commonDropTable:
+  - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
+  rareDropTable:
+  - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
   enemyID: 0
   enemyLevel: 50
   enemyName: King Slime
   enemyDescription: A king slime!
   enemyMaxHP: 364
-  enemyCurHP: -128
+  enemyCurHP: -52
   enemyMaxMP: 60
   enemyCurMP: 60
   enemyBaseATK: 310

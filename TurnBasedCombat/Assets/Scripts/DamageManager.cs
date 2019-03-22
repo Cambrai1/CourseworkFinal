@@ -30,7 +30,7 @@ public class DamageManager : MonoBehaviour
     public void heroStandardAttack()
     {
         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
-        Damage = (((targetControl.HeroData.curSTR) * (targetControl.HeroData.curSTR)) / ((targetControl.HeroData.curSTR) + (targetControl.EnemyData.enemyCurDEF)));
+        Damage = (((targetControl.HeroData.curSTR + targetControl.HeroData.weaponField.weaponDamage) * (targetControl.HeroData.curSTR + targetControl.HeroData.weaponField.weaponDamage)) / ((targetControl.HeroData.curSTR + targetControl.HeroData.weaponField.weaponDamage) + (targetControl.EnemyData.enemyCurDEF)));
 
         Damage *= DamageMultiplier;
         Damage = Mathf.Floor(Damage);
@@ -108,6 +108,7 @@ public class DamageManager : MonoBehaviour
 
     public void EnemyChooseAndAttack()
     {
+        
         HPsum = 0;
         foreach (var Hero in targetControl.baseHeros)
         {
@@ -176,6 +177,25 @@ public class DamageManager : MonoBehaviour
         }
         //attack,defend,ability,flee
         //attack 40%, ability 40%, defend 15%, flee 5%
+
+        int armourDef = 0;
+        if (targetControl.HeroData.EquippedHelmet != null)
+        {
+            armourDef += targetControl.HeroData.EquippedHelmet.armourDefence;
+        }
+        if (targetControl.HeroData.EquippedChestplate != null)
+        {
+            armourDef += targetControl.HeroData.EquippedChestplate.armourDefence;
+        }
+        if (targetControl.HeroData.EquippedLegguards != null)
+        {
+            armourDef += targetControl.HeroData.EquippedLegguards.armourDefence;
+        }
+        if (targetControl.HeroData.EquippedBoots != null)
+        {
+            armourDef += targetControl.HeroData.EquippedBoots.armourDefence;
+        }
+
         var choiceVal = Random.Range(1, 100);
         if (choiceVal > 0 && choiceVal < 61)
         {
@@ -199,8 +219,7 @@ public class DamageManager : MonoBehaviour
                 //standard attack
                 Debug.Log("Enemy Chose to Standard Attack!");
                 DamageMultiplier = ((float)Random.Range(75, 125))/100;
-
-                Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF)));
+                Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF + armourDef)));
 
                 Damage *= DamageMultiplier;
                 Damage = Mathf.Floor(Damage);

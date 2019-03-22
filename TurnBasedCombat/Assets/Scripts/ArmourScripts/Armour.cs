@@ -9,9 +9,9 @@ public class Armour : ScriptableObject
     [SerializeField]
     public string armourName;
     [SerializeField]
-    private string armourDescription;
+    public string armourDescription;
     [SerializeField]
-    private Sprite armourIcon;
+    public Sprite armourIcon;
     [SerializeField]
-    private int armourDefence;
+    public int armourDefence;
 }

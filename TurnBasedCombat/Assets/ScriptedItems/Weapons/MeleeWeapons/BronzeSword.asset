@@ -16,5 +16,5 @@ MonoBehaviour:
   weaponName: Bronze Sword
   weaponDescription: A sword made of bronze.
   weaponIcon: {fileID: 0}
-  weaponDamage: 1
+  weaponDamage: 100
   weaponAccuracy: 1

@@ -16,4 +16,4 @@ MonoBehaviour:
   armourName: 
   armourDescription: 
   armourIcon: {fileID: 0}
-  armourDefence: 1
+  armourDefence: 100

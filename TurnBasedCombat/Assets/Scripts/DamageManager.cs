@@ -8,8 +8,6 @@ public class DamageManager : MonoBehaviour
     public UImanager UIdetails;
 
     public float Damage;
-    public int defIncreaseValue;
-    public bool isDefending;
     public float DamageMultiplier;
 
     public int HPsum;
@@ -31,7 +29,6 @@ public class DamageManager : MonoBehaviour
 
     public void heroStandardAttack()
     {
-        Debug.Log("Standard Attack Log 190");
         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
         Damage = (((targetControl.HeroData.curATK) * (targetControl.HeroData.curATK)) / ((targetControl.HeroData.curATK) + (targetControl.EnemyData.enemyCurDEF)));
 
@@ -50,7 +47,6 @@ public class DamageManager : MonoBehaviour
 
     public void heroAbilityAttackSolo()
     {
-        Debug.Log("Standard Ability Log 190");
         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
         Damage = (((targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage) * (targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage)) / ((targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage) + (targetControl.EnemyData.enemyCurDEF)));
 
@@ -70,14 +66,30 @@ public class DamageManager : MonoBehaviour
         UIdetails.HeroBarUpdate();
     }
 
-    public void heroAbilityAttackAll()
+    public void heroDefend()
     {
+        Debug.Log(targetControl.HeroData.name + " chose to defend!");
+        if (targetControl.HeroData.isDefending == true)
+        {
+            targetControl.HeroData.curDEF -= targetControl.HeroData.defendingValue;
+        }
+
+        targetControl.HeroData.curDEF += targetControl.HeroData.defendingValue;
+
+        targetControl.HeroData.isDefending = true;
+
+        if (targetControl.HeroData.name != targetControl.Hero4Data.name)
+        {
+            Invoke("Delay", 1);
+        }
+
+        targetControl.StateControl();
 
     }
 
-    public void heroDefend()
+    public void Delay()
     {
-
+        UIdetails.ActionPanel.SetActive(true);
     }
 
     public void EnemyChooseAndAttack()
@@ -90,7 +102,6 @@ public class DamageManager : MonoBehaviour
                 Hero.curHP = 0;
             }
             HPsum += Hero.curHP;
-            Debug.Log("HPsum = " + HPsum);
         }
 
         if (targetControl.Hero1Data.curHP < 1)
@@ -152,19 +163,19 @@ public class DamageManager : MonoBehaviour
         //attack,defend,ability,flee
         //attack 40%, ability 40%, defend 15%, flee 5%
         var choiceVal = Random.Range(1, 100);
-        if (choiceVal > 0 && choiceVal < 41)
+        if (choiceVal > 0 && choiceVal < 61)
         {
             choiceVal = 1;
         }
-        else if (choiceVal > 40 && choiceVal < 81)
+        else if (choiceVal > 60 && choiceVal < 85)
         {
             choiceVal = 2;
         }
-        else if (choiceVal > 80 && choiceVal < 96)
+        else if (choiceVal > 84 && choiceVal < 96)
         {
             choiceVal = 3;
         }
-        else if (choiceVal > 95 && choiceVal < 101)
+        else if (choiceVal > 95 && choiceVal <= 100)
         {
             choiceVal = 4;
         }
@@ -187,21 +198,36 @@ public class DamageManager : MonoBehaviour
             case 2:
                 //ability use
                 Debug.Log("Enemy Chose To Use An Ability!");
-                foreach (var Ability in targetControl.EnemyData.Abilities)
+                int numberOfAbilities = targetControl.EnemyData.Abilities.Count;
+                int i = (Random.Range(0, numberOfAbilities));
+                if (targetControl.EnemyData.Abilities[i].manaCost < targetControl.EnemyData.enemyCurMP)
                 {
+                    DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
+                    Damage = (((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) * (targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage)) / ((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) + (targetControl.HeroData.curDEF)));
 
+                    Damage *= DamageMultiplier;
+                    Damage = Mathf.Floor(Damage);
+
+                    targetControl.HeroData.curHP -= (int)Damage;
+                    targetControl.EnemyData.enemyCurMP -= targetControl.EnemyData.Abilities[i].manaCost;
+                }
+                else
+                {
+                    Debug.Log(targetControl.EnemyData.enemyName + " does not have enough mana to cast " + targetControl.EnemyData.Abilities[i].name);
                 }
                 break;
             case 3:
                 //defend
                 Debug.Log("Enemy Chose to Defend!");
-                if (isDefending == true)
+                if (targetControl.EnemyData.isDefending == true)
                 {
-                    targetControl.EnemyData.enemyCurDEF -= defIncreaseValue;
-                    isDefending = false;
+                    targetControl.EnemyData.enemyCurDEF -= targetControl.EnemyData.defendingValue;
                 }
-                defIncreaseValue = targetControl.EnemyData.enemyCurDEF / 10;
-                targetControl.EnemyData.enemyCurDEF += defIncreaseValue;
+
+                targetControl.EnemyData.enemyCurDEF += targetControl.EnemyData.defendingValue;
+
+                targetControl.EnemyData.isDefending = true;
+
                 break;
             case 4:
                 //flee
@@ -209,27 +235,7 @@ public class DamageManager : MonoBehaviour
 
                 break;
         }
-        DamageReturner();
         UIdetails.HeroBarUpdate();
     }
 
-    public void DamageReturner()
-    {
-       if (targetControl.HeroData.name == targetControl.Hero1Data.name)
-        {
-            targetControl.Hero1Data = targetControl.HeroData;
-        }
-        else if (targetControl.HeroData.name == targetControl.Hero2Data.name)
-        {
-            targetControl.Hero2Data = targetControl.HeroData;
-        }
-        else if (targetControl.HeroData.name == targetControl.Hero3Data.name)
-        {
-            targetControl.Hero3Data = targetControl.HeroData;
-        }
-        else if (targetControl.HeroData.name == targetControl.Hero4Data.name)
-        {
-            targetControl.Hero4Data = targetControl.HeroData;
-        }
-    }
 }

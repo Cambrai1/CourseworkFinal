@@ -12,24 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112b73eab2ef21245a262645aa409332, type: 3}
   m_Name: Slime
   m_EditorClassIdentifier: 
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   DropTable: []
   AlwaysDropTable: []
   enemyID: 3
-  enemyLevel: 5
+  enemyLevel: 1
   enemyName: Slime
   enemyDescription: A Slime!
-  enemyMaxHP: 27
-  enemyCurHP: -5
-  enemyMaxMP: 15
-  enemyCurMP: 15
-  enemyBaseATK: 45
-  enemyCurATK: 45
-  enemyBaseDEF: 45
-  enemyCurDEF: 45
-  enemyBaseWIS: 45
-  enemyCurWIS: 45
-  enemyBaseSTR: 45
-  enemyCurSTR: 45
-  experienceGranted: 0
+  enemyMaxHP: 11
+  enemyCurHP: 11
+  enemyMaxMP: 11
+  enemyCurMP: 11
+  enemyBaseATK: 17
+  enemyCurATK: 17
+  enemyBaseDEF: 17
+  enemyCurDEF: 17
+  enemyBaseWIS: 17
+  enemyCurWIS: 17
+  enemyBaseSTR: 17
+  enemyCurSTR: 17
+  experienceGranted: 333
   EnemyRarity: 0

@@ -61,6 +61,8 @@ public class BaseHero : ScriptableObject
     [SerializeField]
     public int curAGI;
 
+    public bool isDefending = false;
+    public int defendingValue;
     //public enum heroTypes
     //{
     //    Warrior,
@@ -93,6 +95,8 @@ public class BaseHero : ScriptableObject
         curAGI = agility;
 
         experienceNeeded = (int)Mathf.Round(1000 * Mathf.Pow(level, 1.5f));
+
+        defendingValue = defense / 10;
         LevelStepper();
     }
 

@@ -12,24 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112b73eab2ef21245a262645aa409332, type: 3}
   m_Name: King Slime
   m_EditorClassIdentifier: 
-  Abilities: []
+  Abilities:
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   DropTable: []
   AlwaysDropTable: []
   enemyID: 0
-  enemyLevel: 3
+  enemyLevel: 1
   enemyName: King Slime
   enemyDescription: A king slime!
-  enemyMaxHP: 17
-  enemyCurHP: -7
-  enemyMaxMP: 13
-  enemyCurMP: 13
-  enemyBaseATK: 31
-  enemyCurATK: 31
-  enemyBaseDEF: 31
-  enemyCurDEF: 31
-  enemyBaseWIS: 31
-  enemyCurWIS: 31
-  enemyBaseSTR: 31
-  enemyCurSTR: 31
-  experienceGranted: 0
+  enemyMaxHP: 11
+  enemyCurHP: 11
+  enemyMaxMP: 11
+  enemyCurMP: 11
+  enemyBaseATK: 17
+  enemyCurATK: 17
+  enemyBaseDEF: 17
+  enemyCurDEF: 17
+  enemyBaseWIS: 17
+  enemyCurWIS: 17
+  enemyBaseSTR: 17
+  enemyCurSTR: 17
+  experienceGranted: 333
   EnemyRarity: 0

@@ -44,6 +44,9 @@ public class BaseEnemy : ScriptableObject
     [SerializeField]
     public int experienceGranted;
 
+    public bool isDefending = false;
+    public int defendingValue;
+
     [SerializeField]
     public enemyRarity EnemyRarity;
     public enum enemyRarity
@@ -69,5 +72,9 @@ public class BaseEnemy : ScriptableObject
         enemyCurWIS = enemyBaseWIS;
         enemyCurHP = enemyMaxHP;
         enemyCurMP = enemyMaxMP;
+
+        experienceGranted = (int)Mathf.Round(333 * Mathf.Pow(enemyLevel, 1.5f));
+
+        defendingValue = enemyBaseDEF / 10;
     }
 }

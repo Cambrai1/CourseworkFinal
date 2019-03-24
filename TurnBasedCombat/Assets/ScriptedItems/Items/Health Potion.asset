@@ -16,7 +16,5 @@ MonoBehaviour:
   itemName: Health Potion
   itemDescription: Restores 50HP to the target Hero. One time use.
   itemIcon: {fileID: 0}
-  HPrestore: 0
-  MPrestore: 50
-  StatusEffect: 3
-  DropRate: 1
+  restoreValue: 50
+  StatusEffect: 1

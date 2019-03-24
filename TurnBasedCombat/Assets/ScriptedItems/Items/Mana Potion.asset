@@ -16,7 +16,5 @@ MonoBehaviour:
   itemName: Mana Potion
   itemDescription: Restores 50MP to the target Hero. One time use.
   itemIcon: {fileID: 0}
-  HPrestore: 0
-  MPrestore: 50
-  StatusEffect: 4
-  DropRate: 1
+  restoreValue: 50
+  StatusEffect: 2

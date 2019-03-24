@@ -17,7 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
   Inventory:
   - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
-  - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
   weaponField: {fileID: 11400000, guid: 9f39092011c1add42990d2ed608d271e, type: 2}
   EquippedHelmet: {fileID: 11400000, guid: 02c86a763c7067d43b517fb565f08df1, type: 2}
   EquippedChestplate: {fileID: 11400000, guid: 6b8a140b6410ece42bd471c22e9d3072, type: 2}
@@ -34,7 +34,7 @@ MonoBehaviour:
   defense: 260
   wisdom: 260
   agility: 260
-  curHP: 0
+  curHP: 410
   curMP: 160
   curATK: 260
   curSTR: 260

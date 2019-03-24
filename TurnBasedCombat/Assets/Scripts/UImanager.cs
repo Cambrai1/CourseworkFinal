@@ -164,6 +164,8 @@ public class UImanager : MonoBehaviour
             InventoryCreate.GetComponentsInChildren<Text>()[0].text = item.itemName;
             InventoryCreate.GetComponentsInChildren<Text>()[1].text = item.itemDescription;
             InventoryCreate.GetComponentsInChildren<Text>()[2].text = item.itemID.ToString();
+            InventoryCreate.GetComponentsInChildren<Text>()[3].text = item.restoreValue.ToString();
+            InventoryCreate.GetComponentsInChildren<Text>()[4].text = item.StatusEffect.ToString();
             i++;
         }
         Debug.Log("Hello");

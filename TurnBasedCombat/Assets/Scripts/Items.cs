@@ -15,21 +15,14 @@ public class Items : ScriptableObject
     [SerializeField]
     public Sprite itemIcon;
     [SerializeField]
-    public int HPrestore;
-    [SerializeField]
-    public int MPrestore;
+    public int restoreValue;
     [SerializeField]
     public statusEffect StatusEffect;
     public enum statusEffect
     {
         REVIVE,
-        AWAKEN,
-        CURE,
         HEALTH,
-        MANA
+        MANA,
+        MULTIRESTORE
     }
-
-    //standard Drop Rate of item from monsters
-    [SerializeField]
-    [Range(1, 100)] public int DropRate;
 }

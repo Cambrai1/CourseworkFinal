@@ -15,9 +15,7 @@ MonoBehaviour:
   itemID: 3
   itemName: Yggdrasil Sap
   itemDescription: A small vial containing Sap from the Yggrasil Tree. Use on a target
-    hero to cure them of poisons. One time use.
+    hero to restore 100MP. One time use.
   itemIcon: {fileID: 0}
-  HPrestore: 0
-  MPrestore: 0
-  StatusEffect: 2
-  DropRate: 1
+  restoreValue: 100
+  StatusEffect: 3

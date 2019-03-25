@@ -2424,6 +2424,7 @@ MonoBehaviour:
   EnemyCharPrefab: {fileID: 2493543037746395822, guid: d973a13ab811a614c8db1ada500abff8,
     type: 3}
   ChosenAbility: {fileID: 0}
+  ChosenItem: {fileID: 0}
   usingAbility: 0
   HeroDecision: 0
   FightStates: 0
@@ -2455,6 +2456,8 @@ MonoBehaviour:
   abilityDescription: {fileID: 777792357}
   abilityManaCost: {fileID: 283593549}
   targetEnemyButtonPrefab: {fileID: 856848065830463901, guid: cf1ef33145f5a9f439198bfbdae04087,
+    type: 3}
+  targetHeroButtonPrefab: {fileID: 2148558247946420983, guid: 2f3bb33cf95f915459ad462ac09c70ac,
     type: 3}
   targetEnemyCanvasParent: {fileID: 698302931}
   InventoryItems: []

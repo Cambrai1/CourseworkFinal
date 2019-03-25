@@ -25,6 +25,7 @@ public class BattleEngine : MonoBehaviour
 
     public GameObject EnemyCharPrefab;
     public Abilities ChosenAbility;
+    public Items ChosenItem;
 
     public bool usingAbility = false;
 

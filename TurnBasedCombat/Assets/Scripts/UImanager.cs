@@ -23,6 +23,7 @@ public class UImanager : MonoBehaviour
     public GameObject abilityManaCost;
 
     public GameObject targetEnemyButtonPrefab;
+    public GameObject targetHeroButtonPrefab;
     public GameObject targetEnemyCanvasParent;
 
     public List<GameObject> InventoryItems;
@@ -237,6 +238,22 @@ public class UImanager : MonoBehaviour
                 targetEnemyCreate.GetComponentsInChildren<Text>()[2].text = targetEnemy.enemyID.ToString();
                 i++;
             }
+            
+        }
+    }
+
+    public void InstantiateTargetHeroPrefab()
+    {
+        int i = 0;
+        foreach (var targetHero in TurnData.baseHeros)
+        {
+                Position.z = 0;
+                Position.x = -7;
+                Position.y = (-20 - (i * 40));
+                GameObject targetHeroCreate = Instantiate(targetHeroButtonPrefab, Position, Quaternion.identity);
+                targetHeroCreate.transform.SetParent(targetEnemyCanvasParent.transform, false);
+                targetHeroCreate.GetComponentsInChildren<Text>()[0].text = targetHero.name;
+                i++;
             
         }
     }

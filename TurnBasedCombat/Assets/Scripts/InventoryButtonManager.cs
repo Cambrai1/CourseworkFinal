@@ -6,10 +6,11 @@ using UnityEngine.EventSystems;
 
 public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
 {
+    public UImanager referenceUImanager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
     }
 
     // Update is called once per frame
@@ -41,118 +42,17 @@ public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
 
     public void onClick()
     {
-        int restoreVal = int.Parse(gameObject.GetComponentsInChildren<Text>()[3].text);
-        string itemType = gameObject.GetComponentsInChildren<Text>()[4].text;
-
-        switch (itemType)
+        foreach (var item in GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory)
         {
-            case "REVIVE":
-                if (GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP <= 0)
-                {
-                    GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP += restoreVal;
-                    Debug.Log(GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData + " has been revived!");
-                }
-                else
-                {
-                    Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text + " had no effect!");
-                }
-
-               i = 0;
-
-                foreach (var item in GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory)
-                {
-                    if (item.itemID.ToString() == gameObject.GetComponentsInChildren<Text>()[2].text)
-                    {
-                        GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory.RemoveAt(i);
-                        break;
-                    }
-
-                    i++;
-                }
-                break;
-            case "MANA":
-                if (GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP > 0)
-                {
-                    GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curMP += restoreVal;
-                    Debug.Log(GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData + " has had MP restored!");
-                }
-                else
-                {
-                    Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text + " had no effect!");
-                }
-
-                i = 0;
-
-                foreach (var item in GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory)
-                {
-                    if (item.itemID.ToString() == gameObject.GetComponentsInChildren<Text>()[2].text)
-                    {
-                        GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory.RemoveAt(i);
-                        break;
-                    }
-
-                    i++;
-                }
-                break;
-            case "HEALTH":
-                if (GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP > 0)
-                {
-                    GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP += restoreVal;
-                    Debug.Log(GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData + " has been healed!");
-                }
-                else
-                {
-                    Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text + " had no effect!");
-                }
-
-                i = 0;
-
-                foreach (var item in GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory)
-                {
-                    if (item.itemID.ToString() == gameObject.GetComponentsInChildren<Text>()[2].text)
-                    {
-                        GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory.RemoveAt(i);
-                        break;
-                    }
-
-                    i++;
-                }
-                break;
-            case "MULTIRESTORE":
-                if (GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP > 0)
-                {
-                    GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP += restoreVal;
-                    GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curMP += restoreVal;
-                    Debug.Log(GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData + " has been healed and had MP restored!");
-                }
-                else
-                {
-                    Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text + " had no effect!");
-                }
-
-                i = 0;
-
-                foreach (var item in GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory)
-                {
-                    if (item.itemID.ToString() == gameObject.GetComponentsInChildren<Text>()[2].text)
-                    {
-                        GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory.RemoveAt(i);
-                        break;
-                    }
-
-                    i++;
-                }
-                break;
+            if (gameObject.GetComponentsInChildren<Text>()[0].text == item.itemName)
+            {
+                GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().ChosenItem = item;
+            }
         }
 
-        if (GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP > GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.baseHP)
-        {
-            GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curHP = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.baseHP;
-        }
-        if (GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curMP > GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.baseMP)
-        {
-            GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.curMP = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.baseMP;
-        }
-
+        referenceUImanager.targetEnemyCanvasParent.SetActive(true);
+        GameObject.Find("InventoryPanel").SetActive(false);
+        referenceUImanager.DeleteItemsPrefab();
+        referenceUImanager.InstantiateTargetHeroPrefab();
     }
 }

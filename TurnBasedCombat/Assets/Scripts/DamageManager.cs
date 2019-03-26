@@ -98,7 +98,23 @@ public class DamageManager : MonoBehaviour
 
     public void heroFlee()
     {
-
+        Damage = targetControl.HeroData.curAGI + (targetControl.Enemy1Data.enemyCurAGI + targetControl.Enemy2Data.enemyCurAGI + targetControl.Enemy3Data.enemyCurAGI + targetControl.Enemy4Data.enemyCurAGI)/4;
+        DamageMultiplier = Random.Range(0, Damage);
+        if (DamageMultiplier < targetControl.HeroData.curAGI)
+        {
+            //Flee successful
+            UIdetails.ActionPanel.SetActive(false);
+            Debug.Log(targetControl.HeroData.name + " fleed successfully!");
+            targetControl.Flee();
+        }
+        else
+        {
+            //Flee unsuccessful
+            UIdetails.ActionPanel.SetActive(false);
+            Debug.Log(targetControl.HeroData.name + " failed to flee!");
+            targetControl.StateControl();
+            Invoke("Delay", 1);
+        }
     }
 
     public void Delay()
@@ -283,7 +299,21 @@ public class DamageManager : MonoBehaviour
             case 4:
                 //flee
                 Debug.Log("Enemy Chose to Try and Flee!");
-
+                Damage = targetControl.EnemyData.enemyCurAGI + (targetControl.Hero1Data.curAGI + targetControl.Hero2Data.curAGI + targetControl.Hero3Data.curAGI + targetControl.Hero4Data.curAGI) / 4;
+                DamageMultiplier = Random.Range(0, Damage);
+                if (DamageMultiplier < targetControl.EnemyData.enemyCurAGI)
+                {
+                    //Flee successful
+                    Debug.Log(targetControl.EnemyData.name + " fleed successfully!");
+                    targetControl.Flee();
+                }
+                else
+                {
+                    //Flee unsuccessful
+                    Debug.Log(targetControl.EnemyData.name + " failed to flee!");
+                    targetControl.StateControl();
+                    Invoke("Delay", 1);
+                }
                 break;
         }
         UIdetails.HeroBarUpdate();

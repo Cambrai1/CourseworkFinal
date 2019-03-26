@@ -61,6 +61,7 @@ public class BaseEnemy : ScriptableObject
         enemyBaseSTR = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
         enemyBaseDEF = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
         enemyBaseWIS = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+        enemyBaseAGI = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
 
         enemyCurATK = enemyBaseATK;
         enemyCurSTR = enemyBaseSTR;
@@ -68,6 +69,7 @@ public class BaseEnemy : ScriptableObject
         enemyCurWIS = enemyBaseWIS;
         enemyCurHP = enemyMaxHP;
         enemyCurMP = enemyMaxMP;
+        enemyCurAGI = enemyBaseAGI;
 
         experienceGranted = (int)Mathf.Round(333 * Mathf.Pow(enemyLevel, 1.25f));
 

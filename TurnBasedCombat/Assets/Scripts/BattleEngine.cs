@@ -135,6 +135,13 @@ public class BattleEngine : MonoBehaviour
         }
     }
 
+    public void Flee()
+    {
+        FightStates = FightState.END;
+
+        StateControl();
+    }
+
     public void StateControl()
     {
 
@@ -317,10 +324,16 @@ public class BattleEngine : MonoBehaviour
             //Hero1Data.Inventory.Add(enemy.DropTable[0]);
         }
 
+        Debug.Log("The team has recieved " + totalXP + "xp!");
         Hero1Data.experience += totalXP;
         Hero2Data.experience += totalXP;
         Hero3Data.experience += totalXP;
         Hero4Data.experience += totalXP;
+
+    }
+
+    public void FightFlee()
+    {
 
     }
 }

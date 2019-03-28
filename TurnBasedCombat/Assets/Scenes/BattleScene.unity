@@ -2409,16 +2409,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageScript: {fileID: 906857463}
-  Hero1Data: {fileID: 11400000, guid: e53ae9cdca168834090647a23b0de806, type: 2}
-  Hero2Data: {fileID: 11400000, guid: 5b59f0adf5b4e0d40890b43ae6d82ecb, type: 2}
-  Hero3Data: {fileID: 11400000, guid: 4fd60681ddebf7f4894c4295bfdadc69, type: 2}
-  Hero4Data: {fileID: 11400000, guid: f415e2da4fcf9ac4085d827ef3a4e2de, type: 2}
+  Hero1Data: {fileID: 11400000, guid: 89ac423e937785247bedc7c8a6ea23df, type: 2}
+  Hero2Data: {fileID: 11400000, guid: a869e7981927a764fac2989c4caf7332, type: 2}
+  Hero3Data: {fileID: 11400000, guid: 284134eff352c6349ab58cd840266e5c, type: 2}
+  Hero4Data: {fileID: 11400000, guid: abaaba8cbaec73440be8d35125ede988, type: 2}
   HeroData: {fileID: 0}
   baseHeros: []
-  Enemy1Data: {fileID: 11400000, guid: 2cf7f6c8a5ab6654384851ad1ac02430, type: 2}
-  Enemy2Data: {fileID: 11400000, guid: 0699d92ce5a622e4c87fea8dd163ab98, type: 2}
-  Enemy3Data: {fileID: 11400000, guid: d7f3754643a766b489ca8c6f4ba222a6, type: 2}
-  Enemy4Data: {fileID: 11400000, guid: a70c07a97fb12504ab4ae9a1130815d2, type: 2}
+  Enemy1Data: {fileID: 11400000, guid: 1ef6c0aed1e27444a8a90a0bb814a712, type: 2}
+  Enemy2Data: {fileID: 11400000, guid: 01d33c97cff89704ebfba5bee94dfcf9, type: 2}
+  Enemy3Data: {fileID: 11400000, guid: c05b4c16a40af6e4c89151799f68b6f0, type: 2}
+  Enemy4Data: {fileID: 11400000, guid: 0a342e364a1f3044fad0ab1ddb56f275, type: 2}
   EnemyData: {fileID: 0}
   baseEnemies: []
   EnemyCharPrefab: {fileID: 2493543037746395822, guid: d973a13ab811a614c8db1ada500abff8,

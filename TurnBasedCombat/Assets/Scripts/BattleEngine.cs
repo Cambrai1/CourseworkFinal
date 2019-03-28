@@ -227,6 +227,7 @@ public class BattleEngine : MonoBehaviour
                 Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY2):
+                allDeadCheck();
                 if (Enemy2Data.enemyCurHP > 0)
                 {
                     Debug.Log("Its now Enemy2's Turn!!");
@@ -307,14 +308,15 @@ public class BattleEngine : MonoBehaviour
         {
             totalXP += enemy.experienceGranted;
             int randomVal = Random.Range(1, 100);
-            if (randomVal >= 95)
+            
+            if ((randomVal >= 95) && (enemy.rareDropTable.Count != 0))
             {
                 //Rare Drop
                 randomVal = Random.Range(0, enemy.rareDropTable.Count);
                 Hero1Data.Inventory.Add(enemy.rareDropTable[randomVal]);
                 Debug.Log(enemy.enemyName + " dropped a " + enemy.rareDropTable[randomVal].itemName + "!");
             }
-            else if (randomVal >= 75)
+            else if ((randomVal >= 75) && (enemy.commonDropTable.Count != 0))
             {
                 //common drop
                 randomVal = Random.Range(0, enemy.commonDropTable.Count);

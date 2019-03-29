@@ -29,8 +29,14 @@ public class DamageManager : MonoBehaviour
 
     public void heroStandardAttack()
     {
+        int weaponDamage = 0;
+        if (targetControl.HeroData.weaponField != null)
+        {
+            weaponDamage += targetControl.HeroData.weaponField.weaponDamage;
+        }
+
         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
-        Damage = (((targetControl.HeroData.curSTR + targetControl.HeroData.weaponField.weaponDamage) * (targetControl.HeroData.curSTR + targetControl.HeroData.weaponField.weaponDamage)) / ((targetControl.HeroData.curSTR + targetControl.HeroData.weaponField.weaponDamage) + (targetControl.EnemyData.enemyCurDEF)));
+        Damage = (((targetControl.HeroData.curSTR + weaponDamage) * (targetControl.HeroData.curSTR + weaponDamage)) / ((targetControl.HeroData.curSTR + weaponDamage) + (targetControl.EnemyData.enemyCurDEF)));
 
         Damage *= DamageMultiplier;
         Damage = Mathf.Floor(Damage);
@@ -261,27 +267,35 @@ public class DamageManager : MonoBehaviour
                 //ability use
                 Debug.Log("Enemy Chose To Use An Ability!");
                 int numberOfAbilities = targetControl.EnemyData.Abilities.Count;
-                int i = (Random.Range(0, numberOfAbilities));
-                if (targetControl.EnemyData.Abilities[i].manaCost < targetControl.EnemyData.enemyCurMP)
+                if (numberOfAbilities != 0)
                 {
-                    DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
-                    Damage = (((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) * (targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage)) / ((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) + (targetControl.HeroData.curDEF)));
+                    int i = (Random.Range(0, numberOfAbilities));
+                    if (targetControl.EnemyData.Abilities[i].manaCost < targetControl.EnemyData.enemyCurMP)
+                    {
+                        DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
+                        Damage = (((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) * (targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage)) / ((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) + (targetControl.HeroData.curDEF)));
 
-                    Damage *= DamageMultiplier;
-                    Damage = Mathf.Floor(Damage);
+                        Damage *= DamageMultiplier;
+                        Damage = Mathf.Floor(Damage);
 
-                    targetControl.HeroData.curHP -= (int)Damage;
-                    targetControl.EnemyData.enemyCurMP -= targetControl.EnemyData.Abilities[i].manaCost;
+                        targetControl.HeroData.curHP -= (int)Damage;
+                        targetControl.EnemyData.enemyCurMP -= targetControl.EnemyData.Abilities[i].manaCost;
+                    }
+                    else
+                    {
+                        Debug.Log(targetControl.EnemyData.enemyName + " does not have enough mana to cast " + targetControl.EnemyData.Abilities[i].name);
+                    }
+
+                    if (targetControl.HeroData.curHP < 0)
+                    {
+                        targetControl.HeroData.curHP = 0;
+                    }
                 }
                 else
                 {
-                    Debug.Log(targetControl.EnemyData.enemyName + " does not have enough mana to cast " + targetControl.EnemyData.Abilities[i].name);
+                    Debug.Log(targetControl.EnemyData.enemyName + " has not learnt any abilties!");
                 }
-
-                if (targetControl.HeroData.curHP < 0)
-                {
-                    targetControl.HeroData.curHP = 0;
-                }
+                
                 break;
             case 3:
                 //defend

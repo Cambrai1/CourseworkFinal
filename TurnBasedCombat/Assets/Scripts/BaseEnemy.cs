@@ -56,7 +56,7 @@ public class BaseEnemy : ScriptableObject
     public void Awake()
     {
         enemyMaxHP = (int)Mathf.Round(10 + Mathf.Pow(enemyLevel, 1.50f)); 
-        enemyMaxMP = (150 / 99 * enemyLevel) + 10;
+        enemyMaxMP = (int)(150 / 99 * enemyLevel) + 10;
         enemyBaseATK = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
         enemyBaseSTR = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
         enemyBaseDEF = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;

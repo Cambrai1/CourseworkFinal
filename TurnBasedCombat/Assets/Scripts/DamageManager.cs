@@ -15,6 +15,19 @@ public class DamageManager : MonoBehaviour
     public int HPsum2;
     public int HPsum3;
     public int HPsum4;
+
+    public int HeroCurSTR;
+    public int HeroCurATK;
+    public int HeroCurWIS;
+    public int HeroCurDEF;
+    public int HeroCurAGI;
+
+    public int EnemyCurDEF;
+    public int EnemyCurAGI;
+
+    public int AbilityChoice;
+
+    public int weaponDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,18 +40,47 @@ public class DamageManager : MonoBehaviour
         
     }
 
-    public void heroStandardAttack()
+     void ValGrab()
     {
-        int weaponDamage = 0;
+        HeroCurSTR = targetControl.HeroData.curSTR;
+        HeroCurATK = targetControl.HeroData.curATK;
+        HeroCurWIS = targetControl.HeroData.curWIS;
+        HeroCurDEF = targetControl.HeroData.curDEF;
+        HeroCurAGI = targetControl.HeroData.curAGI;
+
+        EnemyCurDEF = targetControl.EnemyData.enemyCurDEF;
+        EnemyCurAGI = targetControl.EnemyData.enemyCurAGI;
+
+        DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
+
         if (targetControl.HeroData.weaponField != null)
         {
             weaponDamage += targetControl.HeroData.weaponField.weaponDamage;
         }
+        else
+        {
+            weaponDamage = 0;
+        }
 
-        DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
-        Damage = (((targetControl.HeroData.curSTR + weaponDamage) * (targetControl.HeroData.curSTR + weaponDamage)) / ((targetControl.HeroData.curSTR + weaponDamage) + (targetControl.EnemyData.enemyCurDEF)));
+        if (targetControl.ChosenAbility != null)
+        {
+            AbilityChoice = targetControl.ChosenAbility.baseDamage;
+        }
+        else
+        {
+            AbilityChoice = 0;
+        }
+
+    }
+
+    public void heroStandardAttack()
+    {
+        ValGrab();
+        
+        Damage = (((HeroCurSTR + weaponDamage) * (HeroCurSTR + weaponDamage)) / ((HeroCurSTR + weaponDamage) + (EnemyCurDEF)));
 
         Damage *= DamageMultiplier;
+
         Damage = Mathf.Floor(Damage);
 
         int HitChance = Random.Range(1, 10);
@@ -62,8 +104,9 @@ public class DamageManager : MonoBehaviour
 
     public void heroAbilityAttackSolo()
     {
-        DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
-        Damage = (((targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage) * (targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage)) / ((targetControl.HeroData.curWIS + targetControl.ChosenAbility.baseDamage) + (targetControl.EnemyData.enemyCurDEF)));
+        ValGrab();
+
+        Damage = (((HeroCurWIS + AbilityChoice) * (HeroCurWIS + AbilityChoice)) / ((HeroCurWIS + AbilityChoice) + (EnemyCurDEF)));
 
         Damage *= DamageMultiplier;
         Damage = Mathf.Floor(Damage);
@@ -71,6 +114,7 @@ public class DamageManager : MonoBehaviour
         targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
         Debug.Log(targetControl.HeroData.name + " Has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+
         targetControl.HeroData.curMP -= targetControl.ChosenAbility.manaCost;
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
@@ -104,9 +148,9 @@ public class DamageManager : MonoBehaviour
 
     public void heroFlee()
     {
-        Damage = targetControl.HeroData.curAGI + (targetControl.Enemy1Data.enemyCurAGI + targetControl.Enemy2Data.enemyCurAGI + targetControl.Enemy3Data.enemyCurAGI + targetControl.Enemy4Data.enemyCurAGI)/4;
+        Damage = HeroCurAGI + (targetControl.Enemy1Data.enemyCurAGI + targetControl.Enemy2Data.enemyCurAGI + targetControl.Enemy3Data.enemyCurAGI + targetControl.Enemy4Data.enemyCurAGI)/4;
         DamageMultiplier = Random.Range(0, Damage);
-        if (DamageMultiplier < targetControl.HeroData.curAGI)
+        if (DamageMultiplier < HeroCurAGI)
         {
             //Flee successful
             UIdetails.ActionPanel.SetActive(false);

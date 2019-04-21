@@ -55,6 +55,8 @@ public class BattleEngine : MonoBehaviour
 
     public FightState FightStates;
 
+    public Text ChatBox;
+
     void Start()
     {
         Hero1Data.Awake();
@@ -119,6 +121,11 @@ public class BattleEngine : MonoBehaviour
         StateControl();
     }
 
+    void ChatClear()
+    {
+        ChatBox.text = " ";
+    }
+
     public void setUsingAbilityToFalse()
     {
         usingAbility = false;
@@ -157,122 +164,135 @@ public class BattleEngine : MonoBehaviour
                 FightStates = FightState.HERO2;
                 if (Hero1Data.curHP > 0)
                 {
-                    Debug.Log("Its now Hero1's Turn!!");
                     HeroData = Hero1Data;
+                    ChatBox.text = "It is now " + Hero1Data.name + "'s turn!";
+
                 }
                 else
                 {
-                    Debug.Log(Hero1Data.name + " has fainted and cannot fight!");
                     StateControl();
-                }
+                    ChatBox.text = Hero1Data.name + " has fainted and cannot fight!";
 
+                }
+                Invoke("ChatClear", 5);
                 break;
             case (FightState.HERO2):
                 allDeadCheck();
                 FightStates = FightState.HERO3;
                 if (Hero2Data.curHP > 0)
                 {
-                    Debug.Log("Its now Hero2's Turn!!");
                     HeroData = Hero2Data;
+                    ChatBox.text = "It is now " + Hero2Data.name + "'s turn!";
+
                 }
                 else
                 {
-                    Debug.Log(Hero2Data.name + " has fainted and cannot fight!");
                     StateControl();
-                }
+                    ChatBox.text = Hero2Data.name + " has fainted and cannot fight!";
 
+                }
+                Invoke("ChatClear", 5);
                 break;
             case (FightState.HERO3):
                 allDeadCheck();
                 FightStates = FightState.HERO4;
                 if (Hero3Data.curHP > 0)
                 {
-                    Debug.Log("Its now Hero3's Turn!!");
                     HeroData = Hero3Data;
+                    ChatBox.text = "It is now " + Hero3Data.name + "'s turn!";
+
                 }
                 else
                 {
-                    Debug.Log(Hero3Data.name + " has fainted and cannot fight!");
                     StateControl();
+                    ChatBox.text = Hero3Data.name + " has fainted and cannot fight!";
+
                 }
+                Invoke("ChatClear", 5);
                 break;
             case (FightState.HERO4):
                 allDeadCheck();
                 FightStates = FightState.ENEMY1;
                 if (Hero4Data.curHP > 0)
                 {
-                    Debug.Log("Its now Hero4's Turn!!");
                     HeroData = Hero4Data;
+                    ChatBox.text = "It is now " + Hero4Data.name + "'s turn!";
+
                 }
                 else
                 {
-                    Debug.Log(Hero4Data.name + " has fainted and cannot fight!");
                     GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(false);
                     StateControl();
+                    ChatBox.text = Hero4Data.name + " has fainted and cannot fight!";
+                   
                 }
+                Invoke("ChatClear", 5);
                 break;
             case (FightState.ENEMY1):
                 allDeadCheck();
                 if (Enemy1Data.enemyCurHP > 0)
                 {
-                    Debug.Log("Its now Enemy1's Turn!!");
+                    ChatBox.text = "It is now " + Enemy1Data.name + "'s turn!";
                     EnemyData = Enemy1Data;
                     damageScript.EnemyChooseAndAttack();
                 }
                 else
                 {
-                    Debug.Log(Enemy1Data.enemyName + " is dead and cannot fight!");
+                    ChatBox.text = Enemy1Data.name + " has fainted and cannot fight!";
                 }
                 FightStates = FightState.ENEMY2;
+                Invoke("ChatClear", 5);
                 Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY2):
                 allDeadCheck();
                 if (Enemy2Data.enemyCurHP > 0)
                 {
-                    Debug.Log("Its now Enemy2's Turn!!");
+                    ChatBox.text = "It is now " + Enemy2Data.name + "'s turn!";
                     EnemyData = Enemy2Data;
                     damageScript.EnemyChooseAndAttack();
                 }
                 else
                 {
-                    Debug.Log(Enemy2Data.enemyName + " is dead and cannot fight!");
+                    ChatBox.text = Enemy2Data.name + " has fainted and cannot fight!";
                 }
                 FightStates = FightState.ENEMY3;
+                Invoke("ChatClear", 5);
                 Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY3):
                 if (Enemy3Data.enemyCurHP > 0)
                 {
-                    Debug.Log("Its now Enemy3's Turn!!");
+                    ChatBox.text = "It is now " + Enemy3Data.name + "'s turn!";
                     EnemyData = Enemy3Data;
                     damageScript.EnemyChooseAndAttack();
                 }
                 else
                 {
-                    Debug.Log(Enemy3Data.enemyName + " is dead and cannot fight!");
+                    ChatBox.text = Enemy3Data.name + " has fainted and cannot fight!";
                 }
                 FightStates = FightState.ENEMY4;
+                Invoke("ChatClear", 5);
                 Invoke("Delay", 2);
                 break;
             case (FightState.ENEMY4):
                 if (Enemy4Data.enemyCurHP > 0)
                 {
-                    Debug.Log("Its now Enemy4's Turn!!");
+                    ChatBox.text = "It is now " + Enemy4Data.name + "'s turn!";
                     EnemyData = Enemy4Data;
                     damageScript.EnemyChooseAndAttack();
                 }
                 else
                 {
-                    Debug.Log(Enemy4Data.enemyName + " is dead and cannot fight!");
+                    ChatBox.text = Enemy4Data.name + " has fainted and cannot fight!";
                 }
                 FightStates = FightState.HERO1;
                 GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
+                Invoke("ChatClear", 5);
                 Invoke("Delay", 0);
                 break;
             case (FightState.END):
-                Debug.Log("Fight has Ended!");
-                
+                Debug.Log("Fight has Ended!");            
                 SceneManager.LoadScene(sceneName: "EnvironmentScene");
                 break;
 

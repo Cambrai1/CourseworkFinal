@@ -20,6 +20,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
     public void setTarget()
     {
+
         BattleEngine referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
         UImanager referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
         DamageManager referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
@@ -44,7 +45,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
         Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
 
         referenceUImanager.DeleteItemsPrefab();
-        
+
         if (referenceBattleEngine.usingAbility == true)
         {
             Debug.Log("Ability Activated");

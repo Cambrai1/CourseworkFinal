@@ -87,17 +87,24 @@ public class DamageManager : MonoBehaviour
         if (HitChance > 9)
         {
             Debug.Log(targetControl.HeroData.name + " missed!");
+
+            targetControl.ChatBox.text = targetControl.HeroData.name + " missed!";
         }
         else
         {
             targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
             Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+
+            targetControl.ChatBox.text = targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
         }
 
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
             Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
+
+            targetControl.ChatBox.text = targetControl.EnemyData.enemyName + " has fainted!";
+
             targetControl.InstantiateEnemies();
         }
     }
@@ -115,10 +122,15 @@ public class DamageManager : MonoBehaviour
 
         Debug.Log(targetControl.HeroData.name + " Has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
 
+        targetControl.ChatBox.text = targetControl.HeroData.name + " Has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
+
         targetControl.HeroData.curMP -= targetControl.ChosenAbility.manaCost;
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
             Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
+
+            targetControl.ChatBox.text = targetControl.EnemyData.enemyName + " has fainted!";
+
             targetControl.InstantiateEnemies();
         }
 
@@ -155,6 +167,7 @@ public class DamageManager : MonoBehaviour
             //Flee successful
             UIdetails.ActionPanel.SetActive(false);
             Debug.Log(targetControl.HeroData.name + " fleed successfully!");
+            targetControl.ChatBox.text = targetControl.HeroData.name + " fleed successfully!";
             targetControl.Flee();
         }
         else
@@ -162,6 +175,7 @@ public class DamageManager : MonoBehaviour
             //Flee unsuccessful
             UIdetails.ActionPanel.SetActive(false);
             Debug.Log(targetControl.HeroData.name + " failed to flee!");
+            targetControl.ChatBox.text = targetControl.HeroData.name + " fleed successfully!";
             targetControl.StateControl();
             Invoke("Delay", 1);
         }

@@ -7,9 +7,14 @@ using UnityEngine.EventSystems;
 public class TargetEnemyButtonManager : MonoBehaviour
 {
     public int i;
+
+    public BattleEngine referenceBattleEngine;
+    public UImanager referenceUImanager;
+    public DamageManager referenceDamageManager;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -21,9 +26,9 @@ public class TargetEnemyButtonManager : MonoBehaviour
     public void setTarget()
     {
 
-        BattleEngine referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
-        UImanager referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
-        DamageManager referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
+        referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
+        referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
+        referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
 
         if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy1Data.enemyID.ToString())
         {
@@ -44,7 +49,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
         Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
 
-        referenceUImanager.DeleteItemsPrefab();
+        GameObject.Find("TargetEnemyPanel").SetActive(false);
 
         if (referenceBattleEngine.usingAbility == true)
         {
@@ -59,13 +64,8 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
         if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)
         {
-            Invoke("Delay", 1);
-            referenceUImanager.ActionPanel.SetActive(true);
+            Invoke("Delay", 5);
         }
-
-        GameObject.Find("TargetEnemyPanel").SetActive(false);
-        referenceBattleEngine.StateControl();
-
 
     }
 
@@ -172,6 +172,11 @@ public class TargetEnemyButtonManager : MonoBehaviour
 
     void Delay()
     {
+        Debug.Log("Delay Working");
 
+        referenceBattleEngine.StateControl();
+        referenceUImanager.ActionPanel.SetActive(true);
+        referenceUImanager.DeleteItemsPrefab();
     }
+
 }

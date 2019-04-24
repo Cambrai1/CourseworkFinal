@@ -67,6 +67,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
             Invoke("Delay", 5);
         }
 
+        Invoke("Delay1", 5);
     }
 
     public BaseHero targetHero;
@@ -174,9 +175,12 @@ public class TargetEnemyButtonManager : MonoBehaviour
     {
         Debug.Log("Delay Working");
 
-        referenceBattleEngine.StateControl();
         referenceUImanager.ActionPanel.SetActive(true);
         referenceUImanager.DeleteItemsPrefab();
     }
 
+    void Delay1()
+    {
+        referenceBattleEngine.StateControl();
+    }
 }

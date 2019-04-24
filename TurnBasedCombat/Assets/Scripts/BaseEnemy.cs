@@ -53,26 +53,33 @@ public class BaseEnemy : ScriptableObject
     public bool isDefending = false;
     public int defendingValue;
 
+    [SerializeField]
+    public bool BasicEnemy = false;
+
     public void Awake()
     {
-        enemyMaxHP = (int)Mathf.Round(10 + Mathf.Pow(enemyLevel, 1.50f)); 
-        enemyMaxMP = (int)(150 / 99 * enemyLevel) + 10;
-        enemyBaseATK = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
-        enemyBaseSTR = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
-        enemyBaseDEF = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
-        enemyBaseWIS = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
-        enemyBaseAGI = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+        if (BasicEnemy == true)
+        {
+            enemyMaxHP = (int)Mathf.Round(10 + Mathf.Pow(enemyLevel, 1.50f));
+            enemyMaxMP = (int)(150 / 99 * enemyLevel) + 10;
+            enemyBaseATK = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+            enemyBaseSTR = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+            enemyBaseDEF = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+            enemyBaseWIS = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
+            enemyBaseAGI = (int)Mathf.Round(600 / 99 * enemyLevel) + 10;
 
-        enemyCurATK = enemyBaseATK;
-        enemyCurSTR = enemyBaseSTR;
-        enemyCurDEF = enemyBaseDEF;
-        enemyCurWIS = enemyBaseWIS;
-        enemyCurHP = enemyMaxHP;
-        enemyCurMP = enemyMaxMP;
-        enemyCurAGI = enemyBaseAGI;
+            enemyCurATK = enemyBaseATK;
+            enemyCurSTR = enemyBaseSTR;
+            enemyCurDEF = enemyBaseDEF;
+            enemyCurWIS = enemyBaseWIS;
+            enemyCurHP = enemyMaxHP;
+            enemyCurMP = enemyMaxMP;
+            enemyCurAGI = enemyBaseAGI;
 
-        experienceGranted = (int)Mathf.Round(333 * Mathf.Pow(enemyLevel, 1.25f));
+            experienceGranted = (int)Mathf.Round(333 * Mathf.Pow(enemyLevel, 1.25f));
 
-        defendingValue = enemyBaseDEF / 10;
+            defendingValue = enemyBaseDEF / 10;
+        }
+        
     }
 }

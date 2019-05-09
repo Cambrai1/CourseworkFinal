@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MagicWeapon : Weapon
 {
+    //wisdom value of the weapon
     [SerializeField]
     public int weaponWIS;
 }

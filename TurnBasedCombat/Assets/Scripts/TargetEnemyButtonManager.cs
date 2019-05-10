@@ -8,9 +8,11 @@ public class TargetEnemyButtonManager : MonoBehaviour
 {
     public int i;
 
+    //references for multiple scripts
     public BattleEngine referenceBattleEngine;
     public UImanager referenceUImanager;
     public DamageManager referenceDamageManager;
+
     // Start is called before the first frame update
     void Start()
     {

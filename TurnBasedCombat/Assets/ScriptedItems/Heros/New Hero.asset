@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8050e5b694f206a47aac7e02e600ee57, type: 3}
   m_Name: New Hero
   m_EditorClassIdentifier: 
-  Abilities: []
-  Inventory: []
+  Abilities:
+  - {fileID: 11400000, guid: 30ce2014d1aa7e84e95788b42b6ba04d, type: 2}
+  - {fileID: 11400000, guid: d404abd173b65ca498f5c8c106532b94, type: 2}
+  Inventory:
+  - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
+  - {fileID: 11400000, guid: b036b9d8be9063d4b8091f7e02bbf70b, type: 2}
+  - {fileID: 11400000, guid: 1d988b0dd939c794b804de02b122a0b6, type: 2}
   weaponField: {fileID: 11400000, guid: 9beab5feb130d554ca4ed0dc10de4ca7, type: 2}
   EquippedHelmet: {fileID: 11400000, guid: 02c86a763c7067d43b517fb565f08df1, type: 2}
   EquippedChestplate: {fileID: 11400000, guid: 6b8a140b6410ece42bd471c22e9d3072, type: 2}
@@ -21,21 +27,21 @@ MonoBehaviour:
   EquippedBoots: {fileID: 11400000, guid: 9dd8c8cb6d282ed499789f1274ae656b, type: 2}
   name: a
   level: 1
-  experience: 1332
-  experienceNeeded: 353553
-  baseHP: 410
-  baseMP: 160
-  attack: 260
-  strength: 260
-  defense: 260
-  wisdom: 260
-  agility: 260
-  curHP: 410
-  curMP: 160
-  curATK: 260
-  curSTR: 260
-  curDEF: 260
-  curWIS: 260
-  curAGI: 260
+  experience: 0
+  experienceNeeded: 2828
+  baseHP: 26
+  baseMP: 16
+  attack: 20
+  strength: 20
+  defense: 20
+  wisdom: 20
+  agility: 20
+  curHP: 0
+  curMP: 16
+  curATK: 20
+  curSTR: 20
+  curDEF: 20
+  curWIS: 20
+  curAGI: 20
   isDefending: 0
-  defendingValue: 26
+  defendingValue: 2

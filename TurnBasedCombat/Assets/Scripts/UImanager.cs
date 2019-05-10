@@ -29,12 +29,10 @@ public class UImanager : MonoBehaviour
     public List<GameObject> InventoryItems;
     public Vector3 Position;
 
-    ItemList Inventories;
     // Start is called before the first frame update
     void Start()
     {
         Invoke("Delay", 1);
-        Inventories = GetComponent<ItemList>();
         TurnData.HeroData = TurnData.Hero1Data;
     }
 

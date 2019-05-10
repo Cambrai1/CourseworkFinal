@@ -10,6 +10,7 @@ public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
     // Start is called before the first frame update
     void Start()
     {
+        //assign usmanager script to reference
         referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
     }
 
@@ -21,12 +22,14 @@ public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        //assign text values of the item to the item inspector
         Debug.Log(gameObject.GetComponentInChildren<Text>().text);
         GameObject.Find("ItemNameText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[0].text;
         GameObject.Find("ItemDescriptionText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[1].text;
 
     }
 
+    //delete item buttons when item selected
     public void DeleteItemsPrefab()
     {
         GameObject[] itemBtns;
@@ -42,6 +45,7 @@ public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
 
     public void onClick()
     {
+        //assign item to chosen item referencer in battlemanager script
         foreach (var item in GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>().HeroData.Inventory)
         {
             if (gameObject.GetComponentsInChildren<Text>()[0].text == item.itemName)
@@ -50,9 +54,13 @@ public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
             }
         }
 
+        //activate target enemy panel
         referenceUImanager.targetEnemyCanvasParent.SetActive(true);
+        //disable inventory panel
         GameObject.Find("InventoryPanel").SetActive(false);
+        //delete item prefabs
         referenceUImanager.DeleteItemsPrefab();
+        //instantiate targethero prefabs
         referenceUImanager.InstantiateTargetHeroPrefab();
     }
 }

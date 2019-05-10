@@ -188,7 +188,8 @@ public class DamageManager : MonoBehaviour
 
     public void EnemyChooseAndAttack()
     {
-        
+
+        //raise hero hp sum to 0 if below
         HPsum = 0;
         foreach (var Hero in targetControl.baseHeros)
         {
@@ -198,7 +199,6 @@ public class DamageManager : MonoBehaviour
             }
             HPsum += Hero.curHP;
         }
-
         if (targetControl.Hero1Data.curHP < 1)
         {
             HPsum1 = 0;
@@ -232,6 +232,7 @@ public class DamageManager : MonoBehaviour
             HPsum4 = HPsum / targetControl.Hero4Data.curHP;
         }
 
+        //assign hero to chosen hero reference
         var TargetSum = Random.Range(1, (HPsum1 + HPsum2 + HPsum3 + HPsum4));
         if (TargetSum > 0 && TargetSum <= (HPsum1))
         {
@@ -255,9 +256,8 @@ public class DamageManager : MonoBehaviour
             Debug.Log("Hero4 Targeted!");
             targetControl.HeroData = targetControl.Hero4Data;
         }
-        //attack,defend,ability,flee
-        //attack 40%, ability 40%, defend 15%, flee 5%
 
+        //get defence values from armour pieces
         int armourDef = 0;
         if (targetControl.HeroData.EquippedHelmet != null)
         {
@@ -276,6 +276,7 @@ public class DamageManager : MonoBehaviour
             armourDef += targetControl.HeroData.EquippedBoots.armourDefence;
         }
 
+        //roll to choose which action to take by the enemy
         var choiceVal = Random.Range(1, 100);
         if (choiceVal > 0 && choiceVal < 61)
         {
@@ -298,12 +299,14 @@ public class DamageManager : MonoBehaviour
             case 1:
                 //standard attack
                 Debug.Log("Enemy Chose to Standard Attack!");
+
+                //calculate damage value of the attack
                 DamageMultiplier = ((float)Random.Range(75, 125))/100;
                 Damage = (((targetControl.EnemyData.enemyCurATK) * (targetControl.EnemyData.enemyCurATK)) / ((targetControl.EnemyData.enemyCurATK) + (targetControl.HeroData.curDEF + armourDef)));
-
                 Damage *= DamageMultiplier;
                 Damage = Mathf.Floor(Damage);
 
+                //calculate miss chance and dead damage appropriately
                 int HitChance = Random.Range(1, 10);
                 if (HitChance > 8)
                 {
@@ -316,26 +319,31 @@ public class DamageManager : MonoBehaviour
                     targetControl.HeroData.curHP -= (int)Damage;
                 }
 
+                //hero hp check
                 if (targetControl.HeroData.curHP < 0)
                 {
                     targetControl.HeroData.curHP = 0;
                 }
                 break;
+
             case 2:
                 //ability use
                 Debug.Log("Enemy Chose To Use An Ability!");
+
+                //choosed random ability from list of abilities
                 int numberOfAbilities = targetControl.EnemyData.Abilities.Count;
                 if (numberOfAbilities != 0)
                 {
                     int i = (Random.Range(0, numberOfAbilities));
                     if (targetControl.EnemyData.Abilities[i].manaCost < targetControl.EnemyData.enemyCurMP)
                     {
+                        //calculate damage value of the attack
                         DamageMultiplier = ((float)Random.Range(75, 125)) / 100;
                         Damage = (((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) * (targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage)) / ((targetControl.EnemyData.enemyCurWIS + targetControl.EnemyData.Abilities[i].baseDamage) + (targetControl.HeroData.curDEF)));
-
                         Damage *= DamageMultiplier;
                         Damage = Mathf.Floor(Damage);
 
+                        //deal damage to target hero
                         targetControl.HeroData.curHP -= (int)Damage;
                         targetControl.EnemyData.enemyCurMP -= targetControl.EnemyData.Abilities[i].manaCost;
                     }
@@ -355,16 +363,17 @@ public class DamageManager : MonoBehaviour
                 }
                 
                 break;
+
             case 3:
                 //defend
                 Debug.Log("Enemy Chose to Defend!");
+
+                //raise defence value when defending or remove defence bonus when finished defending
                 if (targetControl.EnemyData.isDefending == true)
                 {
                     targetControl.EnemyData.enemyCurDEF -= targetControl.EnemyData.defendingValue;
                 }
-
                 targetControl.EnemyData.enemyCurDEF += targetControl.EnemyData.defendingValue;
-
                 targetControl.EnemyData.isDefending = true;
 
                 break;

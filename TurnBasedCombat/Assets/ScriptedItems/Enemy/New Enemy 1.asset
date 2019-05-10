@@ -17,24 +17,24 @@ MonoBehaviour:
   commonDropTable: []
   rareDropTable: []
   enemyID: 0
-  enemyLevel: 50
+  enemyLevel: 1
   enemyName: 
   enemyDescription: 
-  enemyMaxHP: 0
-  enemyCurHP: 0
-  enemyMaxMP: 0
-  enemyCurMP: 0
-  enemyBaseATK: 0
-  enemyCurATK: 0
-  enemyBaseDEF: 0
-  enemyCurDEF: 0
-  enemyBaseWIS: 0
-  enemyCurWIS: 0
-  enemyBaseSTR: 0
-  enemyCurSTR: 0
-  enemyBaseAGI: 0
-  enemyCurAGI: 0
-  experienceGranted: 0
+  enemyMaxHP: 364
+  enemyCurHP: 364
+  enemyMaxMP: 60
+  enemyCurMP: 60
+  enemyBaseATK: 310
+  enemyCurATK: 310
+  enemyBaseDEF: 310
+  enemyCurDEF: 310
+  enemyBaseWIS: 310
+  enemyCurWIS: 310
+  enemyBaseSTR: 310
+  enemyCurSTR: 310
+  enemyBaseAGI: 310
+  enemyCurAGI: 310
+  experienceGranted: 44275
   isDefending: 0
-  defendingValue: 0
+  defendingValue: 31
   BasicEnemy: 1

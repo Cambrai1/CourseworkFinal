@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class BattleEngine : MonoBehaviour
 {
+
+    public Animation anim;
+
     //Damage manager script reference
     public DamageManager damageScript;
 

@@ -6,32 +6,32 @@ using UnityEngine.EventSystems;
 
 public class UImanager : MonoBehaviour
 {
+    //battle engine reference
     public BattleEngine TurnData;
-    public GameObject ActionPanel;
 
+    //references for Ui objects within the scene
+    public GameObject ActionPanel;
     public GameObject inventoryButtonPrefab;
     public GameObject inventoryCanvasParent;
     public GameObject InventoryItemName;
     public GameObject InventoryItemDescription;
-
     public GameObject HeroPanel;
-
     public GameObject abilityButtonPrefab;
     public GameObject abilityCanvasParent;
     public GameObject abilityName;
     public GameObject abilityDescription;
     public GameObject abilityManaCost;
-
     public GameObject targetEnemyButtonPrefab;
     public GameObject targetHeroButtonPrefab;
     public GameObject targetEnemyCanvasParent;
 
-    public List<GameObject> InventoryItems;
+    //public List<GameObject> InventoryItems;
     public Vector3 Position;
 
     // Start is called before the first frame update
     void Start()
     {
+        //update the hero bar ui element
         Invoke("Delay", 1);
         TurnData.HeroData = TurnData.Hero1Data;
     }
@@ -50,6 +50,7 @@ public class UImanager : MonoBehaviour
 
     public void HeroBarUpdate()
     {
+        //update each of the hero bar colours to meet the current state of that hero's hp
         Image img1 = GameObject.Find("HeroBar1").GetComponent<Image>();
         Image img2 = GameObject.Find("HeroBar2").GetComponent<Image>();
         Image img3 = GameObject.Find("HeroBar3").GetComponent<Image>();
@@ -139,12 +140,13 @@ public class UImanager : MonoBehaviour
         GameObject.Find("HeroBar4").GetComponentsInChildren<Text>()[1].text = "HP:  " + TurnData.Hero4Data.curHP.ToString() + "/" + TurnData.Hero4Data.baseHP.ToString();
         GameObject.Find("HeroBar4").GetComponentsInChildren<Text>()[2].text = "MP:  " + TurnData.Hero4Data.curMP.ToString() + "/" + TurnData.Hero4Data.baseMP.ToString();
     }
-    
+
 
     public void InstantiateInventoryPrefab()
     {
         int i = 0;
 
+        //instantiate a button for each item within the hero's inventory
         foreach (var item in TurnData.HeroData.Inventory)
         {
             Position.z = 0;
@@ -167,8 +169,10 @@ public class UImanager : MonoBehaviour
             InventoryCreate.GetComponentsInChildren<Text>()[4].text = item.StatusEffect.ToString();
             i++;
         }
-        Debug.Log("Hello");
+
     }
+
+    //delete the item button prefabs
     public void DeleteItemsPrefab()
     {
         GameObject[] itemBtns;
@@ -178,6 +182,8 @@ public class UImanager : MonoBehaviour
             Destroy(itemBtn);
         }
     }
+
+    //instantiate ability button prefab
     public void InstantiateAbilitiesPrefab()
     {
         int i = 0;
@@ -216,9 +222,9 @@ public class UImanager : MonoBehaviour
             }
             i++;
         }
-        Debug.Log("AbilitiesYAYYY");
     }
 
+    //instantiate target enemy button prefab
     public void InstantiateTargetEnemyPrefab()
     {
         int i = 0;
@@ -240,6 +246,7 @@ public class UImanager : MonoBehaviour
         }
     }
 
+    //instantiate target hero button prefab
     public void InstantiateTargetHeroPrefab()
     {
         int i = 0;

@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class DamageManager : MonoBehaviour
 {
+    //script references
     public BattleEngine targetControl;
     public UImanager UIdetails;
 
     public float Damage;
     public float DamageMultiplier;
 
+    //stat placeholders
     public int HPsum;
     public int HPsum1;
     public int HPsum2;
     public int HPsum3;
     public int HPsum4;
-
     public int HeroCurSTR;
     public int HeroCurATK;
     public int HeroCurWIS;
     public int HeroCurDEF;
     public int HeroCurAGI;
-
     public int EnemyCurDEF;
     public int EnemyCurAGI;
-
     public int AbilityChoice;
-
     public int weaponDamage;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +39,8 @@ public class DamageManager : MonoBehaviour
     }
 
      void ValGrab()
-    {
+     {
+        //assign values to temporary value holders
         HeroCurSTR = targetControl.HeroData.curSTR;
         HeroCurATK = targetControl.HeroData.curATK;
         HeroCurWIS = targetControl.HeroData.curWIS;
@@ -73,16 +72,17 @@ public class DamageManager : MonoBehaviour
 
     }
 
+    //called on standard attack
     public void heroStandardAttack()
     {
         ValGrab();
-        
+
+        //calculate damage
         Damage = (((HeroCurSTR + weaponDamage) * (HeroCurSTR + weaponDamage)) / ((HeroCurSTR + weaponDamage) + (EnemyCurDEF)));
-
         Damage *= DamageMultiplier;
-
         Damage = Mathf.Floor(Damage);
 
+        //calculate hit chance and deal damage
         int HitChance = Random.Range(1, 10);
         if (HitChance > 9)
         {
@@ -92,11 +92,12 @@ public class DamageManager : MonoBehaviour
         }
         else
         {
+            //deal damage
             targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
             Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
 
-            targetControl.ChatBox.text = targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
+            targetControl.ChatBox.text = targetControl.HeroData.name + " has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
         }
 
         if (targetControl.EnemyData.enemyCurHP <= 0)
@@ -109,21 +110,24 @@ public class DamageManager : MonoBehaviour
         }
     }
 
+    //called on ability use
     public void heroAbilityAttackSolo()
     {
         ValGrab();
 
+        //calculate damage
         Damage = (((HeroCurWIS + AbilityChoice) * (HeroCurWIS + AbilityChoice)) / ((HeroCurWIS + AbilityChoice) + (EnemyCurDEF)));
-
         Damage *= DamageMultiplier;
         Damage = Mathf.Floor(Damage);
 
+        //deal damage
         targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
-        Debug.Log(targetControl.HeroData.name + " Has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
+        Debug.Log(targetControl.HeroData.name + " has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
 
-        targetControl.ChatBox.text = targetControl.HeroData.name + " Has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
+        targetControl.ChatBox.text = targetControl.HeroData.name + " has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
 
+        //minus mana cost from current mana
         targetControl.HeroData.curMP -= targetControl.ChosenAbility.manaCost;
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
@@ -134,19 +138,22 @@ public class DamageManager : MonoBehaviour
             targetControl.InstantiateEnemies();
         }
 
+        //update UI bar
         UIdetails.HeroBarUpdate();
     }
 
+    //called when defending
     public void heroDefend()
     {
+        //decrease defending value if defended last turn
         Debug.Log(targetControl.HeroData.name + " chose to defend!");
         if (targetControl.HeroData.isDefending == true)
         {
             targetControl.HeroData.curDEF -= targetControl.HeroData.defendingValue;
         }
 
+        //increase def by defending value
         targetControl.HeroData.curDEF += targetControl.HeroData.defendingValue;
-
         targetControl.HeroData.isDefending = true;
 
         if (targetControl.HeroData.name != targetControl.Hero4Data.name)
@@ -160,6 +167,7 @@ public class DamageManager : MonoBehaviour
 
     public void heroFlee()
     {
+        //calculate flee chance
         Damage = HeroCurAGI + (targetControl.Enemy1Data.enemyCurAGI + targetControl.Enemy2Data.enemyCurAGI + targetControl.Enemy3Data.enemyCurAGI + targetControl.Enemy4Data.enemyCurAGI)/4;
         DamageMultiplier = Random.Range(0, Damage);
         if (DamageMultiplier < HeroCurAGI)

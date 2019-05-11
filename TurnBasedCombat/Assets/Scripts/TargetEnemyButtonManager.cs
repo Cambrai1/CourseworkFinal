@@ -28,10 +28,12 @@ public class TargetEnemyButtonManager : MonoBehaviour
     public void setTarget()
     {
 
+        //assign scripts to the references
         referenceBattleEngine = GameObject.Find("BattleManager").GetComponentInChildren<BattleEngine>();
         referenceUImanager = GameObject.Find("BattleManager").GetComponentInChildren<UImanager>();
         referenceDamageManager = GameObject.Find("BattleManager").GetComponentInChildren<DamageManager>();
 
+        //set a target to the chosen target reference if their name matches the name on the button
         if (gameObject.GetComponentsInChildren<Text>()[2].text == referenceBattleEngine.Enemy1Data.enemyID.ToString())
         {
             referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy1Data;
@@ -49,10 +51,10 @@ public class TargetEnemyButtonManager : MonoBehaviour
             referenceBattleEngine.EnemyData = referenceBattleEngine.Enemy4Data;
         }
 
-        Debug.Log(gameObject.GetComponentsInChildren<Text>()[0].text);
-
+        //deactivate target enemy panel
         GameObject.Find("TargetEnemyPanel").SetActive(false);
 
+        //choose function to act on depending on whicha action
         if (referenceBattleEngine.usingAbility == true)
         {
             Debug.Log("Ability Activated");
@@ -64,6 +66,7 @@ public class TargetEnemyButtonManager : MonoBehaviour
             referenceDamageManager.heroStandardAttack();
         }
 
+        //activate action panel if not hero 4 turn
         if (referenceBattleEngine.HeroData != referenceBattleEngine.Hero4Data)
         {
             Invoke("Delay", 5);
@@ -177,12 +180,16 @@ public class TargetEnemyButtonManager : MonoBehaviour
     {
         Debug.Log("Delay Working");
 
+        //activate hero action panel
         referenceUImanager.ActionPanel.SetActive(true);
+
+        //delete button prefabs
         referenceUImanager.DeleteItemsPrefab();
     }
 
     void Delay1()
     {
+        //cycle turn
         referenceBattleEngine.StateControl();
     }
 }

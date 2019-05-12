@@ -8,8 +8,14 @@ using UnityEngine.SceneManagement;
 public class BattleEngine : MonoBehaviour
 {
 
-    public Animation anim;
-
+    public Animator anim1;
+    public Animator anim2;
+    public Animator anim3;
+    public Animator anim4;
+    public Animator animE1;
+    public Animator animE2;
+    public Animator animE3;
+    public Animator animE4;
     //Damage manager script reference
     public DamageManager damageScript;
 
@@ -194,7 +200,6 @@ public class BattleEngine : MonoBehaviour
                 {
                     HeroData = Hero1Data;
                     ChatBox.text = "It is now " + Hero1Data.name + "'s turn!";
-
                 }
                 else
                 {
@@ -380,14 +385,6 @@ public class BattleEngine : MonoBehaviour
     //instantiate enemy prefabs
     public void InstantiateEnemies()
     {
-        GameObject[] enemyPrefabs;
-
-        //destroy all enemy prefabs
-        enemyPrefabs = GameObject.FindGameObjectsWithTag("enemyPrefab");
-        foreach (GameObject enemies in enemyPrefabs)
-        {
-            Destroy(enemies);
-        }
 
         //instantiate enemy prefab for each enemy
         float i = 0;
@@ -396,13 +393,66 @@ public class BattleEngine : MonoBehaviour
             if (enemyChar.enemyCurHP > 0)
             {
                 GameObject EnemyCharCreate = Instantiate(EnemyCharPrefab);
-                EnemyCharCreate.transform.position = new Vector3(-3f + (i * 2f), 0.5f, 5f);
-
-                i++;
+                EnemyCharCreate.transform.position = new Vector3(-3f + (i * 2f), 0f, 5f);
+                
+                
             }
+
+            i++;
+        }
+        GameObject[] enemyPrefabs = GameObject.FindGameObjectsWithTag("enemyPrefab");
+        animE1 = enemyPrefabs[0].GetComponentInChildren<Animator>();
+        animE2 = enemyPrefabs[1].GetComponentInChildren<Animator>();
+        animE3 = enemyPrefabs[2].GetComponentInChildren<Animator>();
+        animE4 = enemyPrefabs[3].GetComponentInChildren<Animator>();
+
+    }
+
+    public void DieAnimEnemies()
+    {
+        if (Enemy1Data.enemyCurHP <= 0)
+        {
+            animE1.SetTrigger("Die");
+        }
+        if (Enemy2Data.enemyCurHP <= 0)
+        {
+            animE2.SetTrigger("Die");
+        }
+        if (Enemy3Data.enemyCurHP <= 0)
+        {
+            animE3.SetTrigger("Die");
+        }
+        if (Enemy4Data.enemyCurHP <= 0)
+        {
+            animE4.SetTrigger("Die");
         }
     }
 
+    public void DieAnimHeroes()
+    {
+        if (Hero1Data.curHP <= 0)
+        {
+            anim1.SetTrigger("Die");
+        }
+        if (Hero2Data.curHP <= 0)
+        {
+            anim2.SetTrigger("Die");
+        }
+        if (Hero3Data.curHP <= 0)
+        {
+            anim3.SetTrigger("Die");
+        }
+        if (Hero4Data.curHP <= 0)
+        {
+            anim4.SetTrigger("Die");
+        }
+
+        if (Hero1Data.curHP + Hero2Data.curHP + Hero3Data.curHP + Hero4Data.curHP <= 0)
+        {
+            FightStates = FightState.END;
+            StateControl();
+        }
+    }
 
     public int totalXP;
 

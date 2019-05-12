@@ -75,8 +75,25 @@ public class DamageManager : MonoBehaviour
     //called on standard attack
     public void heroStandardAttack()
     {
+
         ValGrab();
 
+        if (targetControl.HeroData == targetControl.Hero1Data)
+        {
+            targetControl.anim1.SetTrigger("Melee");
+        }
+        if (targetControl.HeroData == targetControl.Hero2Data)
+        {
+            targetControl.anim2.SetTrigger("Melee");
+        }
+        if (targetControl.HeroData == targetControl.Hero3Data)
+        {
+            targetControl.anim3.SetTrigger("Melee");
+        }
+        if (targetControl.HeroData == targetControl.Hero4Data)
+        {
+            targetControl.anim4.SetTrigger("Melee");
+        }
         //calculate damage
         Damage = (((HeroCurSTR + weaponDamage) * (HeroCurSTR + weaponDamage)) / ((HeroCurSTR + weaponDamage) + (EnemyCurDEF)));
         Damage *= DamageMultiplier;
@@ -106,7 +123,7 @@ public class DamageManager : MonoBehaviour
 
             targetControl.ChatBox.text = targetControl.EnemyData.enemyName + " has fainted!";
 
-            targetControl.InstantiateEnemies();
+            targetControl.DieAnimEnemies();
         }
     }
 
@@ -135,7 +152,7 @@ public class DamageManager : MonoBehaviour
 
             targetControl.ChatBox.text = targetControl.EnemyData.enemyName + " has fainted!";
 
-            targetControl.InstantiateEnemies();
+            targetControl.DieAnimEnemies();
         }
 
         //update UI bar
@@ -406,6 +423,8 @@ public class DamageManager : MonoBehaviour
                 break;
         }
         UIdetails.HeroBarUpdate();
+        targetControl.DieAnimHeroes();
+
     }
 
 }

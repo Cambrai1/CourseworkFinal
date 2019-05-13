@@ -72,6 +72,25 @@ public class DamageManager : MonoBehaviour
 
     }
 
+    public void EnemyAttackAnim()
+    {
+        if (targetControl.EnemyData == targetControl.Enemy1Data)
+        {
+            targetControl.animE1.SetTrigger("Melee");
+        }
+        if (targetControl.EnemyData == targetControl.Enemy2Data)
+        {
+            targetControl.animE2.SetTrigger("Melee");
+        }
+        if (targetControl.EnemyData == targetControl.Enemy3Data)
+        {
+            targetControl.animE3.SetTrigger("Melee");
+        }
+        if (targetControl.EnemyData == targetControl.Enemy4Data)
+        {
+            targetControl.animE4.SetTrigger("Melee");
+        }
+    }
     //called on standard attack
     public void heroStandardAttack()
     {
@@ -103,7 +122,6 @@ public class DamageManager : MonoBehaviour
         int HitChance = Random.Range(1, 10);
         if (HitChance > 9)
         {
-            Debug.Log(targetControl.HeroData.name + " missed!");
 
             targetControl.ChatBox.text = targetControl.HeroData.name + " missed!";
         }
@@ -112,14 +130,11 @@ public class DamageManager : MonoBehaviour
             //deal damage
             targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
-            Debug.Log(targetControl.HeroData.name + " Has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
-
             targetControl.ChatBox.text = targetControl.HeroData.name + " has attacked " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
         }
 
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
-            Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
 
             targetControl.ChatBox.text = targetControl.EnemyData.enemyName + " has fainted!";
 
@@ -140,15 +155,12 @@ public class DamageManager : MonoBehaviour
         //deal damage
         targetControl.EnemyData.enemyCurHP -= (int)Damage;
 
-        Debug.Log(targetControl.HeroData.name + " has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!");
-
         targetControl.ChatBox.text = targetControl.HeroData.name + " has using an ability and hit " + targetControl.EnemyData.enemyName + " for " + Damage + "!";
 
         //minus mana cost from current mana
         targetControl.HeroData.curMP -= targetControl.ChosenAbility.manaCost;
         if (targetControl.EnemyData.enemyCurHP <= 0)
         {
-            Debug.Log(targetControl.EnemyData.enemyName + " has fainted!");
 
             targetControl.ChatBox.text = targetControl.EnemyData.enemyName + " has fainted!";
 
@@ -163,7 +175,7 @@ public class DamageManager : MonoBehaviour
     public void heroDefend()
     {
         //decrease defending value if defended last turn
-        Debug.Log(targetControl.HeroData.name + " chose to defend!");
+        targetControl.ChatBox.text = (targetControl.HeroData.name + " chose to defend!");
         if (targetControl.HeroData.isDefending == true)
         {
             targetControl.HeroData.curDEF -= targetControl.HeroData.defendingValue;
@@ -191,7 +203,6 @@ public class DamageManager : MonoBehaviour
         {
             //Flee successful
             UIdetails.ActionPanel.SetActive(false);
-            Debug.Log(targetControl.HeroData.name + " fleed successfully!");
             targetControl.ChatBox.text = targetControl.HeroData.name + " fleed successfully!";
             targetControl.Flee();
         }
@@ -199,7 +210,6 @@ public class DamageManager : MonoBehaviour
         {
             //Flee unsuccessful
             UIdetails.ActionPanel.SetActive(false);
-            Debug.Log(targetControl.HeroData.name + " failed to flee!");
             targetControl.ChatBox.text = targetControl.HeroData.name + " fleed successfully!";
             targetControl.StateControl();
             Invoke("Delay", 1);
@@ -323,7 +333,7 @@ public class DamageManager : MonoBehaviour
         {
             case 1:
                 //standard attack
-                Debug.Log("Enemy Chose to Standard Attack!");
+                targetControl.ChatBox.text = ("Enemy Chose to Standard Attack!");
 
                 //calculate damage value of the attack
                 DamageMultiplier = ((float)Random.Range(75, 125))/100;
@@ -331,15 +341,16 @@ public class DamageManager : MonoBehaviour
                 Damage *= DamageMultiplier;
                 Damage = Mathf.Floor(Damage);
 
+
                 //calculate miss chance and dead damage appropriately
                 int HitChance = Random.Range(1, 10);
                 if (HitChance > 8)
                 {
-                    Debug.Log(targetControl.EnemyData.enemyName + " missed!");
+                    targetControl.ChatBox.text = (targetControl.EnemyData.enemyName + " missed!");
                 }
                 else
                 {
-                    Debug.Log(targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
+                    targetControl.ChatBox.text = (targetControl.EnemyData.enemyName + " Has attacked " + targetControl.HeroData.name + " for " + Damage + "!");
 
                     targetControl.HeroData.curHP -= (int)Damage;
                 }
@@ -349,11 +360,13 @@ public class DamageManager : MonoBehaviour
                 {
                     targetControl.HeroData.curHP = 0;
                 }
+
+                EnemyAttackAnim();
                 break;
 
             case 2:
                 //ability use
-                Debug.Log("Enemy Chose To Use An Ability!");
+                targetControl.ChatBox.text = ("Enemy Chose To Use An Ability!");
 
                 //choosed random ability from list of abilities
                 int numberOfAbilities = targetControl.EnemyData.Abilities.Count;
@@ -374,7 +387,7 @@ public class DamageManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(targetControl.EnemyData.enemyName + " does not have enough mana to cast " + targetControl.EnemyData.Abilities[i].name);
+                        targetControl.ChatBox.text = (targetControl.EnemyData.enemyName + " does not have enough mana to cast " + targetControl.EnemyData.Abilities[i].name);
                     }
 
                     if (targetControl.HeroData.curHP < 0)
@@ -384,14 +397,14 @@ public class DamageManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log(targetControl.EnemyData.enemyName + " has not learnt any abilties!");
+                    targetControl.ChatBox.text = (targetControl.EnemyData.enemyName + " has not learnt any abilties!");
                 }
                 
                 break;
 
             case 3:
                 //defend
-                Debug.Log("Enemy Chose to Defend!");
+                targetControl.ChatBox.text = ("Enemy Chose to Defend!");
 
                 //raise defence value when defending or remove defence bonus when finished defending
                 if (targetControl.EnemyData.isDefending == true)
@@ -404,19 +417,19 @@ public class DamageManager : MonoBehaviour
                 break;
             case 4:
                 //flee
-                Debug.Log("Enemy Chose to Try and Flee!");
+                targetControl.ChatBox.text = ("Enemy Chose to Try and Flee!");
                 Damage = targetControl.EnemyData.enemyCurAGI + (targetControl.Hero1Data.curAGI + targetControl.Hero2Data.curAGI + targetControl.Hero3Data.curAGI + targetControl.Hero4Data.curAGI) / 4;
                 DamageMultiplier = Random.Range(0, Damage);
                 if (DamageMultiplier < targetControl.EnemyData.enemyCurAGI)
                 {
                     //Flee successful
-                    Debug.Log(targetControl.EnemyData.name + " fleed successfully!");
+                    targetControl.ChatBox.text = (targetControl.EnemyData.name + " fleed successfully!");
                     targetControl.Flee();
                 }
                 else
                 {
                     //Flee unsuccessful
-                    Debug.Log(targetControl.EnemyData.name + " failed to flee!");
+                    targetControl.ChatBox.text = (targetControl.EnemyData.name + " failed to flee!");
                     targetControl.StateControl();
                     Invoke("Delay", 1);
                 }

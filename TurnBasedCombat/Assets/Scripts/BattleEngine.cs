@@ -147,7 +147,7 @@ public class BattleEngine : MonoBehaviour
     //clears the chat box of text
     void ChatClear()
     {
-        ChatBox.text = " ";
+        //ChatBox.text = " ";
     }
 
     //set ability action check to false
@@ -299,7 +299,7 @@ public class BattleEngine : MonoBehaviour
                 FightStates = FightState.ENEMY2;
 
                 Invoke("ChatClear", 5);
-                Invoke("Delay", 2);
+                Invoke("Delay", 5);
                 break;
             case (FightState.ENEMY2):
 
@@ -321,7 +321,7 @@ public class BattleEngine : MonoBehaviour
                 FightStates = FightState.ENEMY3;
 
                 Invoke("ChatClear", 5);
-                Invoke("Delay", 2);
+                Invoke("Delay", 5);
                 break;
 
             case (FightState.ENEMY3):
@@ -344,7 +344,7 @@ public class BattleEngine : MonoBehaviour
                 FightStates = FightState.ENEMY4;
 
                 Invoke("ChatClear", 5);
-                Invoke("Delay", 2);
+                Invoke("Delay", 5);
                 break;
 
             case (FightState.ENEMY4):
@@ -367,10 +367,9 @@ public class BattleEngine : MonoBehaviour
                 FightStates = FightState.HERO1;
 
                 //enable user action panel
-                GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
-
+                Invoke("PanelLoad", 5);
                 Invoke("ChatClear", 5);
-                Invoke("Delay", 0);
+                Invoke("Delay", 5);
                 break;
 
             case (FightState.END):
@@ -380,6 +379,11 @@ public class BattleEngine : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void PanelLoad()
+    {
+        GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);
     }
 
     //instantiate enemy prefabs

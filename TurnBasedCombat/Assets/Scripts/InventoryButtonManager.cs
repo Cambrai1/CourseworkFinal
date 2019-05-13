@@ -26,7 +26,7 @@ public class InventoryButtonManager : MonoBehaviour, IPointerEnterHandler
         Debug.Log(gameObject.GetComponentInChildren<Text>().text);
         GameObject.Find("ItemNameText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[0].text;
         GameObject.Find("ItemDescriptionText").GetComponentInChildren<Text>().text = gameObject.GetComponentsInChildren<Text>()[1].text;
-
+        GameObject.Find("ItemImage").GetComponentInChildren<Image>().sprite = gameObject.GetComponentsInChildren<Image>()[0].sprite;
     }
 
     //delete item buttons when item selected

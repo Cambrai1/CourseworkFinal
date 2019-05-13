@@ -41,7 +41,6 @@ public class UImanager : MonoBehaviour
         HeroBarUpdate();
     }
 
-
     // Update is called once per frame
     void Update()
     {
@@ -167,6 +166,7 @@ public class UImanager : MonoBehaviour
             InventoryCreate.GetComponentsInChildren<Text>()[2].text = item.itemID.ToString();
             InventoryCreate.GetComponentsInChildren<Text>()[3].text = item.restoreValue.ToString();
             InventoryCreate.GetComponentsInChildren<Text>()[4].text = item.StatusEffect.ToString();
+            InventoryCreate.GetComponentsInChildren<Image>()[0].sprite = item.itemIcon;
             i++;
         }
 

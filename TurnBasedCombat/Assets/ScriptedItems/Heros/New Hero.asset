@@ -20,12 +20,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
   - {fileID: 11400000, guid: b036b9d8be9063d4b8091f7e02bbf70b, type: 2}
   - {fileID: 11400000, guid: 1d988b0dd939c794b804de02b122a0b6, type: 2}
+  - {fileID: 11400000, guid: b036b9d8be9063d4b8091f7e02bbf70b, type: 2}
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
   weaponField: {fileID: 11400000, guid: 9beab5feb130d554ca4ed0dc10de4ca7, type: 2}
   EquippedHelmet: {fileID: 11400000, guid: 02c86a763c7067d43b517fb565f08df1, type: 2}
   EquippedChestplate: {fileID: 11400000, guid: 6b8a140b6410ece42bd471c22e9d3072, type: 2}
   EquippedLegguards: {fileID: 11400000, guid: 8de4f36d2067edb4faaf2f755b37c46a, type: 2}
   EquippedBoots: {fileID: 11400000, guid: 9dd8c8cb6d282ed499789f1274ae656b, type: 2}
-  name: Hero Name1
+  name: Light
   level: 1
   experience: 0
   experienceNeeded: 1000
@@ -43,5 +47,5 @@ MonoBehaviour:
   curDEF: 15
   curWIS: 15
   curAGI: 15
-  isDefending: 0
+  isDefending: 1
   defendingValue: 1

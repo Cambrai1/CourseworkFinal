@@ -227,7 +227,14 @@ public class UImanager : MonoBehaviour
     //instantiate target enemy button prefab
     public void InstantiateTargetEnemyPrefab()
     {
+        GameObject[] Targets = GameObject.FindGameObjectsWithTag("inventoryBtn");
+        foreach(GameObject target in Targets)
+        {
+            GameObject.Destroy(target);
+        }
+
         int i = 0;
+        
         foreach (var targetEnemy in TurnData.baseEnemies)
         {
             if (targetEnemy.enemyCurHP > 0)

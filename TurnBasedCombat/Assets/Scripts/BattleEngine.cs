@@ -292,7 +292,7 @@ public class BattleEngine : MonoBehaviour
                 }
                 else
                 {
-                    ChatBox.text = Enemy1Data.name + " has fainted and cannot fight!";
+                    ChatBox.text = Enemy1Data.enemyName + " has fainted and cannot fight!";
                 }
 
                 //set turn to enemy2
@@ -314,7 +314,7 @@ public class BattleEngine : MonoBehaviour
                 }
                 else
                 {
-                    ChatBox.text = Enemy2Data.name + " has fainted and cannot fight!";
+                    ChatBox.text = Enemy2Data.enemyName + " has fainted and cannot fight!";
                 }
 
                 //set turn to enemy3
@@ -337,7 +337,7 @@ public class BattleEngine : MonoBehaviour
                 }
                 else
                 {
-                    ChatBox.text = Enemy3Data.name + " has fainted and cannot fight!";
+                    ChatBox.text = Enemy3Data.enemyName + " has fainted and cannot fight!";
                 }
 
                 //set turn to enemy4
@@ -360,7 +360,7 @@ public class BattleEngine : MonoBehaviour
                 }
                 else
                 {
-                    ChatBox.text = Enemy4Data.name + " has fainted and cannot fight!";
+                    ChatBox.text = Enemy4Data.enemyName + " has fainted and cannot fight!";
                 }
 
                 //set turn to hero1
@@ -375,12 +375,16 @@ public class BattleEngine : MonoBehaviour
             case (FightState.END):
 
                 //load external scene when fight ends
-                SceneManager.LoadScene(sceneName: "EnvironmentScene");
+                Invoke("DelayEnd", 3);
                 break;
 
         }
     }
 
+    public void DelayEnd()
+    {
+        SceneManager.LoadScene(sceneName: "EnvironmentScene");
+    }
     public void PanelLoad()
     {
         GameObject.Find("BattleManager").GetComponentInChildren<UImanager>().ActionPanel.SetActive(true);

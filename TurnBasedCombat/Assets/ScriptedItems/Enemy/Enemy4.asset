@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: Enemy4
   m_EditorClassIdentifier: 
   Abilities: []
-  alwaysDropTable: []
-  commonDropTable: []
-  rareDropTable: []
+  alwaysDropTable:
+  - {fileID: 11400000, guid: 9204842d3cb08c84da272c5c12dc48b6, type: 2}
+  commonDropTable:
+  - {fileID: 11400000, guid: 4feba5852e8d95b47966373cd0468234, type: 2}
+  rareDropTable:
+  - {fileID: 11400000, guid: b036b9d8be9063d4b8091f7e02bbf70b, type: 2}
   enemyID: 3
   enemyLevel: 1
-  enemyName: Enemy Name4
+  enemyName: Yeetus
   enemyDescription: 
   enemyMaxHP: 11
-  enemyCurHP: 11
+  enemyCurHP: -4
   enemyMaxMP: 11
   enemyCurMP: 11
   enemyBaseATK: 16

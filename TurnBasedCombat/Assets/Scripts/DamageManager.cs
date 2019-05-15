@@ -424,6 +424,7 @@ public class DamageManager : MonoBehaviour
                 {
                     //Flee successful
                     targetControl.ChatBox.text = (targetControl.EnemyData.name + " fleed successfully!");
+                    Debug.Log("Enemy Flee");
                     targetControl.Flee();
                 }
                 else
